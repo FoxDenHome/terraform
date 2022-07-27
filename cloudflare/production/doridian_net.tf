@@ -1,5 +1,5 @@
 locals {
-    doridian_net_zone = module.basiczone["doridian.net"].zone_id
+    doridian_net_zone = module.basiczone["doridian.net"].zone.id
 }
 
 resource "cloudflare_record" "doridian_net_root" {

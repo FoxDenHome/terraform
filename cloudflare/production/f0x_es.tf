@@ -1,5 +1,5 @@
 locals {
-    f0x_es_zone = module.basiczone["f0x.es"].zone_id
+    f0x_es_zone = module.basiczone["f0x.es"].zone.id
 }
 
 resource "cloudflare_record" "f0x_es_root" {

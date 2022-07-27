@@ -1,5 +1,5 @@
 locals {
-    foxden_network_zone = module.basiczone["foxden.network"].zone_id
+    foxden_network_zone = module.basiczone["foxden.network"].zone.id
 }
 
 resource "cloudflare_record" "foxden_network_root" {

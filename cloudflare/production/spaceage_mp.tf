@@ -1,5 +1,5 @@
 locals {
-    spaceage_mp_zone = module.basiczone["spaceage.mp"].zone_id
+    spaceage_mp_zone = module.basiczone["spaceage.mp"].zone.id
 }
 
 resource "cloudflare_record" "spaceage_mp_redfox" {

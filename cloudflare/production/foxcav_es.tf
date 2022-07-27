@@ -1,5 +1,5 @@
 locals {
-    foxcav_es_zone = module.basiczone["foxcav.es"].zone_id
+    foxcav_es_zone = module.basiczone["foxcav.es"].zone.id
 }
 
 resource "cloudflare_record" "foxcav_es_root" {
