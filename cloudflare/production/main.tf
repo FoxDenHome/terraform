@@ -5,4 +5,10 @@ terraform {
       version = "~> 3.0"
     }
   }
+
+  backend "s3" {
+    bucket = "foxden-terraform"
+    region = "us-east-1"
+    key = "cloudflare-production"
+  }
 }
