@@ -67,3 +67,5 @@ basiczones = {
     add_www_cname        = true,
   },
 }
+
+main_domain_target = "website-ese.pages.dev"

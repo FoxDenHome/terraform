@@ -8,7 +8,7 @@ resource "cloudflare_record" "doridian_net_root" {
 
   type    = "CNAME"
   name    = "@"
-  value   = "doridian.github.io"
+  value   = var.main_domain_target
   proxied = true
 }
 

@@ -17,3 +17,7 @@ variable "main_domain" {
   type    = string
   default = "doridian.net"
 }
+
+variable "main_domain_target" {
+  type = string
+}
