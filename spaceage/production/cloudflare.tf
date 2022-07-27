@@ -1,6 +1,20 @@
 locals {
-  spaceage_mp_zone = module.basiczone["spaceage.mp"].zone.id
+  spaceage_mp_zone = module.basiczone.zone.id
   spaceage_tts_cdn = "d1x5a3iv2gxgba.cloudfront.net"
+}
+
+module "basiczone" {
+  source = "../../cloudflare/modules/basiczone"
+
+  account_id  = var.cloudflare_account_id
+  main_domain = "spaceage.mp"
+  domain      = "spaceage.mp"
+
+  mx                   = true
+  spf_additions        = "include:amazonses.com"
+  redirect_all_to_main = false
+  redirect_www_to_root = true
+  add_www_cname        = true
 }
 
 resource "cloudflare_record" "spaceage_mp_redfox" {
