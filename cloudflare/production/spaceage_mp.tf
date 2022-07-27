@@ -1,5 +1,6 @@
 locals {
   spaceage_mp_zone = module.basiczone["spaceage.mp"].zone.id
+  spaceage_tts_cdn = "d1x5a3iv2gxgba.cloudfront.net"
 }
 
 resource "cloudflare_record" "spaceage_mp_redfox" {
@@ -21,6 +22,16 @@ resource "cloudflare_record" "spaceage_mp_local" {
   type    = "A"
   name    = "local"
   value   = "127.0.0.1"
+  proxied = false
+}
+
+resource "cloudflare_record" "spaceage_mp_tts_cdn" {
+  allow_overwrite = true
+  zone_id         = local.spaceage_mp_zone
+
+  type    = "CNAME"
+  name    = "tts-cdn"
+  value   = local.spaceage_tts_cdn
   proxied = false
 }
 
