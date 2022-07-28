@@ -1,6 +1,5 @@
 locals {
-  spaceage_mp_zone = module.basiczone.zone.id
-  spaceage_tts_cdn = "d1x5a3iv2gxgba.cloudfront.net"
+  cloudflare_zone = module.basiczone.zone.id
 }
 
 module "basiczone" {
@@ -19,7 +18,7 @@ module "basiczone" {
 
 resource "cloudflare_record" "spaceage_mp_redfox" {
   allow_overwrite = true
-  zone_id         = local.spaceage_mp_zone
+  zone_id         = local.cloudflare_zone
 
   for_each = toset(["@", "api", "forums", "static", "tts"])
 
@@ -31,7 +30,7 @@ resource "cloudflare_record" "spaceage_mp_redfox" {
 
 resource "cloudflare_record" "spaceage_mp_local" {
   allow_overwrite = true
-  zone_id         = local.spaceage_mp_zone
+  zone_id         = local.cloudflare_zone
 
   type    = "A"
   name    = "local"
@@ -39,18 +38,8 @@ resource "cloudflare_record" "spaceage_mp_local" {
   proxied = false
 }
 
-resource "cloudflare_record" "spaceage_mp_tts_cdn" {
-  allow_overwrite = true
-  zone_id         = local.spaceage_mp_zone
-
-  type    = "CNAME"
-  name    = "tts-cdn"
-  value   = local.spaceage_tts_cdn
-  proxied = false
-}
-
 resource "cloudflare_page_rule" "spaceage_mp_api" {
-  zone_id = local.spaceage_mp_zone
+  zone_id = local.cloudflare_zone
 
   status   = "active"
   priority = 2
@@ -63,7 +52,7 @@ resource "cloudflare_page_rule" "spaceage_mp_api" {
 }
 
 resource "cloudflare_page_rule" "spaceage_mp_static" {
-  zone_id = local.spaceage_mp_zone
+  zone_id = local.cloudflare_zone
 
   status   = "active"
   priority = 3
