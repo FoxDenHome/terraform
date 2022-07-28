@@ -1,6 +1,6 @@
 variable "zone" {
   type = object({
-    id = string
+    id   = string
     zone = string
   })
 }

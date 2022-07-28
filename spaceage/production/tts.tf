@@ -64,14 +64,20 @@ resource "aws_acm_certificate" "tts_certificate" {
 }
 
 resource "cloudflare_record" "tts_validation_record" {
-  for_each = toset([for rec in aws_acm_certificate.tts_certificate.domain_validation_options : rec if rec.resource_record_type == "TXT"])
+  for_each = {
+    for dvo in aws_acm_certificate.tts_certificate.domain_validation_options : "${dvo.resource_record_name}@${dvo.resource_record_type}" => {
+      name  = dvo.resource_record_name
+      value = dvo.resource_record_value
+      type  = dvo.resource_record_type
+    }
+  }
 
   allow_overwrite = true
   zone_id         = local.cloudflare_zone
 
-  type    = each.value.resource_record_type
-  name    = each.value.resource_record_name
-  value   = each.value.resource_record_value
+  type    = each.value.type
+  name    = each.value.name
+  value   = each.value.value
   proxied = false
 }
 

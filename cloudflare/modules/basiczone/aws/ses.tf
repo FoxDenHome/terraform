@@ -20,10 +20,10 @@ resource "cloudflare_record" "ses_dkim_record" {
   count = 3
 
   allow_overwrite = true
-  zone_id = var.zone.id
+  zone_id         = var.zone.id
 
-  type = "CNAME"
-  name = "${aws_ses_domain_dkim.ses.dkim_tokens[count.index]}._domainkey"
-  value = "${aws_ses_domain_dkim.ses.dkim_tokens[count.index]}.dkim.amazonses.com"
+  type    = "CNAME"
+  name    = "${aws_ses_domain_dkim.ses.dkim_tokens[count.index]}._domainkey"
+  value   = "${aws_ses_domain_dkim.ses.dkim_tokens[count.index]}.dkim.amazonses.com"
   proxied = false
 }
