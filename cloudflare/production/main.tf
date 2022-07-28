@@ -12,3 +12,7 @@ terraform {
     key    = "cloudflare-production"
   }
 }
+
+provider "aws" {
+  region = "us-east-1"
+}

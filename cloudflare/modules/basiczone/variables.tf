@@ -6,12 +6,8 @@ variable "domain" {
   type = string
 }
 
-variable "mx" {
+variable "fastmail" {
   type = bool
-}
-
-variable "spf_additions" {
-  type = string
 }
 
 variable "redirect_all_to_main" {
@@ -28,4 +24,8 @@ variable "add_www_cname" {
 
 variable "main_domain" {
   type = string
+}
+
+variable "ses" {
+  type = bool
 }

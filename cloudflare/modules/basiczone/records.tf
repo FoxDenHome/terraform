@@ -19,3 +19,11 @@ resource "cloudflare_record" "www" {
   value           = var.domain
   proxied         = true
 }
+
+resource "cloudflare_record" "spf" {
+  allow_overwrite = true
+  zone_id         = cloudflare_zone.zone.id
+  name            = "@"
+  type            = "TXT"
+  value           = "v=spf1 ${var.fastmail ? "include:spf.messagingengine.com": ""} ${var.ses ? "include:amazonses.com" : ""} mx ~all"
+}

@@ -13,6 +13,10 @@ terraform {
   }
 }
 
+provider "aws" {
+  region = "us-east-1"
+}
+
 module "records" {
   for_each = var.basiczones
   source   = "./records"
@@ -29,8 +33,8 @@ module "basiczone" {
   main_domain = var.server_domain
   domain      = each.key
 
-  mx                   = false
-  spf_additions        = ""
+  fastmail                   = false
+  ses = true
   redirect_all_to_main = false
   redirect_www_to_root = false
   add_www_cname        = false

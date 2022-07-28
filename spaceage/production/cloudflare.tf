@@ -9,8 +9,8 @@ module "basiczone" {
   main_domain = "spaceage.mp"
   domain      = "spaceage.mp"
 
-  mx                   = true
-  spf_additions        = "include:amazonses.com"
+  fastmail             = true
+  ses                  = true
   redirect_all_to_main = false
   redirect_www_to_root = true
   add_www_cname        = true
