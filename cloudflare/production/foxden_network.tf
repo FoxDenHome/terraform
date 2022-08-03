@@ -38,7 +38,7 @@ resource "cloudflare_record" "foxden_network_nas_ro" {
 
   type    = "A"
   name    = "nas-ro"
-  value   = "95.217.115.106"
+  value   = "116.202.171.116"
   proxied = false
 }
 

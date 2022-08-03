@@ -51,7 +51,7 @@ resource "cloudflare_record" "doridian_net_icefox_a" {
 
   type    = "A"
   name    = "icefox"
-  value   = "95.217.115.106"
+  value   = "116.202.171.116"
   proxied = false
 }
 
