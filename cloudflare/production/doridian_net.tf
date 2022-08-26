@@ -20,7 +20,7 @@ resource "cloudflare_record" "doridian_net_redfox_a" {
 
   type    = "A"
   name    = "redfox"
-  value   = "66.42.78.232"
+  value   = "45.151.132.166"
   proxied = false
 }
 
