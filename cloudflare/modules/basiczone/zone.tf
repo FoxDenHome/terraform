@@ -6,7 +6,7 @@ resource "cloudflare_zone" "zone" {
 }
 
 module "aws_sub" {
-  count = var.ses ? 1 : 0
+  count  = var.ses ? 1 : 0
   source = "./aws"
-  zone = cloudflare_zone.zone
+  zone   = cloudflare_zone.zone
 }

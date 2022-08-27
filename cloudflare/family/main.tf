@@ -33,8 +33,8 @@ module "basiczone" {
   main_domain = var.server_domain
   domain      = each.key
 
-  fastmail                   = false
-  ses = true
+  fastmail             = false
+  ses                  = true
   redirect_all_to_main = false
   redirect_www_to_root = false
   add_www_cname        = false

@@ -25,5 +25,5 @@ resource "cloudflare_record" "spf" {
   zone_id         = cloudflare_zone.zone.id
   name            = "@"
   type            = "TXT"
-  value           = "v=spf1 ${var.fastmail ? "include:spf.messagingengine.com": ""} ${var.ses ? "include:amazonses.com" : ""} mx ~all"
+  value           = "v=spf1 ${var.fastmail ? "include:spf.messagingengine.com" : ""} ${var.ses ? "include:amazonses.com" : ""} mx ~all"
 }
