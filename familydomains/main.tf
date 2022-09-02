@@ -19,12 +19,32 @@ provider "aws" {
 
 provider "constellix" {
   insecure  = false
-  apikey    = var.apikey
-  secretkey = var.secretkey
+  apikey    = var.constellix_apikey
+  secretkey = var.constellix_secretkey
 }
 
+locals {
+  basiczones = {
+    "candy-girl.net" = {
+      fastmail             = false,
+      ses                  = true,
+      add_root_aname       = false,
+      redirect_www_to_root = false,
+      add_www_cname        = false,
+      transfer_lock        = true,
+    },
+    "zoofaeth.de" = {
+      fastmail             = false,
+      ses                  = true,
+      add_root_aname       = false,
+      redirect_www_to_root = false,
+      add_www_cname        = false,
+      transfer_lock        = false,
+    },
+  }
+}
 module "records" {
-  for_each = var.basiczones
+  for_each = local.basiczones
   source   = "./records"
 
   domain = module.basiczone[each.key].domain
@@ -33,7 +53,7 @@ module "records" {
 module "basiczone" {
   source = "../modules/basiczone"
 
-  for_each = var.basiczones
+  for_each = local.basiczones
 
   main_domain = var.server_domain
   domain      = each.key

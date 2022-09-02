@@ -24,6 +24,6 @@ provider "aws" {
 
 provider "constellix" {
   insecure  = false
-  apikey    = var.apikey
-  secretkey = var.secretkey
+  apikey    = var.constellix_apikey
+  secretkey = var.constellix_secretkey
 }

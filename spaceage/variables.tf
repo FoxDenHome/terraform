@@ -1,7 +1,7 @@
-variable "apikey" {
+variable "constellix_apikey" {
   type = string
 }
 
-variable "secretkey" {
+variable "constellix_secretkey" {
   type = string
 }

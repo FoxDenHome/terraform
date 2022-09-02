@@ -8,6 +8,7 @@ variable "basiczones" {
     vanity_nameserver    = string
     transfer_lock        = bool
   }))
+  default = {}
 }
 
 variable "main_domain" {
@@ -16,13 +17,14 @@ variable "main_domain" {
 }
 
 variable "main_domain_target" {
+  type    = string
+  default = "doridian.github.io"
+}
+
+variable "constellix_apikey" {
   type = string
 }
 
-variable "apikey" {
-  type = string
-}
-
-variable "secretkey" {
+variable "constellix_secretkey" {
   type = string
 }

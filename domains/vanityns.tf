@@ -1,5 +1,5 @@
 resource "constellix_vanity_nameserver" "vanity" {
-  for_each = { for k, zone in var.basiczones : zone.vanity_nameserver => true ... }
+  for_each = { for k, zone in local.basiczones : zone.vanity_nameserver => true ... }
 
   name                   = each.key
   nameserver_group       = 1
