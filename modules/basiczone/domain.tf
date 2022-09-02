@@ -76,9 +76,3 @@ resource "constellix_aaaa_record" "vanityns" {
     disable_flag = false
   }
 }
-
-module "aws_sub" {
-  count  = var.ses ? 1 : 0
-  source = "./aws"
-  domain = constellix_domain.domain
-}

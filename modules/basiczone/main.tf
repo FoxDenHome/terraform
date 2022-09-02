@@ -2,7 +2,7 @@ terraform {
   required_providers {
     constellix = {
       source  = "Constellix/constellix"
-      version = "0.4.5"
+      version = "~> 0.4"
     }
 
     aws = {
@@ -12,7 +12,7 @@ terraform {
 
     dns = {
       source  = "hashicorp/dns"
-      version = "3.2.3"
+      version = "~> 3.2"
     }
   }
 }
