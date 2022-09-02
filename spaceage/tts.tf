@@ -135,5 +135,5 @@ resource "constellix_cname_record" "tts_cdn" {
   ttl         = 3600
   source_type = "domains"
 
-  host = aws_cloudfront_distribution.tts_distribution.domain_name
+  host = "${aws_cloudfront_distribution.tts_distribution.domain_name}."
 }
