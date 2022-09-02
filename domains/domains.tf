@@ -103,4 +103,5 @@ module "basiczone" {
   add_www_cname        = each.value.add_www_cname
   transfer_lock        = each.value.transfer_lock
   vanity_nameserver    = constellix_vanity_nameserver.vanity[each.value.vanity_nameserver]
+  domain_contact       = var.domain_contact
 }
