@@ -9,8 +9,13 @@ resource "constellix_domain" "domain" {
   name              = var.domain
   vanity_nameserver = local.has_vanity_ns ? var.vanity_nameserver.id : null
   soa = {
-    primary_nameserver = local.has_vanity_ns ? local.vanity_ns_list[0] : null
-    email              = local.has_vanity_ns ? "dns.${var.vanity_nameserver.name}." : null
+    primary_nameserver = local.has_vanity_ns ? "${local.vanity_ns_list[0]}." : "${local.constellix_ns_list[0]}."
+    email              = local.has_vanity_ns ? "dns.${var.vanity_nameserver.name}." : "dns.constellix.com."
+    expire             = 1209600
+    negcache           = 180
+    refresh            = 43200
+    retry              = 3600
+    ttl                = 86400
   }
 }
 
