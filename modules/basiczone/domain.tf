@@ -8,6 +8,10 @@ locals {
 resource "constellix_domain" "domain" {
   name              = var.domain
   vanity_nameserver = local.has_vanity_ns ? var.vanity_nameserver.id : null
+  soa = {
+    primary_nameserver = local.has_vanity_ns ? local.vanity_ns_list[0] : null
+    email              = local.has_vanity_ns ? "dns.${var.vanity_nameserver.name}." : null
+  }
 }
 
 data "dns_a_record_set" "ns" {
@@ -26,8 +30,8 @@ resource "aws_route53domains_registered_domain" "domain" {
   count       = var.aws_registrar ? 1 : 0
   domain_name = var.domain
 
-  auto_renew         = true
-  transfer_lock      = var.transfer_lock
+  auto_renew    = true
+  transfer_lock = var.transfer_lock
 
   registrant_privacy = true
   dynamic "registrant_contact" {
@@ -50,7 +54,7 @@ resource "aws_route53domains_registered_domain" "domain" {
     }
   }
 
-  admin_privacy      = true
+  admin_privacy = true
   dynamic "admin_contact" {
     for_each = var.domain_contact != null ? [1] : []
     content {
@@ -71,7 +75,7 @@ resource "aws_route53domains_registered_domain" "domain" {
     }
   }
 
-  tech_privacy       = true
+  tech_privacy = true
   dynamic "tech_contact" {
     for_each = var.domain_contact != null ? [1] : []
     content {
