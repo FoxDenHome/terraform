@@ -9,7 +9,7 @@ terraform {
   backend "s3" {
     bucket = "foxden-terraform"
     region = "us-east-1"
-    key    = "constellix-production"
+    key    = "domains.tfstate"
   }
 }
 
