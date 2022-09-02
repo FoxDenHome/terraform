@@ -17,30 +17,15 @@ data "constellix_vanity_nameserver" "spaceage" {
 module "domain" {
   source = "../modules/domain"
 
-  main_domain = local.main_domain
   domain      = local.main_domain
 
   fastmail             = true
   ses                  = true
-  add_root_aname       = false
+  root_aname           = "redfox.doridian.net"
   redirect_www_to_root = true
   add_www_cname        = true
   vanity_nameserver    = data.constellix_vanity_nameserver.spaceage
   aws_registrar        = false
-}
-
-resource "constellix_aname_record" "spaceage_mp_redfox" {
-  domain_id = local.domain_id
-
-  type        = "ANAME"
-  name        = ""
-  ttl         = 3600
-  source_type = "domains"
-
-  roundrobin {
-    value        = "redfox.doridian.net."
-    disable_flag = false
-  }
 }
 
 resource "constellix_cname_record" "spaceage_mp_redfox" {

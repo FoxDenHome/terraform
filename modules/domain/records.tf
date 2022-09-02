@@ -1,5 +1,5 @@
 resource "constellix_aname_record" "root" {
-  count = var.add_root_aname ? 1 : 0
+  count = var.root_aname != null ? 1 : 0
 
   domain_id   = constellix_domain.domain.id
   name        = ""
@@ -8,7 +8,7 @@ resource "constellix_aname_record" "root" {
   source_type = "domains"
 
   roundrobin {
-    value        = "${var.main_domain}."
+    value        = "${var.root_aname}."
     disable_flag = false
   }
 }

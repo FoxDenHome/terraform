@@ -50,7 +50,7 @@ locals {
     "doridian.net" = {
       fastmail             = true,
       ses                  = false,
-      add_root_aname       = false,
+      add_root_aname       = true,
       redirect_www_to_root = true,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
@@ -60,7 +60,7 @@ locals {
     "f0x.es" = {
       fastmail             = true,
       ses                  = true,
-      add_root_aname       = false,
+      add_root_aname       = true,
       redirect_www_to_root = true,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
@@ -69,7 +69,7 @@ locals {
     "foxcav.es" = {
       fastmail             = true,
       ses                  = true,
-      add_root_aname       = false,
+      add_root_aname       = true,
       redirect_www_to_root = true,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
@@ -79,7 +79,7 @@ locals {
     "foxden.network" = {
       fastmail             = true,
       ses                  = true,
-      add_root_aname       = false,
+      add_root_aname       = true,
       redirect_www_to_root = true,
       add_www_cname        = true,
       vanity_nameserver    = "foxden.network",
@@ -93,12 +93,11 @@ module "domain" {
 
   for_each = local.domains
 
-  main_domain = var.main_domain
   domain      = each.key
 
   fastmail             = each.value.fastmail
   ses                  = each.value.ses
-  add_root_aname       = each.value.add_root_aname
+  root_aname           = each.value.add_root_aname ? var.main_domain : null
   redirect_www_to_root = each.value.redirect_www_to_root
   add_www_cname        = each.value.add_www_cname
   transfer_lock        = each.value.transfer_lock

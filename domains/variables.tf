@@ -13,12 +13,7 @@ variable "domains" {
 
 variable "main_domain" {
   type    = string
-  default = "doridian.net"
-}
-
-variable "main_domain_target" {
-  type    = string
-  default = "doridian.github.io"
+  default = "redfox.doridian.net"
 }
 
 variable "constellix_apikey" {

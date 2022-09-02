@@ -6,8 +6,9 @@ variable "fastmail" {
   type = bool
 }
 
-variable "add_root_aname" {
-  type = bool
+variable "root_aname" {
+  type    = string
+  default = null
 }
 
 variable "redirect_www_to_root" {
@@ -16,10 +17,6 @@ variable "redirect_www_to_root" {
 
 variable "add_www_cname" {
   type = bool
-}
-
-variable "main_domain" {
-  type = string
 }
 
 variable "ses" {

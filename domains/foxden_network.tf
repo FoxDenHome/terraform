@@ -2,20 +2,6 @@ locals {
   foxden_network_domain = module.domain["foxden.network"].domain.id
 }
 
-resource "constellix_aname_record" "foxden_network_root" {
-  domain_id = local.foxden_network_domain
-
-  type        = "ANAME"
-  name        = ""
-  ttl         = 3600
-  source_type = "domains"
-
-  roundrobin {
-    value        = "redfox.doridian.net."
-    disable_flag = false
-  }
-}
-
 resource "constellix_cname_record" "foxden_network_wildcard" {
   domain_id = local.foxden_network_domain
 

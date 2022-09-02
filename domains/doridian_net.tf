@@ -2,21 +2,6 @@ locals {
   doridian_net_domain = module.domain["doridian.net"].domain.id
 }
 
-resource "constellix_aname_record" "doridian_net_root" {
-  domain_id = local.doridian_net_domain
-
-  type        = "ANAME"
-  name        = ""
-  ttl         = 3600
-  source_type = "domains"
-
-  roundrobin {
-    value        = "${var.main_domain_target}."
-    disable_flag = false
-  }
-}
-
-
 # redfox
 resource "constellix_a_record" "doridian_net_redfox_a" {
   domain_id = local.doridian_net_domain

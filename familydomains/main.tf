@@ -33,7 +33,6 @@ locals {
     "candy-girl.net" = {
       fastmail             = false,
       ses                  = true,
-      add_root_aname       = false,
       redirect_www_to_root = false,
       add_www_cname        = false,
       transfer_lock        = true,
@@ -41,7 +40,6 @@ locals {
     "zoofaeth.de" = {
       fastmail             = false,
       ses                  = true,
-      add_root_aname       = false,
       redirect_www_to_root = false,
       add_www_cname        = false,
       transfer_lock        = false,
@@ -60,12 +58,11 @@ module "domain" {
 
   for_each = local.domains
 
-  main_domain = var.server_domain
-  domain      = each.key
+  domain = each.key
 
+  root_aname           = var.server_domain
   fastmail             = each.value.fastmail
   ses                  = each.value.ses
-  add_root_aname       = each.value.add_root_aname
   redirect_www_to_root = each.value.redirect_www_to_root
   add_www_cname        = each.value.add_www_cname
   transfer_lock        = each.value.transfer_lock

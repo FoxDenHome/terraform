@@ -1,17 +1,3 @@
-resource "constellix_aname_record" "root" {
-  domain_id = var.domain.id
-
-  type        = "ANAME"
-  name        = ""
-  ttl         = 3600
-  source_type = "domains"
-
-  roundrobin {
-    value        = "${var.server}."
-    disable_flag = false
-  }
-}
-
 resource "constellix_cname_record" "cnames" {
   domain_id = var.domain.id
 
