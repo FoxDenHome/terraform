@@ -8,6 +8,16 @@ basiczones = {
     vanity_nameserver    = "doridian.net",
     transfer_lock        = true,
   },
+  "pawnode.com" = {
+    fastmail             = true,
+    ses                  = false,
+    add_root_aname       = true,
+    redirect_www_to_root = false,
+    add_www_cname        = true,
+    vanity_nameserver    = "doridian.net",
+    transfer_lock        = true,
+  },
+
   "doridian.com" = {
     fastmail             = true,
     ses                  = false,
