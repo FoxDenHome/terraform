@@ -15,7 +15,7 @@ data "constellix_vanity_nameserver" "spaceage" {
 
 
 module "basiczone" {
-  source = "../modules/basiczone"
+  source = "../modules/domain"
 
   main_domain = local.main_domain
   domain      = local.main_domain

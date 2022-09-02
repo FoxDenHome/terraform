@@ -56,7 +56,7 @@ module "records" {
 }
 
 module "basiczone" {
-  source = "../modules/basiczone"
+  source = "../modules/domain"
 
   for_each = local.basiczones
 
