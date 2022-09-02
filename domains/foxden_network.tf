@@ -56,7 +56,7 @@ resource "constellix_ns_record" "foxden_network_dyn" {
 
   type        = "NS"
   name        = "dyn"
-  ttl         = 3600
+  ttl         = 86400
   source_type = "domains"
 
   dynamic "roundrobin" {

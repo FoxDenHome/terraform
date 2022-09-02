@@ -116,7 +116,7 @@ resource "constellix_a_record" "ns" {
 
   name        = "ns${count.index + 1}"
   type        = "A"
-  ttl         = 3600
+  ttl         = 86400
   source_type = "domains"
 
   roundrobin {
@@ -137,7 +137,7 @@ resource "constellix_aaaa_record" "vanityns" {
 
   name        = "ns${count.index + 1}"
   type        = "AAAA"
-  ttl         = 3600
+  ttl         = 86400
   source_type = "domains"
 
   roundrobin {
