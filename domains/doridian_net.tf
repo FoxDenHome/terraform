@@ -1,5 +1,5 @@
 locals {
-  doridian_net_domain = module.basiczone["doridian.net"].domain.id
+  doridian_net_domain = module.domain["doridian.net"].domain.id
 }
 
 resource "constellix_aname_record" "doridian_net_root" {

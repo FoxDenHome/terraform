@@ -1,5 +1,5 @@
 locals {
-  foxden_network_domain = module.basiczone["foxden.network"].domain.id
+  foxden_network_domain = module.domain["foxden.network"].domain.id
 }
 
 resource "constellix_aname_record" "foxden_network_root" {

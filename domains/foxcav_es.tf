@@ -1,5 +1,5 @@
 locals {
-  foxcav_es_domain = module.basiczone["foxcav.es"].domain.id
+  foxcav_es_domain = module.domain["foxcav.es"].domain.id
 }
 
 resource "constellix_aname_record" "foxcav_es_root" {

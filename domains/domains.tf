@@ -1,5 +1,5 @@
 locals {
-  basiczones = merge({
+  domains = merge({
     "as207618.net" = {
       fastmail             = true,
       ses                  = false,
@@ -85,13 +85,13 @@ locals {
       vanity_nameserver    = "foxden.network",
       transfer_lock        = true,
     },
-  }, var.basiczones)
+  }, var.domains)
 }
 
-module "basiczone" {
+module "domain" {
   source = "../modules/domain"
 
-  for_each = local.basiczones
+  for_each = local.domains
 
   main_domain = var.main_domain
   domain      = each.key

@@ -1,5 +1,5 @@
 locals {
-  f0x_es_domain = module.basiczone["f0x.es"].domain.id
+  f0x_es_domain = module.domain["f0x.es"].domain.id
 }
 
 resource "constellix_aname_record" "f0x_es_root" {

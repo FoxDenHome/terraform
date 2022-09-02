@@ -1,4 +1,4 @@
-variable "basiczones" {
+variable "domains" {
   type = map(object({
     fastmail             = bool
     ses                  = bool

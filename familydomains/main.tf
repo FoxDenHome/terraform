@@ -29,7 +29,7 @@ provider "constellix" {
 }
 
 locals {
-  basiczones = {
+  domains = {
     "candy-girl.net" = {
       fastmail             = false,
       ses                  = true,
@@ -49,16 +49,16 @@ locals {
   }
 }
 module "records" {
-  for_each = local.basiczones
+  for_each = local.domains
   source   = "./records"
 
-  domain = module.basiczone[each.key].domain
+  domain = module.domain[each.key].domain
 }
 
-module "basiczone" {
+module "domain" {
   source = "../modules/domain"
 
-  for_each = local.basiczones
+  for_each = local.domains
 
   main_domain = var.server_domain
   domain      = each.key

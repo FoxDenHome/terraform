@@ -1,5 +1,5 @@
 locals {
-  domain_id   = module.basiczone.domain.id
+  domain_id   = module.domain.domain.id
   main_domain = "spaceage.mp"
 }
 
@@ -14,7 +14,7 @@ data "constellix_vanity_nameserver" "spaceage" {
 }
 
 
-module "basiczone" {
+module "domain" {
   source = "../modules/domain"
 
   main_domain = local.main_domain
