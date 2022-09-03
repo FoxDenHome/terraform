@@ -3,6 +3,9 @@ locals {
   ns_same_domain     = local.has_vanity_ns ? (var.vanity_nameserver.name == var.domain) : false
   vanity_ns_list     = local.has_vanity_ns ? [for ns in split(",", var.vanity_nameserver.nameserver_list_string) : trimspace(ns)] : []
   constellix_ns_list = ["ns11.constellix.com", "ns21.constellix.com", "ns31.constellix.com", "ns41.constellix.net", "ns51.constellix.net", "ns61.constellix.net"]
+
+  extra_attributes = merge({
+  }, var.extra_attributes)
 }
 
 resource "constellix_domain" "domain" {
@@ -38,14 +41,7 @@ resource "hexonet_domain" "domain" {
   name_servers  = local.has_vanity_ns ? local.vanity_ns_list : local.constellix_ns_list
   transfer_lock = true
 
-  dynamic "whois" {
-    for_each = var.whois != null ? [1] : []
-    content {
-      url    = var.whois.url
-      rsp    = var.whois.rsp
-      banner = var.whois.banner
-    }
-  }
+  extra_attributes = var.extra_attributes
 }
 
 resource "hexonet_nameserver" "glue" {

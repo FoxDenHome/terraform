@@ -42,11 +42,27 @@ variable "hexonet_registrar" {
   default = true
 }
 
-variable "whois" {
-  type = object({
-    url    = string
-    rsp    = string
-    banner = list(string)
-  })
+variable "extra_attributes" {
+  type    = map(string)
+  default = {}
+}
+
+variable "owner_contacts" {
+  type = list(string)
+  default = null
+}
+
+variable "admin_contacts" {
+  type = list(string)
+  default = null
+}
+
+variable "tech_contacts" {
+  type = list(string)
+  default = null
+}
+
+variable "billing_contacts" {
+  type = list(string)
   default = null
 }

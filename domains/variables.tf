@@ -16,6 +16,11 @@ variable "main_domain" {
   default = "redfox.doridian.net"
 }
 
+variable "contact" {
+  type    = string
+  default = null
+}
+
 variable "constellix_apikey" {
   type = string
 }
