@@ -86,6 +86,14 @@ locals {
       transfer_lock        = true,
     },
   }, var.domains)
+
+  whois = {
+    "url" = "https://doridian.net",
+    "rsp" = "Doridian",
+    "banner" = [
+      "Foxes are best animal",
+    ],
+  }
 }
 
 module "domain" {
@@ -93,7 +101,7 @@ module "domain" {
 
   for_each = local.domains
 
-  domain      = each.key
+  domain = each.key
 
   fastmail             = each.value.fastmail
   ses                  = each.value.ses
@@ -102,4 +110,5 @@ module "domain" {
   add_www_cname        = each.value.add_www_cname
   transfer_lock        = each.value.transfer_lock
   vanity_nameserver    = each.value.vanity_nameserver != null ? constellix_vanity_nameserver.vanity[each.value.vanity_nameserver] : null
+  whois                = local.whois
 }

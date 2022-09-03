@@ -17,7 +17,7 @@ data "constellix_vanity_nameserver" "spaceage" {
 module "domain" {
   source = "../modules/domain"
 
-  domain      = local.main_domain
+  domain = local.main_domain
 
   fastmail             = true
   ses                  = true
@@ -25,7 +25,7 @@ module "domain" {
   redirect_www_to_root = true
   add_www_cname        = true
   vanity_nameserver    = data.constellix_vanity_nameserver.spaceage
-  aws_registrar        = false
+  hexonet_registrar    = false
 }
 
 resource "constellix_cname_record" "spaceage_mp_redfox" {

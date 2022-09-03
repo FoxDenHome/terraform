@@ -37,7 +37,16 @@ variable "transfer_lock" {
   default = true
 }
 
-variable "aws_registrar" {
+variable "hexonet_registrar" {
   type    = bool
   default = true
+}
+
+variable "whois" {
+  type = object({
+    url    = string
+    rsp    = string
+    banner = list(string)
+  })
+  default = null
 }

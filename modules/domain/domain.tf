@@ -31,6 +31,30 @@ data "dns_aaaa_record_set" "ns" {
   host = local.constellix_ns_list[count.index]
 }
 
+resource "hexonet_domain" "domain" {
+  count  = var.hexonet_registrar ? 1 : 0
+  domain = var.domain
+
+  name_servers  = local.has_vanity_ns ? local.vanity_ns_list : local.constellix_ns_list
+  transfer_lock = true
+
+  dynamic "whois" {
+    for_each = var.whois != null ? [1] : []
+    content {
+      url    = var.whois.url
+      rsp    = var.whois.rsp
+      banner = var.whois.banner
+    }
+  }
+}
+
+resource "hexonet_nameserver" "glue" {
+  count       = local.ns_same_domain ? length(local.vanity_ns_list) : 0
+  name_server = "ns${count.index + 1}.${var.domain}"
+
+  ip_addresses = concat(data.dns_a_record_set.ns[count.index].addrs, data.dns_aaaa_record_set.ns[count.index].addrs)
+}
+
 resource "constellix_a_record" "ns" {
   count     = local.ns_same_domain ? length(local.vanity_ns_list) : 0
   domain_id = constellix_domain.domain.id

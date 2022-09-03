@@ -23,6 +23,14 @@ provider "registry.terraform.io/constellix/constellix" {
   ]
 }
 
+provider "registry.terraform.io/doridian/hexonet" {
+  version     = "0.0.1"
+  constraints = "~> 0.0.1"
+  hashes = [
+    "h1:L46+GL6mGohgoH3vCCd8/05N6Z99pn1+Si7c/cpSgfw=",
+  ]
+}
+
 provider "registry.terraform.io/hashicorp/aws" {
   version     = "4.29.0"
   constraints = "~> 4.0"

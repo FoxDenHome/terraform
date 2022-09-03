@@ -14,5 +14,10 @@ terraform {
       source  = "hashicorp/dns"
       version = "~> 3.2"
     }
+
+    hexonet = {
+      source = "Doridian/hexonet"
+      version = "~> 0.2.0"
+    }
   }
 }
