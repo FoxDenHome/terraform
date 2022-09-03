@@ -24,6 +24,7 @@ variable "constellix_secretkey" {
   type = string
 }
 
+/* Unused atm
 variable "domain_contact" {
   type = object({
     address_line_1    = string
@@ -43,3 +44,4 @@ variable "domain_contact" {
   })
   default = null
 }
+*/
