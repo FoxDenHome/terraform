@@ -9,6 +9,11 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 4.0"
     }
+
+    hexonet = {
+      source  = "Doridian/hexonet"
+      version = "0.4.0"
+    }
   }
 
   backend "s3" {
