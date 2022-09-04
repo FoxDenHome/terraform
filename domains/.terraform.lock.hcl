@@ -24,10 +24,10 @@ provider "registry.terraform.io/constellix/constellix" {
 }
 
 provider "registry.terraform.io/doridian/hexonet" {
-  version     = "0.4.0"
-  constraints = "0.4.0"
+  version     = "0.4.1"
+  constraints = "0.4.1"
   hashes = [
-    "h1:r5pGh20ndLmJG9ZbnN/v9xcK+LwoccrX/TffRnP1jj8=",
+    "h1:+I7wFac/Y13VCq3yBSAnziwEWRXsprsuxC6O9O2LOzM=",
   ]
 }
 

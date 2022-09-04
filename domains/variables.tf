@@ -16,11 +16,6 @@ variable "main_domain" {
   default = "redfox.doridian.net"
 }
 
-variable "contact" {
-  type    = string
-  default = null
-}
-
 variable "constellix_apikey" {
   type = string
 }
@@ -29,24 +24,28 @@ variable "constellix_secretkey" {
   type = string
 }
 
-/* Unused atm
 variable "domain_contact" {
   type = object({
-    address_line_1    = string
-    address_line_2    = string
-    city              = string
-    contact_type      = string
-    country_code      = string
-    email             = string
-    extra_params      = map(string)
-    fax               = string
-    first_name        = string
-    last_name         = string
-    organization_name = string
-    phone_number      = string
-    state             = string
-    zip_code          = string
+    title       = string
+    first_name  = string
+    middle_name = string
+    last_name   = string
+
+    organization = string
+
+    address_line_1 = string
+    address_line_2 = string
+    city           = string
+    state          = string
+    zip            = string
+    country        = string
+
+    email = string
+    fax   = string
+    phone = string
+
+    extra_attributes = map(string)
   })
   default = null
 }
-*/
+

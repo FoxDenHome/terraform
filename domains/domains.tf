@@ -109,8 +109,8 @@ module "domain" {
     "WHOIS-BANNER0" : "Foxes are best animal",
   }
 
-  owner_contacts   = var.contact != null ? [var.contact] : null
-  admin_contacts   = var.contact != null ? [var.contact] : null
-  tech_contacts    = var.contact != null ? [var.contact] : null
+  owner_contacts   = [hexonet_contact.main.id]
+  admin_contacts   = [hexonet_contact.main.id]
+  tech_contacts    = [hexonet_contact.main.id]
   billing_contacts = []
 }
