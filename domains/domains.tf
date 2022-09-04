@@ -1,4 +1,14 @@
 locals {
+  extra_attributes_es = {
+    "ES-ADMIN-TIPO-IDENTIFICACION"   = 0,
+    "ES-TECH-TIPO-IDENTIFICACION"    = 0,
+    "ES-BILLING-TIPO-IDENTIFICACION" = 0,
+
+    "ES-ADMIN-IDENTIFICACION"   = var.domain_contact.id_number,
+    "ES-TECH-IDENTIFICACION"    = var.domain_contact.id_number,
+    "ES-BILLING-IDENTIFICACION" = var.domain_contact.id_number,
+  }
+
   domains = merge({
     "as207618.net" = {
       fastmail             = true,
@@ -71,7 +81,7 @@ locals {
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       transfer_lock        = false,
-      extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
+      extra_attributes     = merge(local.extra_attributes_es, { "ACCEPT-WHOISTRUSTEE-TAC" = "0" }),
     },
     "foxcav.es" = {
       fastmail             = true,
@@ -81,7 +91,7 @@ locals {
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       transfer_lock        = false,
-      extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
+      extra_attributes     = merge(local.extra_attributes_es, { "ACCEPT-WHOISTRUSTEE-TAC" = "0" }),
     },
 
     "foxden.network" = {

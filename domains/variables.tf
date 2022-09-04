@@ -50,6 +50,8 @@ variable "domain_contact" {
     phone = string
 
     extra_attributes = map(string)
+
+    id_number = string
   })
   default = null
 }

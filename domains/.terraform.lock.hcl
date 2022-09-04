@@ -27,7 +27,7 @@ provider "registry.terraform.io/doridian/hexonet" {
   version     = "99.99.99"
   constraints = "99.99.99"
   hashes = [
-    "h1:oWuQHPyJ0UxXXQo6O285pCWF5xKUPDrfc0uwFpNEE7U=",
+    "h1:5JXUV2wJvNjaRYR4O75YPX5sEUqlLs7DERcviBOycHc=",
   ]
 }
 
