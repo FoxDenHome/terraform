@@ -12,7 +12,7 @@ terraform {
 
     hexonet = {
       source  = "Doridian/hexonet"
-      version = "99.99.99"
+      version = "~> 0.8"
     }
   }
 
@@ -34,5 +34,5 @@ provider "constellix" {
 }
 
 provider "hexonet" {
-  
+
 }
