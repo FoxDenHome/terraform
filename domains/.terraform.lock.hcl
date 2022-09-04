@@ -24,10 +24,25 @@ provider "registry.terraform.io/constellix/constellix" {
 }
 
 provider "registry.terraform.io/doridian/hexonet" {
-  version     = "0.8.0"
+  version     = "0.8.1"
   constraints = "~> 0.8"
   hashes = [
-    "h1:HUIv1JiYDSzVI87Ge7IeK/xeLCMfIIpo0phojePsoLQ=",
+    "h1:/LGH2scO3e8PVagoqJ/1DObtFFTEqePoaFl5PA2PpKI=",
+    "zh:0dde99e7b343fa01f8eefc378171fb8621bedb20f59157d6cc8e3d46c738105f",
+    "zh:13ca049342d4406b907ed0579aefd9def30de61c3cd0492cbfac4c9a547c8024",
+    "zh:36213e6c43a21417277a939b9b5c0bc78156017be5c445435e0f22a15ed80105",
+    "zh:3ba96450f063878d85869ddddac0df192c5d70e469d48da6951008e5da67cecd",
+    "zh:47a34c85d9921c5fc3238a7748c70e4f1674675e3610f2b867e620377cc8ec47",
+    "zh:4fdc587e2eff3de81a3f921646d7c4a0bd767d98b177670a1d9880a1b0233808",
+    "zh:5f1a93afb7238bb1aa5d421adc3d60419768a07f7f3607013e0f5693c5fdf9d4",
+    "zh:6604c538c3a2000f7fac4db5dc18117cfda9f577fa91d28d786028652b9b34f6",
+    "zh:a0cbf5f41bd8fecbfc1ba5a57615ac831921c3e19809007f3a76f7e1e439b2c3",
+    "zh:ab33e31129022cd7da93cd1a960457cca303de209a0742d8bb0744a101c6b112",
+    "zh:abcfaa8f60bfb607c5aa2b89ea9016a552165aa088cd9fbaa0be8af00cba7805",
+    "zh:dd545daa588b7f744452e54033e523efd2633639bfabd0e9cbce3925465b8244",
+    "zh:eeb79077dd990bae7aa6140632688f2d8349af86b7e09eac3d3bb52387a405fe",
+    "zh:f9e3c555e79120c0fd34c6642b783c5ba3dc9f229abf7a7513e510d15650b603",
+    "zh:fd9339790f2307e7447779356f22365cee7efe7dd3dae78d0b8a35866ecfa8d1",
   ]
 }
 
