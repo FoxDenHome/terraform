@@ -111,7 +111,7 @@ module "domain" {
 
   owner_contacts   = [hexonet_contact.main.id]
   admin_contacts   = [hexonet_contact.main.id]
-  tech_contacts    = []
+  tech_contacts    = [hexonet_contact.main.id]
   billing_contacts = []
 
   hexonet_registrar = each.key != "f0x.es" && each.key != "foxcav.es"

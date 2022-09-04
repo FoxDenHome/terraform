@@ -17,5 +17,7 @@ resource "hexonet_contact" "main" {
   phone = var.domain_contact.phone
   fax   = var.domain_contact.fax
 
+  disclose = false
+
   extra_attributes = var.domain_contact.extra_attributes
 }
