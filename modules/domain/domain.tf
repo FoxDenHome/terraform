@@ -41,12 +41,17 @@ resource "hexonet_domain" "domain" {
   name_servers  = local.has_vanity_ns ? local.vanity_ns_list : local.constellix_ns_list
   transfer_lock = true
 
+  owner_contacts   = var.owner_contacts
+  admin_contacts   = var.admin_contacts
+  tech_contacts    = var.tech_contacts
+  billing_contacts = var.billing_contacts
+
   extra_attributes = var.extra_attributes
 }
 
 resource "hexonet_nameserver" "glue" {
-  count       = (local.ns_same_domain && var.hexonet_registrar) ? length(local.vanity_ns_list) : 0
-  name_server = "ns${count.index + 1}.${var.domain}"
+  count = (local.ns_same_domain && var.hexonet_registrar) ? length(local.vanity_ns_list) : 0
+  host  = "ns${count.index + 1}.${var.domain}"
 
   ip_addresses = concat(data.dns_a_record_set.ns[count.index].addrs, data.dns_aaaa_record_set.ns[count.index].addrs)
 }

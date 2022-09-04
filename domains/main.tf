@@ -12,7 +12,7 @@ terraform {
 
     hexonet = {
       source  = "Doridian/hexonet"
-      version = "~> 0.7"
+      version = "99.99.99"
     }
   }
 
@@ -31,4 +31,8 @@ provider "constellix" {
   insecure  = false
   apikey    = var.constellix_apikey
   secretkey = var.constellix_secretkey
+}
+
+provider "hexonet" {
+  
 }
