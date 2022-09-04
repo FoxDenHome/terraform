@@ -45,7 +45,7 @@ resource "hexonet_domain" "domain" {
 }
 
 resource "hexonet_nameserver" "glue" {
-  count       = local.ns_same_domain ? length(local.vanity_ns_list) : 0
+  count       = (local.ns_same_domain && var.hexonet_registrar) ? length(local.vanity_ns_list) : 0
   name_server = "ns${count.index + 1}.${var.domain}"
 
   ip_addresses = concat(data.dns_a_record_set.ns[count.index].addrs, data.dns_aaaa_record_set.ns[count.index].addrs)
