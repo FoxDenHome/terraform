@@ -8,6 +8,7 @@ locals {
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       transfer_lock        = true,
+      extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
     "pawnode.com" = {
       fastmail             = true,
@@ -17,6 +18,7 @@ locals {
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       transfer_lock        = true,
+      extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
 
     "doridian.com" = {
@@ -27,6 +29,7 @@ locals {
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       transfer_lock        = true,
+      extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
     "doridian.de" = {
       fastmail             = true,
@@ -36,6 +39,7 @@ locals {
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       transfer_lock        = false,
+      extra_attributes     = {},
     },
     "doridian.org" = {
       fastmail             = true,
@@ -45,6 +49,7 @@ locals {
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       transfer_lock        = true,
+      extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
 
     "doridian.net" = {
@@ -55,6 +60,7 @@ locals {
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       transfer_lock        = true,
+      extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
 
     "f0x.es" = {
@@ -65,6 +71,7 @@ locals {
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       transfer_lock        = false,
+      extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
     "foxcav.es" = {
       fastmail             = true,
@@ -74,6 +81,7 @@ locals {
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       transfer_lock        = false,
+      extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
 
     "foxden.network" = {
@@ -84,6 +92,7 @@ locals {
       add_www_cname        = true,
       vanity_nameserver    = "foxden.network",
       transfer_lock        = true,
+      extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
   }, var.domains)
 }
@@ -103,11 +112,11 @@ module "domain" {
   transfer_lock        = each.value.transfer_lock
   vanity_nameserver    = each.value.vanity_nameserver != null ? constellix_vanity_nameserver.vanity[each.value.vanity_nameserver] : null
 
-  extra_attributes = {
+  extra_attributes = merge({
     "WHOIS-URL" = "https://doridian.net",
     "WHOIS-RSP" = "Doridian",
     "WHOIS-BANNER0" : "Foxes are best animal",
-  }
+  }, each.value.extra_attributes)
 
   owner_contacts   = [hexonet_contact.main.id]
   admin_contacts   = [hexonet_contact.main.id]

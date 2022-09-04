@@ -2,11 +2,16 @@ variable "domains" {
   type = map(object({
     fastmail             = bool
     ses                  = bool
+    
     add_root_aname       = bool
     redirect_www_to_root = bool
     add_www_cname        = bool
+    
     vanity_nameserver    = string
+
     transfer_lock        = bool
+    
+    extra_attributes = map(string)
   }))
   default = {}
 }

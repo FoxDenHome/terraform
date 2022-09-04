@@ -34,11 +34,6 @@ data "dns_aaaa_record_set" "ns" {
   host = local.constellix_ns_list[count.index]
 }
 
-data "hexonet_domain" "domain" {
-  count  = var.hexonet_registrar ? 1 : 0
-  domain = var.domain
-}
-
 resource "hexonet_domain" "domain" {
   count  = var.hexonet_registrar ? 1 : 0
   domain = var.domain
@@ -51,7 +46,7 @@ resource "hexonet_domain" "domain" {
   tech_contacts    = var.tech_contacts
   billing_contacts = var.billing_contacts
 
-  extra_attributes = merge(data.hexonet_domain.domain[count.index].extra_attributes, var.extra_attributes)
+  extra_attributes = var.extra_attributes
 }
 
 resource "hexonet_nameserver" "glue" {
