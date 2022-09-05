@@ -1,8 +1,3 @@
-locals {
-  domain_id   = module.domain.domain.id
-  main_domain = "spaceage.mp"
-}
-
 resource "constellix_vanity_nameserver" "spaceage" {
   name                   = local.main_domain
   nameserver_group       = 1
@@ -12,7 +7,6 @@ resource "constellix_vanity_nameserver" "spaceage" {
 data "constellix_vanity_nameserver" "spaceage" {
   name = "doridian.net"
 }
-
 
 module "domain" {
   source = "../modules/domain"

@@ -1,43 +1,43 @@
-terraform {
-  required_providers {
-    constellix = {
-      source  = "Constellix/constellix"
-      version = "~> 0.4"
-    }
-
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.0"
-    }
-
-    dns = {
-      source  = "hashicorp/dns"
-      version = "~> 3.2"
-    }
-
-    hexonet = {
-      source  = "Doridian/hexonet"
-      version = "~> 0.12"
-    }
-  }
-
-  backend "s3" {
-    bucket = "foxden-terraform"
-    region = "us-east-1"
-    key    = "familydomains.tfstate"
+locals {
+  domains = {
+    "candy-girl.net" = {
+      fastmail             = false,
+      ses                  = true,
+      add_www_cname        = false,
+      contact              = hexonet_contact.personal.id,
+      extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
+    },
+    "zoofaeth.de" = {
+      fastmail             = false,
+      ses                  = true,
+      add_www_cname        = false,
+      contact              = hexonet_contact.organization.id,
+      extra_attributes     = {},
+    },
   }
 }
+module "records" {
+  for_each = local.domains
+  source   = "./records"
 
-provider "aws" {
-  region = "us-east-1"
+  domain = module.domain[each.key].domain
 }
 
-provider "constellix" {
-  insecure  = false
-  apikey    = var.constellix_apikey
-  secretkey = var.constellix_secretkey
-}
+module "domain" {
+  source = "../modules/domain"
 
-provider "hexonet" {
-  allow_domain_create_delete = false
+  for_each = local.domains
+
+  domain = each.key
+
+  root_aname           = var.server_domain
+  fastmail             = each.value.fastmail
+  ses                  = each.value.ses
+  add_www_cname        = each.value.add_www_cname
+  extra_attributes     = each.value.extra_attributes
+
+  owner_contacts   = [each.value.contact]
+  admin_contacts   = [each.value.contact]
+  tech_contacts    = [each.value.contact]
+  billing_contacts = [each.value.contact]
 }
