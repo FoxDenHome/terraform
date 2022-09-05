@@ -1,6 +1,6 @@
 resource "constellix_mx_record" "smtp" {
-  count = var.fastmail ? 1 : 0
-  domain_id   = constellix_domain.domain.id
+  count     = var.fastmail ? 1 : 0
+  domain_id = constellix_domain.domain.id
 
   name        = ""
   type        = "MX"
@@ -21,8 +21,8 @@ resource "constellix_mx_record" "smtp" {
 }
 
 resource "constellix_cname_record" "dkim" {
-  count = var.fastmail ? 3 : 0
-  domain_id   = constellix_domain.domain.id
+  count     = var.fastmail ? 3 : 0
+  domain_id = constellix_domain.domain.id
 
   name        = "fm${count.index + 1}._domainkey"
   type        = "CNAME"

@@ -1,5 +1,5 @@
 locals {
-    domains = {
+  domains = {
     "candy-girl.net" = {
       fastmail             = false,
       ses                  = true,
