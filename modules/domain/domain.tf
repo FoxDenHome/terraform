@@ -47,6 +47,11 @@ resource "hexonet_domain" "domain" {
   billing_contacts = var.billing_contacts
 
   extra_attributes = var.extra_attributes
+  status = [
+    "ACTIVE",
+    "clientDeleteProhibited",
+    "clientTransferProhibited",
+  ]
 }
 
 resource "hexonet_nameserver" "glue" {
