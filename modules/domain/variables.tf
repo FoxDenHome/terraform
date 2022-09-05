@@ -48,21 +48,21 @@ variable "extra_attributes" {
 }
 
 variable "owner_contacts" {
-  type    = list(string)
+  type    = set(string)
   default = null
 }
 
 variable "admin_contacts" {
-  type    = list(string)
+  type    = set(string)
   default = null
 }
 
 variable "tech_contacts" {
-  type    = list(string)
+  type    = set(string)
   default = null
 }
 
 variable "billing_contacts" {
-  type    = list(string)
+  type    = set(string)
   default = null
 }
