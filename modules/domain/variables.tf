@@ -11,10 +11,6 @@ variable "root_aname" {
   default = null
 }
 
-variable "redirect_www_to_root" {
-  type = bool
-}
-
 variable "add_www_cname" {
   type = bool
 }

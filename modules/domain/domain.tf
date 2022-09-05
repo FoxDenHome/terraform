@@ -22,6 +22,13 @@ resource "constellix_domain" "domain" {
   }
 }
 
+module "ses" {
+  count     = var.ses ? 1 : 0
+  source    = "./ses"
+  domain    = constellix_domain.domain
+  subdomain = ""
+}
+
 data "dns_a_record_set" "ns" {
   count = local.ns_same_domain ? length(local.vanity_ns_list) : 0
 
@@ -38,7 +45,7 @@ resource "hexonet_domain" "domain" {
   count  = var.hexonet_registrar ? 1 : 0
   domain = var.domain
 
-  name_servers  = local.has_vanity_ns ? local.vanity_ns_list : local.constellix_ns_list
+  name_servers = local.has_vanity_ns ? local.vanity_ns_list : local.constellix_ns_list
 
   owner_contacts   = var.owner_contacts
   admin_contacts   = var.admin_contacts

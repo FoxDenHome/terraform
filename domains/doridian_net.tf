@@ -1,10 +1,10 @@
 locals {
-  doridian_net_domain = module.domain["doridian.net"].domain.id
+  doridian_net_domain = module.domain["doridian.net"].domain
 }
 
 # redfox
 resource "constellix_a_record" "doridian_net_redfox_a" {
-  domain_id = local.doridian_net_domain
+  domain_id = local.doridian_net_domain.id
 
   type        = "A"
   name        = "redfox"
@@ -18,7 +18,7 @@ resource "constellix_a_record" "doridian_net_redfox_a" {
 }
 
 resource "constellix_aaaa_record" "doridian_net_redfox_aaaa" {
-  domain_id = local.doridian_net_domain
+  domain_id = local.doridian_net_domain.id
 
   type        = "AAAA"
   name        = "redfox"
@@ -32,7 +32,7 @@ resource "constellix_aaaa_record" "doridian_net_redfox_aaaa" {
 }
 
 resource "constellix_cname_record" "doridian_net_redfox_syncthing" {
-  domain_id = local.doridian_net_domain
+  domain_id = local.doridian_net_domain.id
 
   type        = "CNAME"
   name        = "syncthing"
@@ -45,7 +45,7 @@ resource "constellix_cname_record" "doridian_net_redfox_syncthing" {
 
 # icefox
 resource "constellix_a_record" "doridian_net_icefox_a" {
-  domain_id = local.doridian_net_domain
+  domain_id = local.doridian_net_domain.id
 
   type        = "A"
   name        = "icefox"
@@ -60,7 +60,7 @@ resource "constellix_a_record" "doridian_net_icefox_a" {
 
 # arcticfox
 resource "constellix_a_record" "doridian_net_arcticfox_a" {
-  domain_id = local.doridian_net_domain
+  domain_id = local.doridian_net_domain.id
 
   type        = "A"
   name        = "arcticfox"
@@ -74,7 +74,7 @@ resource "constellix_a_record" "doridian_net_arcticfox_a" {
 }
 
 resource "constellix_aaaa_record" "doridian_net_arcticfox_aaaa" {
-  domain_id = local.doridian_net_domain
+  domain_id = local.doridian_net_domain.id
 
   type        = "AAAA"
   name        = "arcticfox"
@@ -88,7 +88,7 @@ resource "constellix_aaaa_record" "doridian_net_arcticfox_aaaa" {
 }
 
 resource "constellix_cname_record" "doridian_net_arcticfox_mysql" {
-  domain_id = local.doridian_net_domain
+  domain_id = local.doridian_net_domain.id
 
   type        = "CNAME"
   name        = "mysql"
@@ -99,7 +99,7 @@ resource "constellix_cname_record" "doridian_net_arcticfox_mysql" {
 }
 
 resource "constellix_cname_record" "doridian_net_arcticfox_www" {
-  domain_id = local.doridian_net_domain
+  domain_id = local.doridian_net_domain.id
 
   type        = "CNAME"
   name        = "www.arcticfox"
@@ -110,7 +110,7 @@ resource "constellix_cname_record" "doridian_net_arcticfox_www" {
 }
 
 resource "constellix_txt_record" "doridian_net_arcticfox_spf" {
-  domain_id = local.doridian_net_domain
+  domain_id = local.doridian_net_domain.id
 
   type        = "TXT"
   name        = "arcticfox"
@@ -120,4 +120,10 @@ resource "constellix_txt_record" "doridian_net_arcticfox_spf" {
   roundrobin {
     value = "v=spf1 +a:arcticfox.doridian.net include:amazonses.com mx ~all"
   }
+}
+
+module "arcticfox_ses" {
+  source    = "../modules/domain/ses"
+  domain    = local.doridian_net_domain
+  subdomain = "arcticfox"
 }

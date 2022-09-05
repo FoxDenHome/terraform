@@ -4,7 +4,6 @@ variable "domains" {
     ses      = bool
 
     add_root_aname       = bool
-    redirect_www_to_root = bool
     add_www_cname        = bool
 
     vanity_nameserver = string

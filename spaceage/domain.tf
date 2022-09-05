@@ -22,7 +22,6 @@ module "domain" {
   fastmail             = true
   ses                  = true
   root_aname           = "redfox.doridian.net"
-  redirect_www_to_root = true
   add_www_cname        = true
   vanity_nameserver    = data.constellix_vanity_nameserver.spaceage
   hexonet_registrar    = false

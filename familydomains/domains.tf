@@ -3,7 +3,6 @@ locals {
     "candy-girl.net" = {
       fastmail             = false,
       ses                  = true,
-      redirect_www_to_root = false,
       add_www_cname        = false,
       contact              = hexonet_contact.personal.id,
       extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
@@ -11,7 +10,6 @@ locals {
     "zoofaeth.de" = {
       fastmail             = false,
       ses                  = true,
-      redirect_www_to_root = false,
       add_www_cname        = false,
       contact              = hexonet_contact.organization.id,
       extra_attributes     = {},
@@ -35,7 +33,6 @@ module "domain" {
   root_aname           = var.server_domain
   fastmail             = each.value.fastmail
   ses                  = each.value.ses
-  redirect_www_to_root = each.value.redirect_www_to_root
   add_www_cname        = each.value.add_www_cname
   extra_attributes     = each.value.extra_attributes
 

@@ -12,18 +12,16 @@ locals {
   domains = merge({
     "as207618.net" = {
       fastmail             = true,
-      ses                  = false,
+      ses                  = true,
       add_root_aname       = true,
-      redirect_www_to_root = false,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
     "pawnode.com" = {
       fastmail             = true,
-      ses                  = false,
+      ses                  = true,
       add_root_aname       = true,
-      redirect_www_to_root = false,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
@@ -31,27 +29,24 @@ locals {
 
     "doridian.com" = {
       fastmail             = true,
-      ses                  = false,
+      ses                  = true,
       add_root_aname       = true,
-      redirect_www_to_root = false,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
     "doridian.de" = {
       fastmail             = true,
-      ses                  = false,
+      ses                  = true,
       add_root_aname       = true,
-      redirect_www_to_root = false,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       extra_attributes     = {},
     },
     "doridian.org" = {
       fastmail             = true,
-      ses                  = false,
+      ses                  = true,
       add_root_aname       = true,
-      redirect_www_to_root = false,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
@@ -59,9 +54,8 @@ locals {
 
     "doridian.net" = {
       fastmail             = true,
-      ses                  = false,
+      ses                  = true,
       add_root_aname       = true,
-      redirect_www_to_root = true,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
@@ -71,7 +65,6 @@ locals {
       fastmail             = true,
       ses                  = true,
       add_root_aname       = true,
-      redirect_www_to_root = true,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       extra_attributes     = merge(local.extra_attributes_es, { "ACCEPT-WHOISTRUSTEE-TAC" = "0" }),
@@ -80,7 +73,6 @@ locals {
       fastmail             = true,
       ses                  = true,
       add_root_aname       = true,
-      redirect_www_to_root = true,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
       extra_attributes     = merge(local.extra_attributes_es, { "ACCEPT-WHOISTRUSTEE-TAC" = "0" }),
@@ -90,7 +82,6 @@ locals {
       fastmail             = true,
       ses                  = true,
       add_root_aname       = true,
-      redirect_www_to_root = true,
       add_www_cname        = true,
       vanity_nameserver    = "foxden.network",
       extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
@@ -108,7 +99,6 @@ module "domain" {
   fastmail             = each.value.fastmail
   ses                  = each.value.ses
   root_aname           = each.value.add_root_aname ? var.main_domain : null
-  redirect_www_to_root = each.value.redirect_www_to_root
   add_www_cname        = each.value.add_www_cname
   vanity_nameserver    = each.value.vanity_nameserver != null ? constellix_vanity_nameserver.vanity[each.value.vanity_nameserver] : null
 
