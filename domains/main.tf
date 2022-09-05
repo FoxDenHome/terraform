@@ -10,9 +10,14 @@ terraform {
       version = "~> 4.0"
     }
 
+    dns = {
+      source  = "hashicorp/dns"
+      version = "~> 3.2"
+    }
+
     hexonet = {
       source  = "Doridian/hexonet"
-      version = "~> 0.11"
+      version = "~> 0.12"
     }
   }
 
@@ -34,5 +39,5 @@ provider "constellix" {
 }
 
 provider "hexonet" {
-
+  allow_domain_create_delete = false
 }
