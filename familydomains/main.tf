@@ -10,9 +10,9 @@ terraform {
       version = "~> 4.0"
     }
 
-      hexonet = {
+    hexonet = {
       source  = "Doridian/hexonet"
-      version = "~> 0.8"
+      version = "~> 0.9"
     }
   }
 
