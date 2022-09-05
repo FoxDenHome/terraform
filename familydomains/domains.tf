@@ -5,7 +5,6 @@ locals {
       ses                  = true,
       redirect_www_to_root = false,
       add_www_cname        = false,
-      transfer_lock        = true,
       contact              = hexonet_contact.personal.id,
       extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
@@ -14,7 +13,6 @@ locals {
       ses                  = true,
       redirect_www_to_root = false,
       add_www_cname        = false,
-      transfer_lock        = false,
       contact              = hexonet_contact.organization.id,
       extra_attributes     = {},
     },
@@ -39,7 +37,6 @@ module "domain" {
   ses                  = each.value.ses
   redirect_www_to_root = each.value.redirect_www_to_root
   add_www_cname        = each.value.add_www_cname
-  transfer_lock        = each.value.transfer_lock
   extra_attributes     = each.value.extra_attributes
 
   owner_contacts   = [each.value.contact]

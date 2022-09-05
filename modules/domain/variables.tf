@@ -32,11 +32,6 @@ variable "vanity_nameserver" {
   default = null
 }
 
-variable "transfer_lock" {
-  type    = bool
-  default = true
-}
-
 variable "hexonet_registrar" {
   type    = bool
   default = true

@@ -39,7 +39,6 @@ resource "hexonet_domain" "domain" {
   domain = var.domain
 
   name_servers  = local.has_vanity_ns ? local.vanity_ns_list : local.constellix_ns_list
-  transfer_lock = true
 
   owner_contacts   = var.owner_contacts
   admin_contacts   = var.admin_contacts

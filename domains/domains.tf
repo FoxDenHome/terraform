@@ -17,7 +17,6 @@ locals {
       redirect_www_to_root = false,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
-      transfer_lock        = true,
       extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
     "pawnode.com" = {
@@ -27,7 +26,6 @@ locals {
       redirect_www_to_root = false,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
-      transfer_lock        = true,
       extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
 
@@ -38,7 +36,6 @@ locals {
       redirect_www_to_root = false,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
-      transfer_lock        = true,
       extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
     "doridian.de" = {
@@ -48,7 +45,6 @@ locals {
       redirect_www_to_root = false,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
-      transfer_lock        = false,
       extra_attributes     = {},
     },
     "doridian.org" = {
@@ -58,7 +54,6 @@ locals {
       redirect_www_to_root = false,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
-      transfer_lock        = true,
       extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
 
@@ -69,7 +64,6 @@ locals {
       redirect_www_to_root = true,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
-      transfer_lock        = true,
       extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
 
@@ -80,7 +74,6 @@ locals {
       redirect_www_to_root = true,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
-      transfer_lock        = false,
       extra_attributes     = merge(local.extra_attributes_es, { "ACCEPT-WHOISTRUSTEE-TAC" = "0" }),
     },
     "foxcav.es" = {
@@ -90,7 +83,6 @@ locals {
       redirect_www_to_root = true,
       add_www_cname        = true,
       vanity_nameserver    = "doridian.net",
-      transfer_lock        = false,
       extra_attributes     = merge(local.extra_attributes_es, { "ACCEPT-WHOISTRUSTEE-TAC" = "0" }),
     },
 
@@ -101,7 +93,6 @@ locals {
       redirect_www_to_root = true,
       add_www_cname        = true,
       vanity_nameserver    = "foxden.network",
-      transfer_lock        = true,
       extra_attributes     = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
   }, var.domains)
@@ -119,7 +110,6 @@ module "domain" {
   root_aname           = each.value.add_root_aname ? var.main_domain : null
   redirect_www_to_root = each.value.redirect_www_to_root
   add_www_cname        = each.value.add_www_cname
-  transfer_lock        = each.value.transfer_lock
   vanity_nameserver    = each.value.vanity_nameserver != null ? constellix_vanity_nameserver.vanity[each.value.vanity_nameserver] : null
 
   extra_attributes = merge({

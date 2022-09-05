@@ -9,8 +9,6 @@ variable "domains" {
 
     vanity_nameserver = string
 
-    transfer_lock = bool
-
     extra_attributes = map(string)
   }))
   default = {}
