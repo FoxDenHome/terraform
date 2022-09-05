@@ -17,7 +17,7 @@ terraform {
 
     hexonet = {
       source  = "Doridian/hexonet"
-      version = "~> 0.10"
+      version = "~> 0.11"
     }
   }
 }

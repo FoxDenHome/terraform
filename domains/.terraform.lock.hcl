@@ -46,13 +46,6 @@ provider "registry.terraform.io/doridian/hexonet" {
   ]
 }
 
-provider "registry.terraform.io/doridian/hexonet-test" {
-  version = "0.9.0"
-  hashes = [
-    "h1:VlgV2HKA9kwUl+DOeJCTUTUBcPEZYtI226/vD64p9wk=",
-  ]
-}
-
 provider "registry.terraform.io/hashicorp/aws" {
   version     = "4.29.0"
   constraints = "~> 4.0"
