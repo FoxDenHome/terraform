@@ -1,23 +1,13 @@
 locals {
   repositores = {
-    docker = {
-
-    }
+    docker = {}
     StarLord = {
       description = "GMod server manager with updates from git"
     }
-    webstatic = {
-
-    }
-    TTS = {
-
-    }
-    space_age_api = {
-
-    }
-    spacebuild = {
-
-    }
+    webstatic = {}
+    TTS = {}
+    space_age_api = {}
+    spacebuild = {}
     SpaceAge = {
       visibility        = "private"
       branch_protection = false
@@ -26,42 +16,26 @@ locals {
       visibility        = "private"
       branch_protection = false
     }
-    SpaceAgeModelPack = {
-
-    }
+    SpaceAgeModelPack = {}
     Joystick = {
       description = "A joystick module for GMod, originally by NightEagle."
     }
     Falcos-Prop-protection = {
       description = "Falco's prop protection"
     }
-    maps = {
-
-    }
-    multi-parent = {
-
-    }
+    maps = {}
+    multi-parent = {}
     luacheck = {
       description = "A tool for linting and static analysis of Lua code."
     }
-    physgun-build-mode = {
-
-    }
+    physgun-build-mode = {}
     sbep = {
       description = "Spacebuild Enhancement Pack."
     }
-    spacebuild_colliders = {
-
-    }
-    gmsv_random = {
-
-    }
-    smartsnap = {
-
-    }
-    issues = {
-
-    }
+    spacebuild_colliders = {}
+    gmsv_random = {}
+    smartsnap = {}
+    issues = {}
   }
 
   members = {

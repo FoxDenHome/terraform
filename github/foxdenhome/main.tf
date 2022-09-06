@@ -6,57 +6,25 @@ locals {
     homeassistant = {
       branch_protection = false
     }
-    NixieClockDori = {
-
-    }
-    LCDify = {
-
-    }
-    terraform = {
-
-    }
-    e621dumper = {
-
-    }
-    redfox = {
-
-    }
-    docker = {
-
-    }
+    NixieClockDori = {}
+    LCDify = {}
+    terraform = {}
+    e621dumper = {}
+    redfox = {}
+    docker = {}
     router = {
       branch_protection = false
     }
-    CC1101Duino = {
-
-    }
-    ntp = {
-
-    }
-    islandfox = {
-
-    }
-    nas = {
-
-    }
-    "3dprinter-config" = {
-
-    }
-    desk-control = {
-
-    }
-    backup = {
-
-    }
-    scripts = {
-
-    }
-    sshkeys = {
-
-    }
-    sni-vhost-proxy = {
-
-    }
+    CC1101Duino = {}
+    ntp = {}
+    islandfox = {}
+    nas = {}
+    "3dprinter-config" = {}
+    desk-control = {}
+    backup = {}
+    scripts = {}
+    sshkeys = {}
+    sni-vhost-proxy = {}
   }
 
   members = {
