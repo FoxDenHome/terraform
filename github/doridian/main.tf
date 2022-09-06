@@ -135,9 +135,12 @@ module "repo" {
 
   source = "../modules/repo"
   repository = merge({
-    name              = each.key
-    description       = ""
-    visibility        = "public"
+    name         = each.key
+    description  = ""
+    homepage_url = ""
+
+    visibility = "public"
+
     required_checks   = []
     branch_protection = true
   }, each.value)
