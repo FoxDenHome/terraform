@@ -110,10 +110,25 @@ locals {
       description       = "Stripped down version of BIGTREETECH-TouchScreenFirmware which only supports ST7920 emulation (Marlin Mode)"
       branch_protection = false
     }
+
+    driftctl = {
+      description       = "Detect, track and alert on infrastructure drift"
+      branch_protection = false
+    }
+
+    sevenroom-scraper = {
+      description       = "I really like food."
+      branch_protection = false
+    }
+
+    gopacket = {
+      description       = "Provides packet processing capabilities for Go"
+      branch_protection = false
+    }
   }
 }
 
-# tfi() { terraform import "module.repo[\"$1\"].github_repository.repo" "$1"; terraform import "module.repo[\"$1\"].github_branch.main" "$1:main"; terraform import "module.repo[\"$1\"].github_branch_protection.main" "$1:main"; }
+# tfi() { terraform import "module.repo[\"$1\"].github_repository.repo" "$1"; terraform import "module.repo[\"$1\"].github_branch_protection.main" "$1:main"; }
 
 module "repo" {
   for_each = local.repositores
