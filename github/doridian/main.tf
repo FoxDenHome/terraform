@@ -83,6 +83,33 @@ locals {
     deffs = {
 
     }
+    j4210u-app = {
+
+    }
+    libMSRx05 = {
+
+    }
+
+    # Forks
+    picotcp = {
+      description       = "PicoTCP is a free TCP/IP stack implementation"
+      branch_protection = false
+    }
+
+    factorio-docker = {
+      description       = "Factorio headless server in a Docker container"
+      branch_protection = false
+    }
+
+    factorio-pause-commands = {
+      description       = "Factorio mod to add pause and unpause commands"
+      branch_protection = false
+    }
+
+    NoTouchScreenFirmware = {
+      description       = "Stripped down version of BIGTREETECH-TouchScreenFirmware which only supports ST7920 emulation (Marlin Mode)"
+      branch_protection = false
+    }
   }
 }
 

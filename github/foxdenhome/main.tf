@@ -54,6 +54,9 @@ locals {
     sshkeys = {
 
     }
+    sni-vhost-proxy = {
+
+    }
   }
 }
 
