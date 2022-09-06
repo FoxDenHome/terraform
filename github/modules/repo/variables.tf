@@ -1,7 +1,8 @@
 variable "repository" {
   type = object({
-    name        = string
-    description = string
+    name         = string
+    description  = string
+    homepage_url = string
 
     visibility = string
 

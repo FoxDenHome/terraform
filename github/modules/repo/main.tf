@@ -1,6 +1,7 @@
 resource "github_repository" "repo" {
-  name        = var.repository.name
-  description = var.repository.description
+  name         = var.repository.name
+  description  = var.repository.description
+  homepage_url = var.repository.homepage_url
 
   visibility = var.repository.visibility
 
