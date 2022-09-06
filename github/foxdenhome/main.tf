@@ -9,6 +9,9 @@ locals {
     NixieClockDori = {
 
     }
+    LCDify = {
+
+    }
     terraform = {
 
     }

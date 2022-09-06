@@ -26,9 +26,6 @@ locals {
         "test-windows",
       ]
     }
-    LCDify = {
-
-    }
     website = {
 
     }
@@ -77,37 +74,13 @@ locals {
     HomeAssistantMQTT = {
 
     }
-    opendkame = {
-      description = "KeeLoq code capture and replay for cloning your own openers"
-    }
-    ledmgr = {
-
-    }
-    ledbadge = {
-      description = "Programmer for cheap Aliexpress Bluetooth LED Badges. Huge thanks to https://github.com/Nilhcem/ble-led-name-badge-android"
-    }
     MuxyProxy = {
       description = "Multi-Protocol reverse proxy detecting a client's protocol intelligently for dynamic forwarding"
-    }
-    slow-uboot-flasher = {
-
     }
     os-config = {
       description = "Various OS configuration/customization files"
     }
-    sdr-misc = {
-
-    }
-    wireworld_cuda = {
-
-    }
-    pingshell = {
-      description = "A reverse shell using only \"ping\" commands on the victim end. Because screw firewalls."
-    }
     deffs = {
-
-    }
-    jumpme = {
 
     }
   }
