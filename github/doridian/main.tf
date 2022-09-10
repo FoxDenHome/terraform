@@ -60,6 +60,8 @@ locals {
     j4210u-app = {}
     libMSRx05 = {}
     streamdeckpi = {}
+    go-streamdeck = {}
+    go-haws = {}
 
     # Forks
     picotcp = {
