@@ -6,6 +6,7 @@ resource "github_repository" "repo" {
 
   lifecycle {
     ignore_changes = [
+      allow_auto_merge,
       allow_merge_commit,
       allow_rebase_merge,
       allow_squash_merge,
