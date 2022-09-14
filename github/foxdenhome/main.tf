@@ -7,24 +7,24 @@ locals {
       branch_protection = false
     }
     NixieClockDori = {}
-    LCDify = {}
-    terraform = {}
-    e621dumper = {}
-    redfox = {}
-    docker = {}
+    LCDify         = {}
+    terraform      = {}
+    e621dumper     = {}
+    redfox         = {}
+    docker         = {}
     router = {
       branch_protection = false
     }
-    CC1101Duino = {}
-    ntp = {}
-    islandfox = {}
-    nas = {}
+    CC1101Duino        = {}
+    ntp                = {}
+    islandfox          = {}
+    nas                = {}
     "3dprinter-config" = {}
-    desk-control = {}
-    backup = {}
-    scripts = {}
-    sshkeys = {}
-    sni-vhost-proxy = {}
+    desk-control       = {}
+    backup             = {}
+    scripts            = {}
+    sshkeys            = {}
+    sni-vhost-proxy    = {}
   }
 
   members = {

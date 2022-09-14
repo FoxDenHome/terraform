@@ -74,5 +74,7 @@ module "archived_repo" {
 
   repository = merge({
     name = each.key
+
+    visibility = "public"
   }, each.value)
 }

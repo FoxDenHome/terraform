@@ -3,8 +3,8 @@ variable "domains" {
     fastmail = bool
     ses      = bool
 
-    add_root_aname       = bool
-    add_www_cname        = bool
+    add_root_aname = bool
+    add_www_cname  = bool
 
     vanity_nameserver = string
 

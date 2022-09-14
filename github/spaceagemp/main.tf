@@ -4,10 +4,10 @@ locals {
     StarLord = {
       description = "GMod server manager with updates from git"
     }
-    webstatic = {}
-    TTS = {}
+    webstatic     = {}
+    TTS           = {}
     space_age_api = {}
-    spacebuild = {}
+    spacebuild    = {}
     SpaceAge = {
       visibility        = "private"
       branch_protection = false
@@ -23,7 +23,7 @@ locals {
     Falcos-Prop-protection = {
       description = "Falco's prop protection"
     }
-    maps = {}
+    maps         = {}
     multi-parent = {}
     luacheck = {
       description = "A tool for linting and static analysis of Lua code."
@@ -33,9 +33,9 @@ locals {
       description = "Spacebuild Enhancement Pack."
     }
     spacebuild_colliders = {}
-    gmsv_random = {}
-    smartsnap = {}
-    issues = {}
+    gmsv_random          = {}
+    smartsnap            = {}
+    issues               = {}
   }
 
   members = {

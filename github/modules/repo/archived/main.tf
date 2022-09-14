@@ -3,6 +3,7 @@ resource "github_repository" "repo" {
 
   archive_on_destroy = true
   archived           = true
+  visibility         = var.repository.visibility
 
   lifecycle {
     ignore_changes = [

@@ -26,15 +26,15 @@ locals {
         "test-windows",
       ]
     }
-    website = {}
-    jsip-wsvpn = {}
-    wsvpn-js = {}
-    query-finder = {}
-    healthcheckd = {}
+    website           = {}
+    jsip-wsvpn        = {}
+    wsvpn-js          = {}
+    query-finder      = {}
+    healthcheckd      = {}
     factorio-fox-todo = {}
-    slimfat = {}
-    rd60xx = {}
-    tracething = {}
+    slimfat           = {}
+    rd60xx            = {}
+    tracething        = {}
     terraform-provider-hexonet = {
       description = "Terraform provider for Hexonet API"
     }
@@ -49,19 +49,19 @@ locals {
       description = "Lua VM running in Javascript (using emscripten)"
     }
     hammerspoon-config = {}
-    HomeAssistantMQTT = {}
+    HomeAssistantMQTT  = {}
     MuxyProxy = {
       description = "Multi-Protocol reverse proxy detecting a client's protocol intelligently for dynamic forwarding"
     }
     os-config = {
       description = "Various OS configuration/customization files"
     }
-    deffs = {}
-    j4210u-app = {}
-    libMSRx05 = {}
-    streamdeckpi = {}
+    deffs         = {}
+    j4210u-app    = {}
+    libMSRx05     = {}
+    streamdeckpi  = {}
     go-streamdeck = {}
-    go-haws = {}
+    go-haws       = {}
 
     # Forks
     picotcp = {

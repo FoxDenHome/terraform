@@ -13,12 +13,12 @@ module "domain" {
 
   domain = local.main_domain
 
-  fastmail             = true
-  ses                  = true
-  root_aname           = "redfox.doridian.net"
-  add_www_cname        = true
-  vanity_nameserver    = data.constellix_vanity_nameserver.spaceage
-  hexonet_registrar    = false
+  fastmail          = true
+  ses               = true
+  root_aname        = "redfox.doridian.net"
+  add_www_cname     = true
+  vanity_nameserver = data.constellix_vanity_nameserver.spaceage
+  hexonet_registrar = false
 }
 
 resource "constellix_cname_record" "spaceage_mp_redfox" {
