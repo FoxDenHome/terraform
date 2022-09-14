@@ -28,9 +28,9 @@ variable "vanity_nameserver" {
   default = null
 }
 
-variable "hexonet_registrar" {
-  type    = bool
-  default = true
+variable "registrar" {
+  type    = string
+  default = ""
 }
 
 variable "extra_attributes" {

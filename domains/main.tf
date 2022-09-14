@@ -68,6 +68,7 @@ locals {
       add_www_cname     = true,
       vanity_nameserver = "doridian.net",
       extra_attributes  = merge(local.extra_attributes_es, { "ACCEPT-WHOISTRUSTEE-TAC" = "0" }),
+      registrar         = "",
     },
     "foxcav.es" = {
       fastmail          = true,
@@ -76,6 +77,7 @@ locals {
       add_www_cname     = true,
       vanity_nameserver = "doridian.net",
       extra_attributes  = merge(local.extra_attributes_es, { "ACCEPT-WHOISTRUSTEE-TAC" = "0" }),
+      registrar         = "",
     },
 
     "foxden.network" = {
@@ -100,7 +102,7 @@ module "domain" {
   ses               = each.value.ses
   root_aname        = each.value.add_root_aname ? var.main_domain : null
   add_www_cname     = each.value.add_www_cname
-  vanity_nameserver = each.value.vanity_nameserver != null ? constellix_vanity_nameserver.vanity[each.value.vanity_nameserver] : null
+  vanity_nameserver = try(constellix_vanity_nameserver.vanity[each.value.vanity_nameserver], null)
 
   extra_attributes = merge({
     "WHOIS-URL" = "https://doridian.net",
@@ -113,5 +115,5 @@ module "domain" {
   tech_contacts    = [hexonet_contact.main.id]
   billing_contacts = [hexonet_contact.main.id]
 
-  hexonet_registrar = each.key != "f0x.es" && each.key != "foxcav.es"
+  registrar = try(each.value.registrar, "hexonet")
 }

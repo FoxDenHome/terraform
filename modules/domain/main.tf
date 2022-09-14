@@ -30,7 +30,7 @@ resource "constellix_domain" "domain" {
 }
 
 resource "hexonet_domain" "domain" {
-  count  = var.hexonet_registrar ? 1 : 0
+  count  = var.registrar == "hexonet" ? 1 : 0
   domain = var.domain
 
   name_servers = local.has_vanity_ns ? local.vanity_ns_list : local.constellix_ns_list

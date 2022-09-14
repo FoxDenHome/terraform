@@ -18,7 +18,7 @@ module "domain" {
   root_aname        = "redfox.doridian.net"
   add_www_cname     = true
   vanity_nameserver = data.constellix_vanity_nameserver.spaceage
-  hexonet_registrar = false
+  registrar         = "dotmp"
 }
 
 resource "constellix_cname_record" "spaceage_mp_redfox" {
