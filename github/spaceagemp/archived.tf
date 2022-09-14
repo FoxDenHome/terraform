@@ -1,7 +1,11 @@
 locals {
   archived_repositores = {
-    SpaceAgeCentral      = {},
-    SpaceAge_Old_Archive = {},
+    SpaceAgeCentral = {
+      visibility = "private",
+    },
+    SpaceAge_Old_Archive = {
+      visibility = "private",
+    },
   }
 }
 
