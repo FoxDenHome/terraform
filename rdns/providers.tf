@@ -20,4 +20,24 @@ terraform {
       version = "~> 0.13"
     }
   }
+
+  backend "s3" {
+    bucket = "foxden-terraform"
+    region = "us-east-1"
+    key    = "rdns.tfstate"
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+provider "constellix" {
+  insecure  = false
+  apikey    = var.constellix_apikey
+  secretkey = var.constellix_secretkey
+}
+
+provider "hexonet" {
+  allow_domain_create_delete = false
 }

@@ -40,4 +40,6 @@ module "domain" {
   admin_contacts   = [each.value.contact]
   tech_contacts    = [each.value.contact]
   billing_contacts = [each.value.contact]
+
+  registrar = "hexonet"
 }

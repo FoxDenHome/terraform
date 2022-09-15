@@ -3,7 +3,7 @@
 
 provider "registry.terraform.io/constellix/constellix" {
   version     = "0.4.5"
-  constraints = "0.4.5"
+  constraints = "~> 0.4"
   hashes = [
     "h1:39aNlx1BknLCBSYhWOYFRM08l2cCKeprml1IcO9kWP4=",
     "zh:0c6c1ef3a8f72cd6b61bdb1deb730590b2b41df1594b5d77725e31b952354947",
@@ -68,7 +68,7 @@ provider "registry.terraform.io/hashicorp/aws" {
 
 provider "registry.terraform.io/hashicorp/dns" {
   version     = "3.2.3"
-  constraints = "3.2.3"
+  constraints = "~> 3.2"
   hashes = [
     "h1:ALe1bPHF550GAEdEDgujL1Ea0UQ7O5KEL/jQWlCfemY=",
     "zh:03a304f4b76ac6c8bebffddcdf555bf77578a7f638948a681589def32e140cb8",
