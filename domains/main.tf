@@ -1,40 +1,5 @@
 locals {
-  extra_attributes_es = {
-    "ES-ADMIN-TIPO-IDENTIFICACION"   = 0,
-    "ES-TECH-TIPO-IDENTIFICACION"    = 0,
-    "ES-BILLING-TIPO-IDENTIFICACION" = 0,
-
-    "ES-ADMIN-IDENTIFICACION"   = var.domain_contact.id_number,
-    "ES-TECH-IDENTIFICACION"    = var.domain_contact.id_number,
-    "ES-BILLING-IDENTIFICACION" = var.domain_contact.id_number,
-  }
-
   domains = merge({
-    "as207618.net" = {
-      fastmail          = true,
-      ses               = true,
-      add_root_aname    = true,
-      add_www_cname     = true,
-      vanity_nameserver = "doridian.net",
-      extra_attributes  = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
-    },
-    "pawnode.com" = {
-      fastmail          = true,
-      ses               = true,
-      add_root_aname    = true,
-      add_www_cname     = true,
-      vanity_nameserver = "doridian.net",
-      extra_attributes  = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
-    },
-
-    "doridian.com" = {
-      fastmail          = true,
-      ses               = true,
-      add_root_aname    = true,
-      add_www_cname     = true,
-      vanity_nameserver = "doridian.net",
-      extra_attributes  = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
-    },
     "doridian.de" = {
       fastmail          = true,
       ses               = true,
@@ -42,14 +7,6 @@ locals {
       add_www_cname     = true,
       vanity_nameserver = "doridian.net",
       extra_attributes  = {},
-    },
-    "doridian.org" = {
-      fastmail          = true,
-      ses               = true,
-      add_root_aname    = true,
-      add_www_cname     = true,
-      vanity_nameserver = "doridian.net",
-      extra_attributes  = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
 
     "doridian.net" = {
@@ -59,25 +16,6 @@ locals {
       add_www_cname     = true,
       vanity_nameserver = "doridian.net",
       extra_attributes  = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
-    },
-
-    "f0x.es" = {
-      fastmail          = true,
-      ses               = true,
-      add_root_aname    = true,
-      add_www_cname     = true,
-      vanity_nameserver = "doridian.net",
-      extra_attributes  = merge(local.extra_attributes_es, { "ACCEPT-WHOISTRUSTEE-TAC" = "0" }),
-      registrar         = "",
-    },
-    "foxcav.es" = {
-      fastmail          = true,
-      ses               = true,
-      add_root_aname    = true,
-      add_www_cname     = true,
-      vanity_nameserver = "doridian.net",
-      extra_attributes  = merge(local.extra_attributes_es, { "ACCEPT-WHOISTRUSTEE-TAC" = "0" }),
-      registrar         = "",
     },
 
     "foxden.network" = {
