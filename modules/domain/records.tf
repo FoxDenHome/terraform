@@ -26,6 +26,8 @@ resource "constellix_cname_record" "www" {
 }
 
 resource "constellix_txt_record" "spf" {
+  count = (var.ses || var.fastmail) ? 1 : 0
+
   domain_id   = constellix_domain.domain.id
   name        = ""
   type        = "TXT"
