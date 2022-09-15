@@ -108,7 +108,7 @@ module "domain" {
     "WHOIS-URL" = "https://doridian.net",
     "WHOIS-RSP" = "Doridian",
     "WHOIS-BANNER0" : "Foxes are best animal",
-  }, each.value.extra_attributes)
+  }, try(each.value.extra_attributes, {}))
 
   owner_contacts   = [hexonet_contact.main.id]
   admin_contacts   = [hexonet_contact.main.id]
