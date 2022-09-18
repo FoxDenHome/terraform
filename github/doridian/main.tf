@@ -62,6 +62,7 @@ locals {
     streamdeckpi  = {}
     go-streamdeck = {}
     go-haws       = {}
+    gitbackup     = {}
 
     # Forks
     picotcp = {
