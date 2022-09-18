@@ -2,7 +2,7 @@ locals {
   repositores = {}
 
   members = {
-    Doridian    = "admin",
+    Doridian = "admin",
   }
 }
 
