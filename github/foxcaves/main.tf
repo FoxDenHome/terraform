@@ -1,14 +1,14 @@
 locals {
   repositores = {
     site = {
-      homepage_url = "https://foxcaves.foxden.network"
+      homepage_url = "https://caves.fox.ax"
     }
     base-image = {
-      homepage_url = "https://foxcaves.foxden.network"
+      homepage_url = "https://caves.fox.ax"
     }
     sharex = {
       description  = "ShareX config files"
-      homepage_url = "https://foxcaves.foxden.network"
+      homepage_url = "https://caves.fox.ax"
     }
     raven-lua = {
       description = "A Lua interface to Sentry"
