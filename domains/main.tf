@@ -36,6 +36,11 @@ locals {
       registrar         = "inwx"
     },
   }, var.domains)
+
+  contacts_map = {
+    "hexonet" = [hexonet_contact.main.id],
+    "inwx"    = [inwx_domain_contact.main.id],
+  }
 }
 
 module "domain" {
@@ -57,10 +62,10 @@ module "domain" {
     "WHOIS-BANNER0" : "Foxes are best animal",
   }, try(each.value.extra_attributes, {}))
 
-  owner_contacts   = [hexonet_contact.main.id]
-  admin_contacts   = [hexonet_contact.main.id]
-  tech_contacts    = [hexonet_contact.main.id]
-  billing_contacts = [hexonet_contact.main.id]
+  owner_contacts   = local.contacts_map[try(each.value.registrar, "hexonet")]
+  admin_contacts   = local.contacts_map[try(each.value.registrar, "hexonet")]
+  tech_contacts    = local.contacts_map[try(each.value.registrar, "hexonet")]
+  billing_contacts = local.contacts_map[try(each.value.registrar, "hexonet")]
 
   registrar = try(each.value.registrar, "hexonet")
 }
