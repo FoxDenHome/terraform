@@ -46,6 +46,8 @@ module "repo" {
 
     required_checks   = []
     branch_protection = true
+
+    pages = null
   }, each.value)
 }
 

@@ -18,6 +18,18 @@ resource "github_repository" "repo" {
   squash_merge_commit_message = "BLANK"
   delete_branch_on_merge      = true
 
+  dynamic "pages" {
+    for_each = var.repository.pages != null ? [var.repository.pages] : []
+
+    content {
+      cname = pages.value.cname
+      source {
+        branch = "main"
+        path   = "/"
+      }
+    }
+  }
+
   archive_on_destroy = true
 }
 

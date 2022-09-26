@@ -8,5 +8,9 @@ variable "repository" {
 
     branch_protection = bool
     required_checks   = set(string)
+
+    pages = object({
+      cname = string
+    })
   })
 }

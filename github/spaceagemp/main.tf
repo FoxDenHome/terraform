@@ -1,7 +1,11 @@
 locals {
   repositores = {
     docker = {}
-    docs = {}
+    docs = {
+      pages = {
+        cname = "spaceage.mp"
+      }
+    }
     StarLord = {
       description = "GMod server manager with updates from git"
     }
@@ -73,6 +77,8 @@ module "repo" {
 
     required_checks   = []
     branch_protection = true
+
+    pages = null
   }, each.value)
 }
 
