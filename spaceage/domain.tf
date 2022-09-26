@@ -15,7 +15,7 @@ module "domain" {
 
   fastmail          = true
   ses               = true
-  root_aname        = "redfox.doridian.net"
+  root_aname        = "spaceagemp.github.io"
   add_www_cname     = true
   vanity_nameserver = data.constellix_vanity_nameserver.spaceage
   registrar         = "dotmp"
@@ -24,7 +24,7 @@ module "domain" {
 resource "constellix_cname_record" "spaceage_mp_redfox" {
   domain_id = local.domain_id
 
-  for_each = toset(["api", "forums", "static", "tts"])
+  for_each = toset(["api", "static", "tts"])
 
   type        = "CNAME"
   name        = each.value
