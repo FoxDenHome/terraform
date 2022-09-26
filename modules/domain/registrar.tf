@@ -15,6 +15,27 @@ resource "hexonet_domain" "domain" {
     "clientDeleteProhibited",
     "clientTransferProhibited",
   ]
+
+  lifecycle {
+    ignore_changes = [
+      extra_attributes["ES-ADMIN-IDENTIFICACION"],
+      extra_attributes["ES-ADMIN-TIPO-IDENTIFICACION"],
+
+      extra_attributes["ES-TECH-IDENTIFICACION"],
+      extra_attributes["ES-TECH-TIPO-IDENTIFICACION"],
+
+      extra_attributes["ES-BILLING-IDENTIFICACION"],
+      extra_attributes["ES-BILLING-TIPO-IDENTIFICACION"],
+
+      extra_attributes["ES-REGISTRANT-IDENTIFICACION"],
+      extra_attributes["ES-REGISTRANT-TIPO-IDENTIFICACION"],
+      extra_attributes["ES-REGISTRANT-FORM-JURIDICA"],
+      extra_attributes["ES-REGISTRANT"],
+
+      extra_attributes["ES-AUTORENEW"],
+      extra_attributes["ES-PETICION"],
+    ]
+  }
 }
 
 resource "inwx_domain" "domain" {
@@ -37,7 +58,7 @@ resource "inwx_domain" "domain" {
 
   lifecycle {
     ignore_changes = [
-      extra_data["IDCARD-OR-PASSPORT-NUMBER"]
+      extra_data["IDCARD-OR-PASSPORT-NUMBER"],
     ]
   }
 }

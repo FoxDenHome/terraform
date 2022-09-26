@@ -1,4 +1,6 @@
 locals {
+  domain_contact_full_name = join(" ", compact([var.domain_contact.first_name, var.domain_contact.middle_name, var.domain_contact.last_name]))
+
   domains = merge({
     "doridian.de" = {
       fastmail          = true,
@@ -8,7 +10,6 @@ locals {
       vanity_nameserver = "doridian.net",
       extra_attributes  = {},
     },
-
     "doridian.net" = {
       fastmail          = true,
       ses               = true,
@@ -16,6 +17,23 @@ locals {
       add_www_cname     = true,
       vanity_nameserver = "doridian.net",
       extra_attributes  = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
+    },
+
+    "f0x.es" = {
+      fastmail          = true,
+      ses               = true,
+      add_root_aname    = true,
+      add_www_cname     = true,
+      vanity_nameserver = "doridian.net",
+      extra_attributes  = {},
+    },
+    "foxcav.es" = {
+      fastmail          = true,
+      ses               = true,
+      add_root_aname    = true,
+      add_www_cname     = true,
+      vanity_nameserver = "doridian.net",
+      extra_attributes  = {},
     },
 
     "foxden.network" = {

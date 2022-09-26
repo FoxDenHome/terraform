@@ -25,7 +25,7 @@ resource "hexonet_contact" "main" {
 resource "inwx_domain_contact" "main" {
   type = "PERSON"
 
-  name = join(" ", compact([var.domain_contact.first_name, var.domain_contact.middle_name, var.domain_contact.last_name]))
+  name = local.domain_contact_full_name
 
   street_address = var.domain_contact.address_line_1
   city           = var.domain_contact.city
