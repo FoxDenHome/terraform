@@ -1,7 +1,7 @@
 locals {
   repositores = {
     docker = {}
-    docs = {
+    website = {
       pages = {
         cname = "spaceage.mp"
       }
@@ -9,7 +9,6 @@ locals {
     StarLord = {
       description = "GMod server manager with updates from git"
     }
-    webstatic     = {}
     TTS           = {}
     space_age_api = {}
     spacebuild    = {}
