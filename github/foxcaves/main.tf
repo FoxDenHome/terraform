@@ -3,9 +3,6 @@ locals {
     site = {
       homepage_url = "https://foxcav.es"
     }
-    base-image = {
-      homepage_url = "https://foxcav.es"
-    }
     sharex = {
       description  = "ShareX config files"
       homepage_url = "https://foxcav.es"

@@ -1,5 +1,6 @@
 locals {
   archived_repositores = {
+    base-image            = {},
     FoxScreen             = {},
     LEGACY_foxCavesChrome = {},
     LEGACY_foxScreen      = {},
