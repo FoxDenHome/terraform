@@ -8,7 +8,6 @@ locals {
       add_root_aname    = true,
       add_www_cname     = true,
       vanity_nameserver = "doridian.net",
-      extra_attributes  = {},
     },
     "doridian.net" = {
       fastmail          = true,
@@ -16,7 +15,6 @@ locals {
       add_root_aname    = true,
       add_www_cname     = true,
       vanity_nameserver = "doridian.net",
-      extra_attributes  = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
 
     "f0x.es" = {
@@ -25,7 +23,6 @@ locals {
       add_root_aname    = true,
       add_www_cname     = true,
       vanity_nameserver = "doridian.net",
-      extra_attributes  = {},
     },
     "foxcav.es" = {
       fastmail          = true,
@@ -33,7 +30,6 @@ locals {
       add_root_aname    = true,
       add_www_cname     = true,
       vanity_nameserver = "doridian.net",
-      extra_attributes  = {},
     },
 
     "foxden.network" = {
@@ -42,7 +38,6 @@ locals {
       add_root_aname    = true,
       add_www_cname     = true,
       vanity_nameserver = "foxden.network",
-      extra_attributes  = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
   }, var.domains)
 
@@ -65,11 +60,11 @@ module "domain" {
   add_www_cname     = each.value.add_www_cname
   vanity_nameserver = try(constellix_vanity_nameserver.vanity[each.value.vanity_nameserver], null)
 
-  extra_attributes = merge({
+  extra_attributes = {
     "WHOIS-URL" = "https://doridian.net",
     "WHOIS-RSP" = "Doridian",
     "WHOIS-BANNER0" : "Foxes are best animal",
-  }, try(each.value.extra_attributes, {}))
+  }
 
   owner_contacts   = local.contacts_map[try(each.value.registrar, "hexonet")]
   admin_contacts   = local.contacts_map[try(each.value.registrar, "hexonet")]

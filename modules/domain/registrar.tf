@@ -34,6 +34,8 @@ resource "hexonet_domain" "domain" {
 
       extra_attributes["ES-AUTORENEW"],
       extra_attributes["ES-PETICION"],
+
+      extra_attributes["ACCEPT-WHOISTRUSTEE-TAC"],
     ]
   }
 }

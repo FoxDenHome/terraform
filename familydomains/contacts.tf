@@ -18,8 +18,6 @@ resource "hexonet_contact" "personal" {
   fax   = var.domain_contact.fax
 
   disclose = false
-
-  extra_attributes = var.domain_contact.extra_attributes
 }
 
 resource "hexonet_contact" "organization" {
@@ -42,6 +40,4 @@ resource "hexonet_contact" "organization" {
   fax   = var.domain_contact.fax
 
   disclose = false
-
-  extra_attributes = var.domain_contact.extra_attributes
 }

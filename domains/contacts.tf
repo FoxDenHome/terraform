@@ -18,8 +18,6 @@ resource "hexonet_contact" "main" {
   fax   = var.domain_contact.fax
 
   disclose = false
-
-  extra_attributes = var.domain_contact.extra_attributes
 }
 
 resource "inwx_domain_contact" "main" {

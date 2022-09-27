@@ -38,8 +38,6 @@ variable "domain_contact" {
     email = string
     fax   = string
     phone = string
-
-    extra_attributes = map(string)
   })
   default = null
 }

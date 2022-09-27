@@ -7,8 +7,6 @@ variable "domains" {
     add_www_cname  = bool
 
     vanity_nameserver = string
-
-    extra_attributes = map(string)
   }))
   default = {}
 }
@@ -53,8 +51,6 @@ variable "domain_contact" {
     email = string
     fax   = string
     phone = string
-
-    extra_attributes = map(string)
   })
   default = null
 }

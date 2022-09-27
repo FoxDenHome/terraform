@@ -5,14 +5,12 @@ locals {
       ses              = true,
       add_www_cname    = false,
       contact          = hexonet_contact.personal.id,
-      extra_attributes = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
     "zoofaeth.de" = {
       fastmail         = false,
       ses              = true,
       add_www_cname    = false,
       contact          = hexonet_contact.organization.id,
-      extra_attributes = {},
     },
   }
 }
@@ -34,7 +32,6 @@ module "domain" {
   fastmail         = each.value.fastmail
   ses              = each.value.ses
   add_www_cname    = each.value.add_www_cname
-  extra_attributes = each.value.extra_attributes
 
   owner_contacts   = [each.value.contact]
   admin_contacts   = [each.value.contact]
