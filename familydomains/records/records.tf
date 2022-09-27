@@ -1,7 +1,7 @@
 resource "constellix_cname_record" "cnames" {
   domain_id = var.domain.id
 
-  for_each = toset(["ftp", "mail", "mysql", "pop", "smtp", "www", "www.mail"])
+  for_each = toset(["ftp", "mail", "mysql", "pop", "smtp", "www.mail"])
 
   type        = "CNAME"
   name        = each.value

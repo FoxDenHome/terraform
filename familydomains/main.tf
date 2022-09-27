@@ -3,13 +3,13 @@ locals {
     "candy-girl.net" = {
       fastmail         = false,
       ses              = true,
-      add_www_cname    = false,
+      add_www_cname    = true,
       contact          = hexonet_contact.personal.id,
     },
     "zoofaeth.de" = {
       fastmail         = false,
       ses              = true,
-      add_www_cname    = false,
+      add_www_cname    = true,
       contact          = hexonet_contact.organization.id,
     },
   }
