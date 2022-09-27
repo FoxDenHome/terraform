@@ -2,41 +2,13 @@ locals {
   domain_contact_full_name = join(" ", compact([var.domain_contact.first_name, var.domain_contact.middle_name, var.domain_contact.last_name]))
 
   domains = merge({
-    "doridian.de" = {
-      fastmail          = true,
-      ses               = true,
-      add_root_aname    = true,
-      add_www_cname     = true,
-      vanity_nameserver = "doridian.net",
-    },
-    "doridian.net" = {
-      fastmail          = true,
-      ses               = true,
-      add_root_aname    = true,
-      add_www_cname     = true,
-      vanity_nameserver = "doridian.net",
-    },
+    "doridian.de"  = {},
+    "doridian.net" = {},
 
-    "f0x.es" = {
-      fastmail          = true,
-      ses               = true,
-      add_root_aname    = true,
-      add_www_cname     = true,
-      vanity_nameserver = "doridian.net",
-    },
-    "foxcav.es" = {
-      fastmail          = true,
-      ses               = true,
-      add_root_aname    = true,
-      add_www_cname     = true,
-      vanity_nameserver = "doridian.net",
-    },
+    "f0x.es"    = {},
+    "foxcav.es" = {},
 
     "foxden.network" = {
-      fastmail          = true,
-      ses               = true,
-      add_root_aname    = true,
-      add_www_cname     = true,
       vanity_nameserver = "foxden.network",
     },
   }, var.domains)
@@ -54,11 +26,11 @@ module "domain" {
 
   domain = each.key
 
-  fastmail          = each.value.fastmail
-  ses               = each.value.ses
-  root_aname        = each.value.add_root_aname ? var.main_domain : null
-  add_www_cname     = each.value.add_www_cname
-  vanity_nameserver = try(constellix_vanity_nameserver.vanity[each.value.vanity_nameserver], null)
+  fastmail          = true
+  ses               = true
+  root_aname        = var.main_domain
+  add_www_cname     = true
+  vanity_nameserver = constellix_vanity_nameserver.vanity[try(each.value.vanity_nameserver, "doridian.net")]
 
   extra_attributes = {
     "WHOIS-URL" = "https://doridian.net",
