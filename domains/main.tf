@@ -44,15 +44,6 @@ locals {
       vanity_nameserver = "foxden.network",
       extra_attributes  = { "ACCEPT-WHOISTRUSTEE-TAC" = "0" },
     },
-
-    "fox.ax" = {
-      fastmail          = true,
-      ses               = true,
-      add_root_aname    = true,
-      add_www_cname     = true,
-      vanity_nameserver = "doridian.net",
-      registrar         = "inwx"
-    },
   }, var.domains)
 
   contacts_map = {
