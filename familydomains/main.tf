@@ -1,16 +1,10 @@
 locals {
   domains = {
     "candy-girl.net" = {
-      fastmail         = false,
-      ses              = true,
-      add_www_cname    = true,
-      contact          = hexonet_contact.personal.id,
+      contact = hexonet_contact.personal.id,
     },
     "zoofaeth.de" = {
-      fastmail         = false,
-      ses              = true,
-      add_www_cname    = true,
-      contact          = hexonet_contact.organization.id,
+      contact = hexonet_contact.organization.id,
     },
   }
 }
@@ -28,10 +22,10 @@ module "domain" {
 
   domain = each.key
 
-  root_aname       = var.server_domain
-  fastmail         = each.value.fastmail
-  ses              = each.value.ses
-  add_www_cname    = each.value.add_www_cname
+  root_aname    = var.server_domain
+  fastmail      = false
+  ses           = true
+  add_www_cname = true
 
   owner_contacts   = [each.value.contact]
   admin_contacts   = [each.value.contact]
