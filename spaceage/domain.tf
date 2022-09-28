@@ -15,7 +15,7 @@ module "domain" {
 
   fastmail          = true
   ses               = true
-  root_aname        = "spaceagemp.github.io"
+  root_aname        = "redfox.doridian.net"
   add_www_cname     = true
   vanity_nameserver = data.constellix_vanity_nameserver.spaceage
   registrar         = "dotmp"
