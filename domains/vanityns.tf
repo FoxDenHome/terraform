@@ -1,5 +1,5 @@
 resource "constellix_vanity_nameserver" "vanity" {
-  for_each = { for k, zone in local.domains : try(zone.vanity_nameserver, "doridian.net") => true... if try(zone.vanity_nameserver, "doridian.net") != null }
+  for_each = { for k, zone in local.domains : try(zone.vanity_nameserver, local.default_vanity_nameserver) => true... if try(zone.vanity_nameserver, local.default_vanity_nameserver) != null }
 
   name                   = each.key
   nameserver_group       = 1

@@ -9,10 +9,12 @@ locals {
     // Tunnelbroker IPv6 /48
     "0.2.8.e.0.7.4.0.1.0.0.2.ip6.arpa" = {},
   }, var.domains)
+
+  default_vanity_nameserver = "doridian.net"
 }
 
 data "constellix_vanity_nameserver" "vanity" {
-  for_each = { for k, zone in local.domains : try(zone.vanity_nameserver, "doridian.net") => true... if try(zone.vanity_nameserver, "doridian.net") != null }
+  for_each = { for k, zone in local.domains : try(zone.vanity_nameserver, local.default_vanity_nameserver) => true... if try(zone.vanity_nameserver, local.default_vanity_nameserver) != null }
 
   name = each.key
 }
@@ -27,7 +29,7 @@ module "domain" {
   fastmail          = false
   ses               = false
   add_www_cname     = false
-  vanity_nameserver = try(each.value.vanity_nameserver, "doridian.net") != null ? data.constellix_vanity_nameserver.vanity[try(each.value.vanity_nameserver, "doridian.net")] : null
+  vanity_nameserver = try(each.value.vanity_nameserver, local.default_vanity_nameserver) != null ? data.constellix_vanity_nameserver.vanity[try(each.value.vanity_nameserver, local.default_vanity_nameserver)] : null
 
   registrar = ""
 }
