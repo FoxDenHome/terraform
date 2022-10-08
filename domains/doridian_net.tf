@@ -12,7 +12,7 @@ resource "constellix_a_record" "doridian_net_redfox_a" {
   source_type = "domains"
 
   roundrobin {
-    value        = "66.42.78.232"
+    value        = "66.42.76.73"
     disable_flag = false
   }
 }
