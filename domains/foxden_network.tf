@@ -67,3 +67,48 @@ resource "constellix_ns_record" "foxden_network_dyn" {
     }
   }
 }
+
+resource "constellix_ns_record" "foxden_home_rdns" {
+  for_each = toset(["ip6", "ip4"])
+
+  domain_id = local.foxden_network_domain
+
+  type        = "NS"
+  name        = each.value
+  ttl         = 86400
+  source_type = "domains"
+
+  roundrobin {
+    value        = "ns-ip.foxden.network."
+    disable_flag = false
+  }
+}
+
+
+resource "constellix_a_record" "foxden_home_rdns" {
+  domain_id = local.foxden_network_domain
+
+  type        = "A"
+  name        = "ns-ip"
+  ttl         = 86400
+  source_type = "domains"
+
+  roundrobin {
+    value        = "66.42.71.230"
+    disable_flag = false
+  }
+}
+
+resource "constellix_aaaa_record" "foxden_home_rdns" {
+  domain_id = local.foxden_network_domain
+
+  type        = "AAAA"
+  name        = "ns-ip"
+  ttl         = 86400
+  source_type = "domains"
+
+  roundrobin {
+    value        = "2a0e:7d44:f000::e621"
+    disable_flag = false
+  }
+}
