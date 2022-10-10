@@ -108,7 +108,7 @@ resource "constellix_aaaa_record" "foxden_home_rdns" {
   source_type = "domains"
 
   roundrobin {
-    value        = "2a0e:7d44:f000::e621"
+    value        = "2a0e:7d44:f000:0:0:0:0:e621"
     disable_flag = false
   }
 }
