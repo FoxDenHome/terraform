@@ -25,6 +25,7 @@ locals {
     scripts            = {}
     sshkeys            = {}
     sni-vhost-proxy    = {}
+    foxdns             = {}
   }
 
   members = {
