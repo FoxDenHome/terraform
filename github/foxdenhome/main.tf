@@ -19,8 +19,6 @@ locals {
     ntp                = {}
     islandfox          = {}
     nas                = {}
-    "3dprinter-config" = {}
-    desk-control       = {}
     backup             = {}
     scripts            = {}
     sshkeys            = {}

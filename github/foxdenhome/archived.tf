@@ -1,8 +1,10 @@
 locals {
   archived_repositores = {
-    HAMqttDevice        = {},
-    docker-sriov-plugin = {},
-    tapemgr             = {},
+    HAMqttDevice        = {}
+    docker-sriov-plugin = {}
+    tapemgr             = {}
+    "3dprinter-config"  = {}
+    desk-control        = {}
   }
 }
 
