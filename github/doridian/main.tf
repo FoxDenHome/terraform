@@ -64,6 +64,17 @@ locals {
     go-haws       = {}
     gitbackup     = {}
 
+    BambuProfiles = {
+      description = "Profiles for Bambu Lab printers"
+    }
+    OpenBambuAPI = {
+      description = "Bambu API docs"
+    }
+
+    fakerfs = {
+      description = "FUSE filesystem that can overlay fake files on top of a real filesystem"
+    }
+
     # Forks
     picotcp = {
       description       = "PicoTCP is a free TCP/IP stack implementation"
@@ -91,6 +102,11 @@ locals {
     }
     gopacket = {
       description       = "Provides packet processing capabilities for Go"
+      branch_protection = false
+    }
+
+    BambuSource2Raw = {
+      description       = "Get raw webcam stream of BambuLabX1 3D printer"
       branch_protection = false
     }
   }
