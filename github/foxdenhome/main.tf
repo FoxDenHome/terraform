@@ -7,6 +7,7 @@ locals {
       branch_protection = false
     }
     NixieClockDori = {}
+    PaperESP32     = {}
     LCDify         = {}
     terraform      = {}
     e621dumper     = {}
@@ -15,15 +16,15 @@ locals {
     router = {
       branch_protection = false
     }
-    CC1101Duino        = {}
-    ntp                = {}
-    islandfox          = {}
-    nas                = {}
-    backup             = {}
-    scripts            = {}
-    sshkeys            = {}
-    sni-vhost-proxy    = {}
-    foxdns             = {}
+    CC1101Duino     = {}
+    ntp             = {}
+    islandfox       = {}
+    nas             = {}
+    backup          = {}
+    scripts         = {}
+    sshkeys         = {}
+    sni-vhost-proxy = {}
+    foxdns          = {}
   }
 
   members = {
