@@ -38,17 +38,30 @@ resource "constellix_a_record" "foxden_network_nas_ro" {
   }
 }
 
-resource "constellix_cname_record" "foxden_network_router" {
+resource "constellix_cname_record" "foxden_network_wan" {
   domain_id = local.foxden_network_domain
 
-  for_each = toset(["router", "vpn", "factorio"])
+  for_each = toset(["vpn", "factorio"])
 
   type        = "CNAME"
   name        = each.value
   ttl         = 3600
   source_type = "domains"
 
-  host = "router.dyn.foxden.network."
+  host = "wan.dyn.foxden.network."
+}
+
+resource "constellix_cname_record" "foxden_network_todyn" {
+  domain_id = local.foxden_network_domain
+
+  for_each = toset(["router", "router-backup"])
+
+  type        = "CNAME"
+  name        = each.value
+  ttl         = 3600
+  source_type = "domains"
+
+  host = "${each.value}.dyn.foxden.network."
 }
 
 resource "constellix_ns_record" "foxden_network_dyn" {
