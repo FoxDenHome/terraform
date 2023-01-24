@@ -2,15 +2,17 @@ resource "hexonet_domain" "domain" {
   count  = var.registrar == "hexonet" ? 1 : 0
   domain = var.domain
 
-  name_servers = local.has_vanity_ns ? local.vanity_ns_list : local.constellix_ns_list
+  name_servers = local.has_vanity_ns ? local.vanity_ns_list : local.cloudns_ns_list
 
   owner_contacts   = var.owner_contacts
   admin_contacts   = var.admin_contacts
   tech_contacts    = var.tech_contacts
   billing_contacts = var.billing_contacts
 
-  dnssec_ds_records     = [local.dnssec_ds_record]
-  dnssec_dnskey_records = [local.dnssec_dnskey_record]
+  dnssec_ds_records     = []
+  dnssec_dnskey_records = []
+  #dnssec_ds_records     = [local.dnssec_ds_record]
+  #dnssec_dnskey_records = [local.dnssec_dnskey_record]
 
   extra_attributes = var.extra_attributes
   status = [
@@ -47,7 +49,7 @@ resource "inwx_domain" "domain" {
   count = var.registrar == "inwx" ? 1 : 0
   name  = var.domain
 
-  nameservers = local.has_vanity_ns ? local.vanity_ns_list : local.constellix_ns_list
+  nameservers = local.has_vanity_ns ? local.vanity_ns_list : local.cloudns_ns_list
 
   contacts {
     registrant = one(var.owner_contacts)

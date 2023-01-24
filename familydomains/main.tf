@@ -12,7 +12,7 @@ module "records" {
   for_each = local.domains
   source   = "./records"
 
-  domain = module.domain[each.key].domain
+  zone = each.key
 }
 
 module "domain" {

@@ -1,33 +1,20 @@
-resource "constellix_mx_record" "smtp" {
-  count     = var.fastmail ? 1 : 0
-  domain_id = constellix_domain.domain.id
+resource "cloudns_dns_record" "smtp" {
+  count = var.fastmail ? 2 : 0
+  zone  = var.domain
 
-  name        = ""
-  type        = "MX"
-  ttl         = 3600
-  source_type = "domains"
-
-  roundrobin {
-    value        = "in1-smtp.messagingengine.com."
-    level        = 10
-    disable_flag = false
-  }
-
-  roundrobin {
-    value        = "in2-smtp.messagingengine.com."
-    level        = 20
-    disable_flag = false
-  }
+  name     = ""
+  type     = "MX"
+  ttl      = 3600
+  value    = "in${count.index + 1}-smtp.messagingengine.com"
+  priority = 10 * (count.index + 1)
 }
 
-resource "constellix_cname_record" "dkim" {
-  count     = var.fastmail ? 3 : 0
-  domain_id = constellix_domain.domain.id
+resource "cloudns_dns_record" "dkim" {
+  count = var.fastmail ? 3 : 0
+  zone  = var.domain
 
-  name        = "fm${count.index + 1}._domainkey"
-  type        = "CNAME"
-  ttl         = 3600
-  source_type = "domains"
-
-  host = "fm${count.index + 1}.${var.domain}.dkim.fmhosted.com."
+  name  = "fm${count.index + 1}._domainkey"
+  type  = "CNAME"
+  ttl   = 3600
+  value = "fm${count.index + 1}.${var.domain}.dkim.fmhosted.com"
 }

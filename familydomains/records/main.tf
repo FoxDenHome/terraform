@@ -1,8 +1,8 @@
 terraform {
   required_providers {
-    constellix = {
-      source  = "Constellix/constellix"
-      version = "~> 0.4"
+    cloudns = {
+      source  = "mangadex-pub/cloudns"
+      version = "0.2.0"
     }
   }
 }

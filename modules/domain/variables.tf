@@ -21,9 +21,8 @@ variable "ses" {
 
 variable "vanity_nameserver" {
   type = object({
-    id                     = string
-    name                   = string
-    nameserver_list_string = string
+    name = string
+    list = list(string)
   })
   default = null
 }

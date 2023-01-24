@@ -32,7 +32,7 @@ module "domain" {
   ses               = true
   root_aname        = var.main_domain
   add_www_cname     = true
-  vanity_nameserver = constellix_vanity_nameserver.vanity[try(each.value.vanity_nameserver, local.default_vanity_nameserver)]
+  vanity_nameserver = local.vanity_nameservers[try(each.value.vanity_nameserver, local.default_vanity_nameserver)]
 
   extra_attributes = {
     "WHOIS-URL" = "https://doridian.net",
