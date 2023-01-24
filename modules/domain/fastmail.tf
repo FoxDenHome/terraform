@@ -1,33 +1,24 @@
-resource "constellix_mx_record" "smtp" {
-  count     = var.fastmail ? 1 : 0
-  domain_id = constellix_domain.domain.id
+resource "cloudflare_record" "smtp" {
+  for_each = var.fastmail ? {
+    "in1-smtp.messagingengine.com." : 10,
+    "in2-smtp.messagingengine.com." : 20,
+  } : {}
+  zone_id = cloudflare_zone.zone.id
 
-  name        = ""
-  type        = "MX"
-  ttl         = 3600
-  source_type = "domains"
+  name = "@"
+  type = "MX"
+  ttl  = 3600
 
-  roundrobin {
-    value        = "in1-smtp.messagingengine.com."
-    level        = 10
-    disable_flag = false
-  }
-
-  roundrobin {
-    value        = "in2-smtp.messagingengine.com."
-    level        = 20
-    disable_flag = false
-  }
+  value    = each.key
+  priority = each.value
 }
 
-resource "constellix_cname_record" "dkim" {
-  count     = var.fastmail ? 3 : 0
-  domain_id = constellix_domain.domain.id
+resource "cloudflare_record" "dkim" {
+  count   = var.fastmail ? 3 : 0
+  zone_id = cloudflare_zone.zone.id
 
-  name        = "fm${count.index + 1}._domainkey"
-  type        = "CNAME"
-  ttl         = 3600
-  source_type = "domains"
-
-  host = "fm${count.index + 1}.${var.domain}.dkim.fmhosted.com."
+  name  = "fm${count.index + 1}._domainkey"
+  type  = "CNAME"
+  ttl   = 3600
+  value = "fm${count.index + 1}.${var.domain}.dkim.fmhosted.com."
 }

@@ -1,26 +1,20 @@
-resource "constellix_cname_record" "cnames" {
-  domain_id = var.domain.id
-
+resource "cloudflare_record" "cnames" {
   for_each = toset(["ftp", "mail", "mysql", "pop", "smtp", "www.mail"])
+  zone_id  = var.zone.id
 
-  type        = "CNAME"
-  name        = each.value
-  ttl         = 3600
-  source_type = "domains"
-
-  host = "${var.domain.name}."
+  type  = "CNAME"
+  name  = each.value
+  ttl   = 3600
+  value = "${var.zone.zone}."
 }
 
-resource "constellix_mx_record" "mx" {
-  domain_id = var.domain.id
+resource "cloudflare_record" "mx" {
+  zone_id = var.zone.id
 
-  type        = "MX"
-  name        = ""
-  ttl         = 3600
-  source_type = "domains"
+  type = "MX"
+  name = "@"
+  ttl  = 3600
 
-  roundrobin {
-    value = "${var.server}."
-    level = 1
-  }
+  value    = "${var.server}."
+  priority = 1
 }

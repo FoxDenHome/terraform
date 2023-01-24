@@ -1,25 +1,21 @@
 locals {
-  f0x_es_domain = module.domain["f0x.es"].domain.id
+  f0x_es_zone = module.domain["f0x.es"].zone.id
 }
 
-resource "constellix_cname_record" "f0x_es_c0de" {
-  domain_id = local.f0x_es_domain
+resource "cloudflare_record" "f0x_es_c0de" {
+  zone_id = local.f0x_es_zone
 
-  type        = "CNAME"
-  name        = "c0de"
-  ttl         = 3600
-  source_type = "domains"
-
-  host = "c0defox.es."
+  type  = "CNAME"
+  name  = "c0de"
+  ttl   = 3600
+  value = "c0defox.es."
 }
 
-resource "constellix_cname_record" "f0x_es_vixus" {
-  domain_id = local.f0x_es_domain
+resource "cloudflare_record" "f0x_es_vixus" {
+  zone_id = local.f0x_es_zone
 
-  type        = "CNAME"
-  name        = "vixus"
-  ttl         = 3600
-  source_type = "domains"
-
-  host = "arcticfox.doridian.net."
+  type  = "CNAME"
+  name  = "vixus"
+  ttl   = 3600
+  value = "arcticfox.doridian.net."
 }

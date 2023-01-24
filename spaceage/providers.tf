@@ -1,8 +1,8 @@
 terraform {
   required_providers {
-    constellix = {
-      source  = "Constellix/constellix"
-      version = "~> 0.4"
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 3.0"
     }
 
     aws = {
@@ -35,12 +35,6 @@ terraform {
 
 provider "aws" {
   region = "us-east-1"
-}
-
-provider "constellix" {
-  insecure  = false
-  apikey    = var.constellix_apikey
-  secretkey = var.constellix_secretkey
 }
 
 provider "hexonet" {

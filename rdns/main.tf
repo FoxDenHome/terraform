@@ -24,12 +24,6 @@ locals {
   default_vanity_nameserver = "doridian.net"
 }
 
-data "constellix_vanity_nameserver" "vanity" {
-  for_each = { for k, zone in local.domains : try(zone.vanity_nameserver, local.default_vanity_nameserver) => true... if try(zone.vanity_nameserver, local.default_vanity_nameserver) != null }
-
-  name = each.key
-}
-
 module "domain" {
   source = "../modules/domain"
 
@@ -37,26 +31,20 @@ module "domain" {
 
   domain = each.key
 
-  fastmail          = false
-  ses               = false
-  add_www_cname     = false
-  vanity_nameserver = try(each.value.vanity_nameserver, local.default_vanity_nameserver) != null ? data.constellix_vanity_nameserver.vanity[try(each.value.vanity_nameserver, local.default_vanity_nameserver)] : null
+  fastmail      = false
+  ses           = false
+  add_www_cname = false
 
   registrar = ""
 }
 
-resource "constellix_ns_record" "foxden_home_rdns" {
+resource "cloudflare_record" "foxden_home_rdns" {
   count = length(local.foxden_home_rdns)
 
-  domain_id = module.domain[local.foxden_home_rdns[count.index].zone].domain.id
+  zone_id = module.domain[local.foxden_home_rdns[count.index].zone].zone.id
 
-  type        = "NS"
-  name        = local.foxden_home_rdns[count.index].subzone
-  ttl         = 86400
-  source_type = "domains"
-
-  roundrobin {
-    value        = "ns-ip.foxden.network."
-    disable_flag = false
-  }
+  type  = "NS"
+  name  = local.foxden_home_rdns[count.index].subzone
+  ttl   = 86400
+  value = "ns-ip.foxden.network."
 }

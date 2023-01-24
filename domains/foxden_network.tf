@@ -1,127 +1,93 @@
 locals {
-  foxden_network_domain = module.domain["foxden.network"].domain.id
+  foxden_network_zone = module.domain["foxden.network"].zone.id
 }
 
-resource "constellix_cname_record" "foxden_network_wildcard" {
-  domain_id = local.foxden_network_domain
+resource "cloudflare_record" "foxden_network_wildcard" {
+  zone_id = local.foxden_network_zone
 
-  type        = "CNAME"
-  name        = "*"
-  ttl         = 3600
-  source_type = "domains"
-
-  host = "redfox.doridian.net."
+  type  = "CNAME"
+  name  = "*"
+  ttl   = 3600
+  value = "redfox.doridian.net."
 }
 
-resource "constellix_cname_record" "foxden_network_ntp" {
-  domain_id = local.foxden_network_domain
+resource "cloudflare_record" "foxden_network_ntp" {
+  zone_id = local.foxden_network_zone
 
-  type        = "CNAME"
-  name        = "ntp"
-  ttl         = 3600
-  source_type = "domains"
-
-  host = "ntp.dyn.foxden.network."
+  type  = "CNAME"
+  name  = "ntp"
+  ttl   = 3600
+  value = "ntp.dyn.foxden.network."
 }
 
-resource "constellix_a_record" "foxden_network_nas_ro" {
-  domain_id = local.foxden_network_domain
+resource "cloudflare_record" "foxden_network_nas_ro" {
+  zone_id = local.foxden_network_zone
 
-  type        = "A"
-  name        = "nas-ro"
-  ttl         = 3600
-  source_type = "domains"
-
-  roundrobin {
-    value        = "116.202.171.116"
-    disable_flag = false
-  }
+  type  = "A"
+  name  = "nas-ro"
+  ttl   = 3600
+  value = "116.202.171.116"
 }
 
-resource "constellix_cname_record" "foxden_network_wan" {
-  domain_id = local.foxden_network_domain
+resource "cloudflare_record" "foxden_network_wan" {
+  zone_id = local.foxden_network_zone
 
   for_each = toset(["vpn", "factorio"])
 
-  type        = "CNAME"
-  name        = each.value
-  ttl         = 3600
-  source_type = "domains"
-
-  host = "wan.dyn.foxden.network."
+  type  = "CNAME"
+  name  = each.value
+  ttl   = 3600
+  value = "wan.dyn.foxden.network."
 }
 
-resource "constellix_cname_record" "foxden_network_todyn" {
-  domain_id = local.foxden_network_domain
+resource "cloudflare_record" "foxden_network_todyn" {
+  zone_id = local.foxden_network_zone
 
   for_each = toset(["router", "router-backup"])
 
-  type        = "CNAME"
-  name        = each.value
-  ttl         = 3600
-  source_type = "domains"
-
-  host = "${each.value}.dyn.foxden.network."
+  type  = "CNAME"
+  name  = each.value
+  ttl   = 3600
+  value = "${each.value}.dyn.foxden.network."
 }
 
-resource "constellix_ns_record" "foxden_network_dyn" {
-  domain_id = local.foxden_network_domain
+resource "cloudflare_record" "foxden_network_dyn" {
+  zone_id = local.foxden_network_zone
 
-  type        = "NS"
-  name        = "dyn"
-  ttl         = 86400
-  source_type = "domains"
+  for_each = toset(["ns1.he.net.", "ns2.he.net.", "ns3.he.net.", "ns4.he.net.", "ns5.he.net."])
 
-  dynamic "roundrobin" {
-    for_each = toset(["ns1.he.net.", "ns2.he.net.", "ns3.he.net.", "ns4.he.net.", "ns5.he.net."])
-    content {
-      value        = roundrobin.value
-      disable_flag = false
-    }
-  }
+  type  = "NS"
+  name  = "dyn"
+  ttl   = 86400
+  value = each.value
 }
 
-resource "constellix_ns_record" "foxden_home_rdns" {
+resource "cloudflare_record" "foxden_home_rdns_ns" {
   for_each = toset(["ip6", "ip4"])
 
-  domain_id = local.foxden_network_domain
+  zone_id = local.foxden_network_zone
 
-  type        = "NS"
-  name        = each.value
-  ttl         = 86400
-  source_type = "domains"
-
-  roundrobin {
-    value        = "ns-ip.foxden.network."
-    disable_flag = false
-  }
+  type  = "NS"
+  name  = each.value
+  ttl   = 86400
+  value = "ns-ip.foxden.network."
 }
 
 
-resource "constellix_a_record" "foxden_home_rdns" {
-  domain_id = local.foxden_network_domain
+resource "cloudflare_record" "foxden_home_rdns_a" {
+  zone_id = local.foxden_network_zone
 
-  type        = "A"
-  name        = "ns-ip"
-  ttl         = 86400
-  source_type = "domains"
-
-  roundrobin {
-    value        = "66.42.71.230"
-    disable_flag = false
-  }
+  type  = "A"
+  name  = "ns-ip"
+  ttl   = 86400
+  value = "66.42.71.230"
 }
 
-resource "constellix_aaaa_record" "foxden_home_rdns" {
-  domain_id = local.foxden_network_domain
+resource "cloudflare_record" "foxden_home_rdns_aaaa" {
+  zone_id = local.foxden_network_zone
 
-  type        = "AAAA"
-  name        = "ns-ip"
-  ttl         = 86400
-  source_type = "domains"
-
-  roundrobin {
-    value        = "2a0e:7d44:f000:0:0:0:0:e621"
-    disable_flag = false
-  }
+  type  = "AAAA"
+  name  = "ns-ip"
+  ttl   = 86400
+  value = "2a0e:7d44:f000:0:0:0:0:e621"
 }

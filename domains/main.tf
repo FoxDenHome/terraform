@@ -8,17 +8,13 @@ locals {
     "f0x.es"    = {},
     "foxcav.es" = {},
 
-    "foxden.network" = {
-      vanity_nameserver = "foxden.network",
-    },
+    "foxden.network" = {},
   }, var.domains)
 
   contacts_map = {
     "hexonet" = [hexonet_contact.main.id],
     "inwx"    = [inwx_domain_contact.main.id],
   }
-
-  default_vanity_nameserver = "doridian.net"
 }
 
 module "domain" {
@@ -28,11 +24,10 @@ module "domain" {
 
   domain = each.key
 
-  fastmail          = true
-  ses               = true
-  root_aname        = var.main_domain
-  add_www_cname     = true
-  vanity_nameserver = constellix_vanity_nameserver.vanity[try(each.value.vanity_nameserver, local.default_vanity_nameserver)]
+  fastmail      = true
+  ses           = true
+  root_aname    = var.main_domain
+  add_www_cname = true
 
   extra_attributes = {
     "WHOIS-URL" = "https://doridian.net",

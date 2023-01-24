@@ -63,7 +63,7 @@ resource "aws_acm_certificate" "tts_certificate" {
   }
 }
 
-resource "constellix_cname_record" "tts_validation_record" {
+resource "cloudflare_record" "tts_validation_record" {
   for_each = {
     for dvo in aws_acm_certificate.tts_certificate.domain_validation_options : "${dvo.resource_record_name}@${dvo.resource_record_type}" => {
       name  = dvo.resource_record_name
@@ -72,14 +72,12 @@ resource "constellix_cname_record" "tts_validation_record" {
     }
   }
 
-  domain_id = local.domain_id
+  zone_id = local.zone_id
 
-  type        = each.value.type
-  name        = trimsuffix(each.value.name, ".${local.main_domain}.")
-  ttl         = 3600
-  source_type = "domains"
-
-  host = each.value.value
+  type  = each.value.type
+  name  = trimsuffix(each.value.name, ".${local.main_domain}.")
+  ttl   = 3600
+  value = each.value.value
 }
 
 resource "aws_cloudfront_distribution" "tts_distribution" {
@@ -127,13 +125,11 @@ resource "aws_cloudfront_distribution" "tts_distribution" {
   }
 }
 
-resource "constellix_cname_record" "tts_cdn" {
-  domain_id = local.domain_id
+resource "cloudflare_record" "tts_cdn" {
+  zone_id = local.zone_id
 
-  type        = "CNAME"
-  name        = "tts-cdn"
-  ttl         = 3600
-  source_type = "domains"
-
-  host = "${aws_cloudfront_distribution.tts_distribution.domain_name}."
+  type  = "CNAME"
+  name  = "tts-cdn"
+  ttl   = 3600
+  value = "${aws_cloudfront_distribution.tts_distribution.domain_name}."
 }

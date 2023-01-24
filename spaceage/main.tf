@@ -1,4 +1,4 @@
 locals {
-  domain_id   = module.domain.domain.id
+  zone_id     = module.domain.zone.id
   main_domain = "spaceage.mp"
 }

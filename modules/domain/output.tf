@@ -1,3 +1,3 @@
-output "domain" {
-  value = constellix_domain.domain
+output "zone" {
+  value = cloudflare_zone.zone
 }
