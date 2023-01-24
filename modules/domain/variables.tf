@@ -10,6 +10,11 @@ variable "domain" {
   type = string
 }
 
+variable "disable_dnssec" {
+  type    = bool
+  default = false
+}
+
 variable "fastmail" {
   type = bool
 }

@@ -10,6 +10,7 @@ locals {
 
     "foxden.network" = {
       vanity_nameserver = "foxden.network",
+      disable_dnssec    = true,
     },
   }, var.domains)
 
@@ -33,6 +34,8 @@ module "domain" {
   root_aname        = var.main_domain
   add_www_cname     = true
   vanity_nameserver = local.vanity_nameservers[try(each.value.vanity_nameserver, local.default_vanity_nameserver)]
+
+  disable_dnssec = try(each.value.disable_dnssec, false)
 
   cloudns_auth_id  = var.cloudns_auth_id
   cloudns_password = var.cloudns_password

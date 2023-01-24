@@ -9,6 +9,7 @@ resource "hexonet_domain" "domain" {
   tech_contacts    = var.tech_contacts
   billing_contacts = var.billing_contacts
 
+  # Only provide DS records, otherwise Hexonet yells at us...
   #dnssec_ds_records     = local.dnssec_ds_records
   dnssec_dnskey_records = local.dnssec_dnskey_records
 
@@ -39,6 +40,8 @@ resource "hexonet_domain" "domain" {
       extra_attributes["ES-PETICION"],
 
       extra_attributes["ACCEPT-WHOISTRUSTEE-TAC"],
+
+      dnssec_ds_records,  # Only provide DS records, otherwise Hexonet yells at us...
     ]
   }
 }
