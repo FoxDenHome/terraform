@@ -9,10 +9,8 @@ resource "hexonet_domain" "domain" {
   tech_contacts    = var.tech_contacts
   billing_contacts = var.billing_contacts
 
-  dnssec_ds_records     = []
-  dnssec_dnskey_records = []
-  #dnssec_ds_records     = [local.dnssec_ds_record]
-  #dnssec_dnskey_records = [local.dnssec_dnskey_record]
+  #dnssec_ds_records     = local.dnssec_ds_records
+  dnssec_dnskey_records = local.dnssec_dnskey_records
 
   extra_attributes = var.extra_attributes
   status = [

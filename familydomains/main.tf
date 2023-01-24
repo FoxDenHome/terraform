@@ -22,6 +22,9 @@ module "domain" {
 
   domain = each.key
 
+  cloudns_auth_id = var.cloudns_auth_id
+  cloudns_password = var.cloudns_password
+
   root_aname    = var.server_domain
   fastmail      = false
   ses           = true

@@ -8,9 +8,6 @@ locals {
 
   extra_attributes = merge({
   }, var.extra_attributes)
-
-  #dnssec_ds_record     = "${cloudflare_zone_dnssec.zone.key_tag} ${cloudflare_zone_dnssec.zone.algorithm} ${cloudflare_zone_dnssec.zone.digest_type} ${cloudflare_zone_dnssec.zone.digest}"
-  #dnssec_dnskey_record = "${cloudflare_zone_dnssec.zone.flags} 3 ${cloudflare_zone_dnssec.zone.algorithm} ${cloudflare_zone_dnssec.zone.public_key}"
 }
 
 module "ses" {

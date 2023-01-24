@@ -34,6 +34,9 @@ module "domain" {
   add_www_cname     = true
   vanity_nameserver = local.vanity_nameservers[try(each.value.vanity_nameserver, local.default_vanity_nameserver)]
 
+  cloudns_auth_id = var.cloudns_auth_id
+  cloudns_password = var.cloudns_password
+
   extra_attributes = {
     "WHOIS-URL" = "https://doridian.net",
     "WHOIS-RSP" = "Doridian",
