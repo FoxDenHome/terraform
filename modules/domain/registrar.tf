@@ -2,7 +2,7 @@ resource "hexonet_domain" "domain" {
   count  = var.registrar == "hexonet" ? 1 : 0
   domain = var.domain
 
-  name_servers = cloudflare_zone.zone.name_servers
+  name_servers = local.has_vanity_ns ? local.vanity_ns_list : local.constellix_ns_list
 
   owner_contacts   = var.owner_contacts
   admin_contacts   = var.admin_contacts
@@ -47,7 +47,7 @@ resource "inwx_domain" "domain" {
   count = var.registrar == "inwx" ? 1 : 0
   name  = var.domain
 
-  nameservers = cloudflare_zone.zone.name_servers
+  nameservers = local.has_vanity_ns ? local.vanity_ns_list : local.constellix_ns_list
 
   contacts {
     registrant = one(var.owner_contacts)

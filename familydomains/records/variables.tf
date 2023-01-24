@@ -1,7 +1,7 @@
-variable "zone" {
+variable "domain" {
   type = object({
     id   = string
-    zone = string
+    name = string
   })
 }
 

@@ -1,8 +1,8 @@
 terraform {
   required_providers {
-    cloudflare = {
-      source  = "cloudflare/cloudflare"
-      version = "~> 3.0"
+    constellix = {
+      source  = "Constellix/constellix"
+      version = "~> 0.4"
     }
 
     aws = {

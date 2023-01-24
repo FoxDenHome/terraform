@@ -1,5 +1,5 @@
-output "zone" {
-  value = cloudflare_zone.zone
+output "domain" {
+  value = constellix_domain.domain
 }
 
 output "dnssec" {

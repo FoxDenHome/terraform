@@ -10,23 +10,30 @@ resource "aws_ses_domain_mail_from" "ses_mailfrom" {
   mail_from_domain = local.mail_from_domain
 }
 
-resource "cloudflare_record" "ses_mailfrom_mx" {
-  zone_id = var.zone.id
+resource "constellix_mx_record" "ses_mailfrom" {
+  domain_id = var.domain.id
 
-  name = local.mail_from_host
-  type = "MX"
-  ttl  = 3600
+  name        = local.mail_from_host
+  type        = "MX"
+  ttl         = 3600
+  source_type = "domains"
 
-  value    = "feedback-smtp.${data.aws_region.current.name}.amazonses.com."
-  priority = 10
+  roundrobin {
+    value        = "feedback-smtp.${data.aws_region.current.name}.amazonses.com."
+    level        = 10
+    disable_flag = false
+  }
 }
 
-resource "cloudflare_record" "ses_mailfrom_txt" {
-  zone_id = var.zone.id
+resource "constellix_txt_record" "ses_mailfrom" {
+  domain_id = var.domain.id
 
-  name = local.mail_from_host
-  type = "TXT"
-  ttl  = 3600
+  name        = local.mail_from_host
+  type        = "TXT"
+  ttl         = 3600
+  source_type = "domains"
 
-  value = "v=spf1 include:amazonses.com -all"
+  roundrobin {
+    value = "v=spf1 include:amazonses.com -all"
+  }
 }
