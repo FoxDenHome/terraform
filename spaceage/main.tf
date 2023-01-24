@@ -7,7 +7,7 @@ module "domain" {
 
   domain = local.main_domain
 
-  cloudns_auth_id = var.cloudns_auth_id
+  cloudns_auth_id  = var.cloudns_auth_id
   cloudns_password = var.cloudns_password
 
   fastmail      = true
