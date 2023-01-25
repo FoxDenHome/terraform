@@ -7,15 +7,6 @@ resource "cloudns_dns_record" "foxden_network_wildcard" {
   value = "redfox.doridian.net"
 }
 
-resource "cloudns_dns_record" "foxden_network_ntp" {
-  zone = "foxden.network"
-
-  type  = "CNAME"
-  name  = "ntp"
-  ttl   = 3600
-  value = "ntp.dyn.foxden.network"
-}
-
 resource "cloudns_dns_record" "foxden_network_nas_ro" {
   zone = "foxden.network"
 
@@ -33,18 +24,7 @@ resource "cloudns_dns_record" "foxden_network_wan" {
   type  = "CNAME"
   name  = each.value
   ttl   = 3600
-  value = "wan.dyn.foxden.network"
-}
-
-resource "cloudns_dns_record" "foxden_network_todyn" {
-  zone = "foxden.network"
-
-  for_each = toset(["router", "router-backup"])
-
-  type  = "CNAME"
-  name  = each.value
-  ttl   = 3600
-  value = "${each.value}.dyn.foxden.network"
+  value = "wan.foxden.network"
 }
 
 resource "cloudns_dns_record" "foxden_network_dyn" {
@@ -84,4 +64,19 @@ resource "cloudns_dns_record" "foxden_home_rdns_aaaa" {
   name  = "ns-ip"
   ttl   = 86400
   value = "2a0e:7d44:f000:0:0:0:0:e621"
+}
+
+resource "cloudns_dns_record" "foxden_home_dyn" {
+  zone = "foxden.network"
+
+  for_each = toset(["wan", "ntp", "router", "router-backup"])
+
+  type  = "A"
+  name  = each.value
+  ttl   = 300
+  value = "127.0.0.1"
+
+  lifecycle {
+    ignore_changes = [value]
+  }
 }
