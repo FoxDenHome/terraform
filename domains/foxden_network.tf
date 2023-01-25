@@ -1,14 +1,22 @@
 locals {
-    foxden_network_redfox = toset(["redfox-ext", "ns-ip"])
+  foxden_network_redfox = toset(["redfox", "ns-ip"])
 }
 
-resource "cloudns_dns_record" "foxden_network_wildcard" {
+resource "cloudns_dns_record" "foxden_network_redfox" {
+  for_each = toset([
+    "akvorado",
+    "git",
+    "grafana",
+    "homeassistant",
+    "nas",
+    "signtools",
+  ])
   zone = "foxden.network"
 
-  type  = "CNAME"
-  name  = "*"
+  type  = "ALIAS"
+  name  = each.value
   ttl   = 3600
-  value = "redfox-ext.foxden.network"
+  value = "redfox.foxden.network"
 }
 
 resource "cloudns_dns_record" "foxden_network_nas_ro" {
@@ -31,16 +39,6 @@ resource "cloudns_dns_record" "foxden_network_wan" {
   value = "wan.foxden.network"
 }
 
-resource "cloudns_dns_record" "foxden_network_dyn" {
-  for_each = toset(["ns1.he.net", "ns2.he.net", "ns3.he.net", "ns4.he.net", "ns5.he.net"])
-  zone     = "foxden.network"
-
-  type  = "NS"
-  name  = "dyn"
-  ttl   = 86400
-  value = each.value
-}
-
 resource "cloudns_dns_record" "foxden_home_rdns_ns" {
   for_each = toset(["ip6", "ip4"])
   zone     = "foxden.network"
@@ -53,7 +51,7 @@ resource "cloudns_dns_record" "foxden_home_rdns_ns" {
 
 resource "cloudns_dns_record" "foxden_home_redfox_a" {
   for_each = local.foxden_network_redfox
-  zone = "foxden.network"
+  zone     = "foxden.network"
 
   type  = "A"
   name  = each.value
@@ -63,7 +61,7 @@ resource "cloudns_dns_record" "foxden_home_redfox_a" {
 
 resource "cloudns_dns_record" "foxden_home_redfox_aaaa" {
   for_each = local.foxden_network_redfox
-  zone = "foxden.network"
+  zone     = "foxden.network"
 
   type  = "AAAA"
   name  = each.value
