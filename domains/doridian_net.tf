@@ -5,7 +5,7 @@ resource "cloudns_dns_record" "doridian_net_redfox_a" {
   type  = "A"
   name  = "redfox"
   ttl   = 3600
-  value = "66.42.71.230"
+  value = local.redfox.ipv4
 }
 
 resource "cloudns_dns_record" "doridian_net_redfox_aaaa" {
@@ -14,7 +14,7 @@ resource "cloudns_dns_record" "doridian_net_redfox_aaaa" {
   type  = "AAAA"
   name  = "redfox"
   ttl   = 3600
-  value = "2a0e:8f02:21c0:0:0:0:0:e621"
+  value = local.redfox.ipv6
 }
 
 resource "cloudns_dns_record" "doridian_net_redfox_syncthing" {

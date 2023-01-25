@@ -1,10 +1,14 @@
+locals {
+    foxden_network_redfox = toset(["redfox-ext", "ns-ip"])
+}
+
 resource "cloudns_dns_record" "foxden_network_wildcard" {
   zone = "foxden.network"
 
   type  = "CNAME"
   name  = "*"
   ttl   = 3600
-  value = "redfox.doridian.net"
+  value = "redfox-ext.foxden.network"
 }
 
 resource "cloudns_dns_record" "foxden_network_nas_ro" {
@@ -47,23 +51,24 @@ resource "cloudns_dns_record" "foxden_home_rdns_ns" {
   value = "ns-ip.foxden.network"
 }
 
-
-resource "cloudns_dns_record" "foxden_home_rdns_a" {
+resource "cloudns_dns_record" "foxden_home_redfox_a" {
+  for_each = local.foxden_network_redfox
   zone = "foxden.network"
 
   type  = "A"
-  name  = "ns-ip"
+  name  = each.value
   ttl   = 86400
-  value = "66.42.71.230"
+  value = local.redfox.ipv4
 }
 
-resource "cloudns_dns_record" "foxden_home_rdns_aaaa" {
+resource "cloudns_dns_record" "foxden_home_redfox_aaaa" {
+  for_each = local.foxden_network_redfox
   zone = "foxden.network"
 
   type  = "AAAA"
-  name  = "ns-ip"
+  name  = each.value
   ttl   = 86400
-  value = "2a0e:7d44:f000:0:0:0:0:e621"
+  value = local.redfox.ipv6
 }
 
 resource "cloudns_dns_record" "foxden_home_dyn" {
