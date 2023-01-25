@@ -41,7 +41,7 @@ resource "hexonet_domain" "domain" {
 
       extra_attributes["ACCEPT-WHOISTRUSTEE-TAC"],
 
-      dnssec_ds_records,  # Only provide DS records, otherwise Hexonet yells at us...
+      dnssec_ds_records, # Only provide DS records, otherwise Hexonet yells at us...
     ]
   }
 }
