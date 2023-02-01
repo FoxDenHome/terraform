@@ -10,9 +10,9 @@ variable "domain" {
   type = string
 }
 
-variable "disable_dnssec" {
-  type    = bool
-  default = false
+variable "manual_dnskey_records" {
+  type    = set(string)
+  default = null
 }
 
 variable "fastmail" {

@@ -5,12 +5,15 @@ locals {
     "doridian.de"  = {},
     "doridian.net" = {},
 
-    "f0x.es"    = {},
+    "f0x.es" = {
+      vanity_nameserver     = "cloudflare-f0x-es",
+      manual_dnskey_records = [],
+    },
     "foxcav.es" = {},
 
     "foxden.network" = {
-      vanity_nameserver = "foxden.network",
-      disable_dnssec    = true,
+      vanity_nameserver     = "foxden.network",
+      manual_dnskey_records = [],
     },
   }, var.domains)
 
@@ -40,7 +43,7 @@ module "domain" {
   add_www_cname     = true
   vanity_nameserver = local.vanity_nameservers[try(each.value.vanity_nameserver, local.default_vanity_nameserver)]
 
-  disable_dnssec = try(each.value.disable_dnssec, false)
+  manual_dnskey_records = try(each.value.manual_dnskey_records, null)
 
   cloudns_auth_id  = var.cloudns_auth_id
   cloudns_password = var.cloudns_password

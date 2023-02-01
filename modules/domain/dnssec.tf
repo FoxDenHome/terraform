@@ -1,5 +1,5 @@
 data "http" "dnssec_records" {
-  count = var.disable_dnssec ? 0 : 1
+  count = (var.manual_dnskey_records != null) ? 0 : 1
 
   url = "https://api.cloudns.net/dns/get-dnssec-ds-records.json"
   request_headers = {
@@ -11,8 +11,8 @@ data "http" "dnssec_records" {
 }
 
 locals {
-  dnssec_records_json = var.disable_dnssec ? null : jsondecode(data.http.dnssec_records[0].response_body)
+  dnssec_records_json = (var.manual_dnskey_records != null) ? null : jsondecode(data.http.dnssec_records[0].response_body)
 
-  dnssec_ds_records     = var.disable_dnssec ? [] : [for dsrec in local.dnssec_records_json["ds"] : trimprefix(dsrec, "${var.domain}. 3600 IN DS ")]
-  dnssec_dnskey_records = var.disable_dnssec ? [] : [for dsrec in local.dnssec_records_json["dnskey"] : trimprefix(dsrec, "${var.domain}. 3600 IN DNSKEY ")]
+  dnssec_ds_records     = (var.manual_dnskey_records != null) ? [] : toset([for dsrec in local.dnssec_records_json["ds"] : trimprefix(dsrec, "${var.domain}. 3600 IN DS ")])
+  dnssec_dnskey_records = (var.manual_dnskey_records != null) ? var.manual_dnskey_records : toset([for dsrec in local.dnssec_records_json["dnskey"] : trimprefix(dsrec, "${var.domain}. 3600 IN DNSKEY ")])
 }

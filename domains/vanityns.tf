@@ -8,5 +8,9 @@ locals {
       list = ["ns1.foxden.network", "ns2.foxden.network", "ns3.foxden.network", "ns4.foxden.network"]
       name = "foxden.network"
     }
+    "cloudflare-f0x-es" = {
+      list = ["anna.ns.cloudflare.com", "eric.ns.cloudflare.com"],
+      name = "cloudflare.com"
+    }
   }
 }
