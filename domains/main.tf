@@ -7,13 +7,20 @@ locals {
 
     "f0x.es" = {
       vanity_nameserver     = "cloudflare-f0x-es",
-      manual_dnskey_records = [],
+      manual_dnskey_records = [
+        "257 3 13 mdsswUyr3DPW132mOi8V9xESWE8jTo0dxCjjnopKl+GqJxpVXckHAeF+KkxLbxILfDLUT0rAK9iUzy1L53eKGQ==",
+        "256 3 13 oJMRESz5E4gYzS/q6XDrvU1qMPYIjCWzJaOau8XNEZeqCYKD5ar0IRd8KqXXFJkqmVfRvMGPmM1x8fGAa2XhSA==",
+      ],
+      manual_ds_records = [
+        "2371 13 2 2393DC36DF6D524F95D71D403618694EB765B81D558B8B0E8678AD5723CB2F3D"
+      ],
     },
     "foxcav.es" = {},
 
     "foxden.network" = {
       vanity_nameserver     = "foxden.network",
       manual_dnskey_records = [],
+      manual_ds_records     = [],
     },
   }, var.domains)
 

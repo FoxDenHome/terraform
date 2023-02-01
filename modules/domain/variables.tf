@@ -15,6 +15,11 @@ variable "manual_dnskey_records" {
   default = null
 }
 
+variable "manual_ds_records" {
+  type    = set(string)
+  default = null
+}
+
 variable "fastmail" {
   type = bool
 }

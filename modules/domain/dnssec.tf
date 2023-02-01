@@ -11,8 +11,9 @@ data "http" "dnssec_records" {
 }
 
 locals {
-  dnssec_records_json = (var.manual_dnskey_records != null) ? null : jsondecode(data.http.dnssec_records[0].response_body)
+  manual_dnssec = (var.manual_dnskey_records != null) || (var.manual_ds_records != null)
+  dnssec_records_json = local.manual_dnssec ? null : jsondecode(data.http.dnssec_records[0].response_body)
 
-  dnssec_ds_records     = (var.manual_dnskey_records != null) ? [] : toset([for dsrec in local.dnssec_records_json["ds"] : trimprefix(dsrec, "${var.domain}. 3600 IN DS ")])
-  dnssec_dnskey_records = (var.manual_dnskey_records != null) ? var.manual_dnskey_records : toset([for dsrec in local.dnssec_records_json["dnskey"] : trimprefix(dsrec, "${var.domain}. 3600 IN DNSKEY ")])
+  dnssec_ds_records     = local.manual_dnssec ? var.manual_ds_records : [] #toset([for dsrec in local.dnssec_records_json["ds"] : trimprefix(dsrec, "${var.domain}. 3600 IN DS ")])
+  dnssec_dnskey_records = local.manual_dnssec ? var.manual_dnskey_records : toset([for dsrec in local.dnssec_records_json["dnskey"] : trimprefix(dsrec, "${var.domain}. 3600 IN DNSKEY ")])
 }

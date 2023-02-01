@@ -10,7 +10,7 @@ resource "hexonet_domain" "domain" {
   billing_contacts = var.billing_contacts
 
   # Only provide DS records, otherwise Hexonet yells at us...
-  #dnssec_ds_records     = local.dnssec_ds_records
+  dnssec_ds_records     = local.dnssec_ds_records
   dnssec_dnskey_records = local.dnssec_dnskey_records
 
   extra_attributes = var.extra_attributes
