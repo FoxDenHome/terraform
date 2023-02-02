@@ -19,11 +19,6 @@ terraform {
       source  = "Doridian/hexonet"
       version = "~> 0.18"
     }
-
-    inwx = {
-      source  = "inwx/inwx"
-      version = "~> 1.0"
-    }
   }
 
   backend "s3" {
@@ -39,9 +34,4 @@ provider "aws" {
 
 provider "hexonet" {
   allow_domain_create_delete = false
-}
-
-provider "inwx" {
-  username = var.inwx_username
-  password = var.inwx_password
 }

@@ -19,10 +19,5 @@ terraform {
       source  = "Doridian/hexonet"
       version = "~> 0.18"
     }
-
-    inwx = {
-      source  = "inwx/inwx"
-      version = "~> 1.0"
-    }
   }
 }

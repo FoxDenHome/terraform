@@ -19,21 +19,3 @@ resource "hexonet_contact" "main" {
 
   disclose = false
 }
-
-resource "inwx_domain_contact" "main" {
-  type = "PERSON"
-
-  name = local.domain_contact_full_name
-
-  street_address = var.domain_contact.address_line_1
-  city           = var.domain_contact.city
-  postal_code    = var.domain_contact.zip
-  state_province = var.domain_contact.state
-  country_code   = var.domain_contact.country
-
-  phone_number = var.domain_contact.phone
-
-  email = var.domain_contact.email
-
-  whois_protection = true
-}

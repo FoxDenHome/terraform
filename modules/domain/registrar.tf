@@ -45,28 +45,3 @@ resource "hexonet_domain" "domain" {
     ]
   }
 }
-
-resource "inwx_domain" "domain" {
-  count = var.registrar == "inwx" ? 1 : 0
-  name  = var.domain
-
-  nameservers = local.has_vanity_ns ? local.vanity_ns_list : local.cloudns_ns_list
-
-  contacts {
-    registrant = one(var.owner_contacts)
-    admin      = one(var.admin_contacts)
-    tech       = one(var.tech_contacts)
-    billing    = one(var.billing_contacts)
-  }
-
-  period       = "1Y"
-  renewal_mode = "AUTORENEW"
-
-  transfer_lock = true
-
-  lifecycle {
-    ignore_changes = [
-      extra_data["IDCARD-OR-PASSPORT-NUMBER"],
-    ]
-  }
-}

@@ -5,16 +5,7 @@ locals {
     "doridian.de"  = {},
     "doridian.net" = {},
 
-    "f0x.es" = {
-      vanity_nameserver     = "cloudflare-f0x-es",
-      manual_dnskey_records = [
-        "257 3 13 mdsswUyr3DPW132mOi8V9xESWE8jTo0dxCjjnopKl+GqJxpVXckHAeF+KkxLbxILfDLUT0rAK9iUzy1L53eKGQ==",
-        "256 3 13 oJMRESz5E4gYzS/q6XDrvU1qMPYIjCWzJaOau8XNEZeqCYKD5ar0IRd8KqXXFJkqmVfRvMGPmM1x8fGAa2XhSA==",
-      ],
-      manual_ds_records = [
-        "2371 13 2 2393DC36DF6D524F95D71D403618694EB765B81D558B8B0E8678AD5723CB2F3D"
-      ],
-    },
+    "f0x.es"    = {},
     "foxcav.es" = {},
 
     "foxden.network" = {
@@ -26,7 +17,6 @@ locals {
 
   contacts_map = {
     "hexonet" = [hexonet_contact.main.id],
-    "inwx"    = [inwx_domain_contact.main.id],
   }
 
   default_vanity_nameserver = "doridian.net"
@@ -51,6 +41,7 @@ module "domain" {
   vanity_nameserver = local.vanity_nameservers[try(each.value.vanity_nameserver, local.default_vanity_nameserver)]
 
   manual_dnskey_records = try(each.value.manual_dnskey_records, null)
+  manual_ds_records     = try(each.value.manual_ds_records, null)
 
   cloudns_auth_id  = var.cloudns_auth_id
   cloudns_password = var.cloudns_password

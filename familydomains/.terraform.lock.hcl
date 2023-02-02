@@ -86,24 +86,6 @@ provider "registry.terraform.io/hashicorp/http" {
   ]
 }
 
-provider "registry.terraform.io/inwx/inwx" {
-  version     = "1.0.3"
-  constraints = "~> 1.0"
-  hashes = [
-    "h1:FxsWJh6tGxaONbk3JX0Hm088SL4OW5JiddIw5mGRlt8=",
-    "zh:0f5e3de02681ae61de5a1738e90798f5fec80bf6f96c5f265ab5fd7198f6df4f",
-    "zh:172da97430b9dd614ed8b0ebad28f9b47bef1854c51d9fbf1a10548282dc4580",
-    "zh:3b5f9a2e4c008e159568337c64dd5b018c5d67dc0424f28a4b9b29780d2dc8ca",
-    "zh:3cec7266fb358ba1eb2f4456fb1f38f16095d5b44cefeedf5fa4451e06d35962",
-    "zh:446dd97950fb280a1fb43b02ac47193c36f5087a725270785c660e08002e89cc",
-    "zh:5780b2cd0514a4fdfb8cb9d780bd49cc1851718bcaf40f7402a7b179b3846fea",
-    "zh:8913d27a81e5ac01cd97f0216578b5380adb33cddfd934e327bcda7338d0571a",
-    "zh:943e26d84d0147356c7a6cb8fe8079f16d70b367ddf2f0a657fb7124bf31c993",
-    "zh:9d0953aa233a69abcf6ab01e6ad4cdd4b8a35859c6cfe2985cdd7a1836e66f8b",
-    "zh:dcef4661fad7bb1deb81b75d2e951aca8107a07537e3aa89819f888dc2c4cbdf",
-  ]
-}
-
 provider "registry.terraform.io/mangadex-pub/cloudns" {
   version     = "0.2.0"
   constraints = "0.2.0"
