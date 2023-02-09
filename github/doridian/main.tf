@@ -85,15 +85,15 @@ locals {
 
     # Forks
     apt-mirror-docker = {
-      description = "Up to date apt-mirror script, containerized for mirroring + serving."
+      description       = "Up to date apt-mirror script, containerized for mirroring + serving."
       branch_protection = false
     }
     terraform-provider-cloudns = {
-      description = "Terraform provider for ClouDNS"
+      description       = "Terraform provider for ClouDNS"
       branch_protection = false
     }
     noVNC = {
-      description = "VNC client web application"
+      description       = "VNC client web application"
       branch_protection = false
     }
     qmk_firmware = {
