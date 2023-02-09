@@ -34,9 +34,6 @@ locals {
     docker-seafile   = {},
     evldns           = {},
     fhem-InfluxDBLog = {},
-    flipper-decoder = {
-      visibility = "private",
-    },
     gitrunner                = {},
     hashtopolis-agent-python = {},
     hashtopolis-docker       = {},
@@ -56,7 +53,6 @@ locals {
     pingshell                = {},
     presencegetter           = {},
     puppeteer-page-proxy     = {},
-    qmk_firmware             = {},
     rfcat-mqtt               = {},
     sdr-misc                 = {},
     shutdownd                = {},

@@ -3,11 +3,9 @@ locals {
     wsvpn = {
       description = "VPN over WebSocket and WebTransport"
       required_checks = [
-        "Errcheck",
-        "Imports",
-        "Sec",
-        "Shadow",
-        "StaticCheck",
+        "lint (macos-latest)",
+        "lint (ubuntu-latest)",
+        "lint (windows-latest)",
         "test-darwin",
         "test-linux",
         "test-windows",
@@ -16,11 +14,9 @@ locals {
     water = {
       description = "A simple TUN/TAP library written in native Go."
       required_checks = [
-        "Errcheck",
-        "Imports",
-        "Sec",
-        "Shadow",
-        "StaticCheck",
+        "lint (macos-latest)",
+        "lint (ubuntu-latest)",
+        "lint (windows-latest)",
         "test-darwin",
         "test-linux",
         "test-windows",
@@ -70,12 +66,40 @@ locals {
     OpenBambuAPI = {
       description = "Bambu API docs"
     }
+    BambuRE = {
+      visibility = "private"
+    }
+
+    SignTools-CI = {
+      visibility = "private"
+    }
+
+    flippertools = {
+      visibility = "private"
+    }
+
 
     fakerfs = {
       description = "FUSE filesystem that can overlay fake files on top of a real filesystem"
     }
 
     # Forks
+    apt-mirror-docker = {
+      description = "Up to date apt-mirror script, containerized for mirroring + serving."
+      branch_protection = false
+    }
+    terraform-provider-cloudns = {
+      description = "Terraform provider for ClouDNS"
+      branch_protection = false
+    }
+    noVNC = {
+      description = "VNC client web application"
+      branch_protection = false
+    }
+    qmk_firmware = {
+      description       = "Open-source keyboard firmware for Atmel AVR and Arm USB families"
+      branch_protection = false
+    },
     picotcp = {
       description       = "PicoTCP is a free TCP/IP stack implementation"
       branch_protection = false

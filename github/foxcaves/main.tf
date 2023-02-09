@@ -13,6 +13,9 @@ locals {
     lua-resty-cookie = {
       description = "Lua library for HTTP cookie manipulations for OpenResty/ngx_lua"
     }
+    lua-resty-aws-signature = {
+      description = "AWS signature V4 library for OpenResty + Lua"
+    }
   }
 
   members = {

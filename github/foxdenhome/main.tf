@@ -19,7 +19,7 @@ locals {
     CC1101Duino     = {}
     ntp             = {}
     islandfox       = {}
-    nas             = {}
+    bengalfox       = {}
     backup          = {}
     scripts         = {}
     sshkeys         = {}
