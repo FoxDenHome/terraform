@@ -25,6 +25,7 @@ locals {
     sshkeys         = {}
     sni-vhost-proxy = {}
     foxdns          = {}
+    superfan        = {}
   }
 
   members = {
