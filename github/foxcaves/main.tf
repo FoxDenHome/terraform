@@ -2,6 +2,11 @@ locals {
   repositores = {
     site = {
       homepage_url = "https://foxcav.es"
+      required_checks = [
+        "lint",
+        "ESLint",
+        "Prettier",
+      ]
     }
     sharex = {
       description  = "ShareX config files"
