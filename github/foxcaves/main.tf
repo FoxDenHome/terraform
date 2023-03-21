@@ -4,6 +4,7 @@ locals {
       homepage_url = "https://foxcav.es"
       required_checks = [
         "lint",
+        "e2etests",
         "ESLint",
         "Prettier",
       ]
