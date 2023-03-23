@@ -8,7 +8,6 @@ locals {
         "lint (windows-latest)",
         "test-darwin",
         "test-linux",
-        "test-windows",
       ]
     }
     water = {
