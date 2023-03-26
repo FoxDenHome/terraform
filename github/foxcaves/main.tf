@@ -3,8 +3,9 @@ locals {
     site = {
       homepage_url = "https://foxcav.es"
       required_checks = [
-        "lint",
-        "e2etests",
+        "docker",
+        "lint / backend",
+        "lint / frontend",
         "ESLint",
         "Prettier",
       ]
