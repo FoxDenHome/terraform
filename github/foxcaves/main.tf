@@ -10,6 +10,9 @@ locals {
         "Prettier",
       ]
     }
+    prettier-plugin-lua = {
+      description = "Prettier Lua Plugin (WIP)"
+    }
     sharex = {
       description  = "ShareX config files"
       homepage_url = "https://foxcav.es"

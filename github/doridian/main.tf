@@ -69,14 +69,13 @@ locals {
       visibility = "private"
     }
 
-    SignTools-CI = {
-      visibility = "private"
-    }
-
     flippertools = {
       visibility = "private"
     }
 
+    fakeuinput = {}
+
+    TeslaLogger = {}
 
     fakerfs = {
       description = "FUSE filesystem that can overlay fake files on top of a real filesystem"
