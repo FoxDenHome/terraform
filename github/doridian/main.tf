@@ -6,8 +6,8 @@ locals {
         "lint (macos-latest)",
         "lint (ubuntu-latest)",
         "lint (windows-latest)",
-        "test-darwin",
-        "test-linux",
+        "test (macos-latest)",
+        "test (ubuntu-latest)",
       ]
     }
     water = {
@@ -16,9 +16,8 @@ locals {
         "lint (macos-latest)",
         "lint (ubuntu-latest)",
         "lint (windows-latest)",
-        "test-darwin",
-        "test-linux",
-        "test-windows",
+        "test (macos-latest)",
+        "test (ubuntu-latest)",
       ]
     }
     website           = {}
