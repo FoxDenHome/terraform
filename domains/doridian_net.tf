@@ -34,7 +34,7 @@ resource "cloudns_dns_record" "doridian_net_icefox_a" {
   type  = "A"
   name  = "icefox"
   ttl   = 3600
-  value = "116.202.171.116"
+  value = "107.181.226.74"
 }
 
 # arcticfox
