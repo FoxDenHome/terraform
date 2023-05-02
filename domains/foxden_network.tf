@@ -25,7 +25,7 @@ resource "cloudns_dns_record" "foxden_network_nas_ro" {
   type  = "A"
   name  = "nas-ro"
   ttl   = 3600
-  value = "116.202.171.116"
+  value = "107.181.226.74"
 }
 
 resource "cloudns_dns_record" "foxden_network_wan" {
