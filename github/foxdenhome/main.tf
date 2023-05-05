@@ -26,6 +26,7 @@ locals {
     sni-vhost-proxy = {}
     foxdns          = {}
     superfan        = {}
+    shutdownd       = {}
   }
 
   members = {
