@@ -64,9 +64,6 @@ locals {
     OpenBambuAPI = {
       description = "Bambu API docs"
     }
-    BambuRE = {
-      visibility = "private"
-    }
 
     flippertools = {
       visibility = "private"
@@ -130,6 +127,10 @@ locals {
       description       = "Get raw webcam stream of BambuLabX1 3D printer"
       branch_protection = false
     }
+
+    superfan      = {}
+    dockerheal    = {}
+    docker-netfix = {}
   }
 }
 
