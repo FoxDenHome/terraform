@@ -2,8 +2,14 @@ locals {
   domain_contact_full_name = join(" ", compact([var.domain_contact.first_name, var.domain_contact.middle_name, var.domain_contact.last_name]))
 
   domains = merge({
+    "doridian.com" = {},
     "doridian.de"  = {},
     "doridian.net" = {},
+    "doridian.org" = {},
+
+    "fox.mov" = {
+      registrar = "inwx",
+    },
 
     "f0x.es"    = {},
     "foxcav.es" = {},
@@ -17,6 +23,7 @@ locals {
 
   contacts_map = {
     "hexonet" = [hexonet_contact.main.id],
+    "inwx"    = [],
   }
 
   default_vanity_nameserver = "doridian.net"
