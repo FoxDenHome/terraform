@@ -6,13 +6,14 @@ locals {
     homeassistant = {
       branch_protection = false
     }
-    NixieClockDori = {}
-    PaperESP32     = {}
-    LCDify         = {}
-    terraform      = {}
-    e621dumper     = {}
-    redfox         = {}
-    docker         = {}
+    NixieClockDori      = {}
+    PaperESP32          = {}
+    LCDify              = {}
+    terraform           = {}
+    e621dumper          = {}
+    redfox              = {}
+    docker              = {}
+    docker-sriov-plugin = {}
     router = {
       branch_protection = false
     }
