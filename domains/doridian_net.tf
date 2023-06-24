@@ -88,3 +88,16 @@ module "arcticfox_ses" {
   zone      = "doridian.net"
   subdomain = "arcticfox"
 }
+
+resource "cloudns_dns_record" "doridian_net_icefox" {
+  for_each = toset([
+    "console.s3",
+    "s3",
+  ])
+  zone = "doridian.net"
+
+  type  = "ALIAS"
+  name  = each.value
+  ttl   = 3600
+  value = "icefox.doridian.net"
+}
