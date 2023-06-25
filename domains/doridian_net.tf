@@ -91,8 +91,7 @@ module "arcticfox_ses" {
 
 resource "cloudns_dns_record" "doridian_net_icefox" {
   for_each = toset([
-    "console.s3",
-    "s3",
+    "dav",
   ])
   zone = "doridian.net"
 

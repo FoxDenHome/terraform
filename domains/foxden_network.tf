@@ -4,12 +4,11 @@ locals {
 
 resource "cloudns_dns_record" "foxden_network_redfox" {
   for_each = toset([
-    "console.s3",
     "git",
     "grafana",
     "homeassistant",
     "nas",
-    "s3",
+    "dav",
   ])
   zone = "foxden.network"
 
