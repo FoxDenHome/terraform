@@ -16,7 +16,7 @@ resource "cloudns_dns_record" "f0x_es_vixus" {
   value = "arcticfox.doridian.net"
 }
 
-local {
+locals {
   xmpp_ports = {
     "_xmpp-client._tcp" = 5222,
     "_xmpp-server._tcp" = 5269,
@@ -37,3 +37,12 @@ local {
 
 #   ttl = 3600
 # }
+
+resource "cloudns_dns_record" "f0x_es_xmppshare" {
+  zone = "f0x.es"
+
+  type  = "CNAME"
+  name  = "xmppshare"
+  ttl   = 3600
+  value = "redfox.doridian.net"
+}
