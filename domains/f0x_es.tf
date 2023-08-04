@@ -38,11 +38,16 @@ locals {
 #   ttl = 3600
 # }
 
+locals {
+  xmpp_subdomains = toset(["xmppshare", "telegram", "discord"])
+}
+
 resource "cloudns_dns_record" "f0x_es_xmppshare" {
-  zone = "f0x.es"
+  for_each = local.xmpp_subdomains
+  zone     = "f0x.es"
 
   type  = "CNAME"
-  name  = "xmppshare"
+  name  = each.key
   ttl   = 3600
   value = "redfox.doridian.net"
 }
