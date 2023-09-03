@@ -30,7 +30,7 @@ resource "cloudns_dns_record" "foxden_network_nas_ro" {
 resource "cloudns_dns_record" "foxden_network_wan" {
   zone = "foxden.network"
 
-  for_each = toset(["vpn", "factorio"])
+  for_each = toset(["vpn", "factorio", "mc", "minecraft"])
 
   type  = "CNAME"
   name  = each.value
