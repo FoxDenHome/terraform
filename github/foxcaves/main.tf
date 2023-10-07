@@ -1,6 +1,6 @@
 locals {
   repositores = {
-    site = {
+    foxCaves = {
       homepage_url = "https://foxcav.es"
       required_checks = [
         "docker",
@@ -9,9 +9,6 @@ locals {
         "ESLint",
         "Prettier",
       ]
-    }
-    prettier-plugin-lua = {
-      description = "Prettier Lua Plugin (WIP)"
     }
     sharex = {
       description  = "ShareX config files"

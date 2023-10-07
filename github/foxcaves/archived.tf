@@ -1,5 +1,6 @@
 locals {
   archived_repositores = {
+    lua-resty-auto-ssl    = {},
     base-image            = {},
     FoxScreen             = {},
     LEGACY_foxCavesChrome = {},
