@@ -9,10 +9,10 @@ terraform {
   backend "s3" {
     bucket = "foxden-terraform"
     region = "us-east-1"
-    key    = "github-foxelbox.tfstate"
+    key    = "github-foxbukkit.tfstate"
   }
 }
 
 provider "github" {
-  owner = "FoxelBox"
+  owner = "FoxBukkit"
 }

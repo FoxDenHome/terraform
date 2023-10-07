@@ -26,7 +26,6 @@ locals {
     FoxelLog                      = {}
     LogBlock                      = {}
     LowSecurity                   = {}
-    MavenDownloader               = {}
     MultiBukkit                   = {}
     Organization                  = {}
     RavenBukkit                   = {}
