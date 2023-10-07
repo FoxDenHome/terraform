@@ -100,3 +100,12 @@ resource "cloudns_dns_record" "doridian_net_icefox" {
   ttl   = 3600
   value = "icefox.doridian.net"
 }
+
+resource "cloudns_dns_record" "doridian_net_mc" {
+  zone = "doridian.net"
+
+  type  = "CNAME"
+  name  = "mc"
+  ttl   = 3600
+  value = "minecraft.foxden.network"
+}
