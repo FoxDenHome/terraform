@@ -128,6 +128,23 @@ locals {
       branch_protection = false
     }
 
+    LuaJIT = {
+      description       = "Mirror of the LuaJIT git repository"
+      branch_protection = false
+    }
+
+    G4-Doorbell-Pro-Max = {}
+    Joybus-PIO          = {}
+    carvera-pendant     = {}
+    gokrazy-kernel = {
+      description = "Linux kernel images for gokrazy"
+    }
+    karalabe-hid = {
+      description = "Gopher Interface Devices (USB HID)"
+    }
+    sdparm = {
+      description = "Fork of the official git-svn mirror for sdparm, access SCSI parameters (mode+VPD pages)"
+    }
     superfan      = {}
     dockerheal    = {}
     docker-netfix = {}
