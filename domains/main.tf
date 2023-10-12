@@ -19,6 +19,11 @@ locals {
       manual_dnskey_records = [],
       manual_ds_records     = [],
     },
+
+    "yiff.ws" = {
+      manual_dnskey_records = [],
+      manual_ds_records     = [],
+    },
   }, var.domains)
 
   contacts_map = {
