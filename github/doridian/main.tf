@@ -148,6 +148,7 @@ locals {
     superfan      = {}
     dockerheal    = {}
     docker-netfix = {}
+    foxTorrent    = {}
   }
 }
 
