@@ -109,3 +109,14 @@ resource "cloudns_dns_record" "doridian_net_mc" {
   ttl   = 3600
   value = "minecraft.foxden.network"
 }
+
+resource "cloudns_dns_record" "doridian_net_arcticfox_cnames" {
+  zone = "doridian.net"
+
+  for_each = toset(["hashtopolis", "www.hashtopolis"])
+
+  type  = "CNAME"
+  name  = each.value
+  ttl   = 3600
+  value = "arcticfox.doridian.net"
+}
