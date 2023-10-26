@@ -9,6 +9,7 @@ resource "cloudns_dns_record" "foxden_network_redfox" {
     "homeassistant",
     "nas",
     "dav",
+    "htpl",
   ])
   zone = "foxden.network"
 
