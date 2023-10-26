@@ -110,12 +110,12 @@ resource "cloudns_dns_record" "doridian_net_mc" {
   value = "minecraft.foxden.network"
 }
 
-resource "cloudns_dns_record" "doridian_net_arcticfox_cnames" {
+resource "cloudns_dns_record" "doridian_net_arcticfox_aliases" {
   zone = "doridian.net"
 
-  for_each = toset(["hashtopolis", "www.hashtopolis"])
+  for_each = toset([])
 
-  type  = "CNAME"
+  type  = "ALIAS"
   name  = each.value
   ttl   = 3600
   value = "arcticfox.doridian.net"
