@@ -10,7 +10,6 @@ resource "cloudns_dns_record" "foxden_network_redfox" {
     "nas",
     "dav",
     "htpl",
-    "ftcr",
   ])
   zone = "foxden.network"
 
