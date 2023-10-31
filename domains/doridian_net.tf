@@ -19,7 +19,7 @@ resource "cloudns_dns_record" "doridian_net_redfox_aaaa" {
 
 resource "cloudns_dns_record" "doridian_net_redfox_cname" {
   zone     = "doridian.net"
-  for_each = toset(["syncthing", "api.spaceage", "spaceage", "tts.spaceage"])
+  for_each = toset(["syncthing", "spaceage", "api.spaceage", "tts.spaceage"])
 
   type  = "CNAME"
   name  = each.value
