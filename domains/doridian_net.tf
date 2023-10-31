@@ -17,11 +17,12 @@ resource "cloudns_dns_record" "doridian_net_redfox_aaaa" {
   value = local.redfox.ipv6
 }
 
-resource "cloudns_dns_record" "doridian_net_redfox_syncthing" {
-  zone = "doridian.net"
+resource "cloudns_dns_record" "doridian_net_redfox_cname" {
+  zone     = "doridian.net"
+  for_each = toset(["syncthing", "spaceage", "tts.spaceage", "tts-cdn.spaceage"])
 
   type  = "CNAME"
-  name  = "syncthing"
+  name  = each.value
   ttl   = 3600
   value = "redfox.doridian.net"
 }
@@ -108,15 +109,4 @@ resource "cloudns_dns_record" "doridian_net_mc" {
   name  = "mc"
   ttl   = 3600
   value = "minecraft.foxden.network"
-}
-
-resource "cloudns_dns_record" "doridian_net_arcticfox_aliases" {
-  zone = "doridian.net"
-
-  for_each = toset([])
-
-  type  = "ALIAS"
-  name  = each.value
-  ttl   = 3600
-  value = "arcticfox.doridian.net"
 }

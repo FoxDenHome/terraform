@@ -23,6 +23,9 @@ locals {
     "yiff.ws" = {
       manual_dnskey_records = [],
       manual_ds_records     = [],
+      additional_statuses = [
+        "serverTransferProhibited"
+      ],
     },
   }, var.domains)
 
@@ -69,5 +72,6 @@ module "domain" {
   tech_contacts    = local.contacts_map[try(each.value.registrar, "hexonet")]
   billing_contacts = local.contacts_map[try(each.value.registrar, "hexonet")]
 
-  registrar = try(each.value.registrar, "hexonet")
+  additional_statuses = try(each.value.additional_statuses, [])
+  registrar           = try(each.value.registrar, "hexonet")
 }

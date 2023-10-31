@@ -13,11 +13,11 @@ resource "hexonet_domain" "domain" {
   dnssec_dnskey_records = local.dnssec_dnskey_records
 
   extra_attributes = var.extra_attributes
-  status = [
+  status = setunion([
     "ACTIVE",
     "clientDeleteProhibited",
     "clientTransferProhibited",
-  ]
+  ], var.additional_statuses)
 
   lifecycle {
     ignore_changes = [
