@@ -129,7 +129,7 @@ resource "cloudns_dns_record" "spaceage_tts_cdn" {
   zone = "doridian.net"
 
   type  = "CNAME"
-  name  = "spaceage_tts-cdn.spaceage"
+  name  = "tts-cdn.spaceage"
   ttl   = 3600
   value = aws_cloudfront_distribution.spaceage_tts_distribution.domain_name
 }
