@@ -11,6 +11,13 @@ resource "aws_s3_bucket" "spaceage_tts_bucket" {
   bucket = "spaceage-tts"
 }
 
+resource "aws_s3_bucket_ownership_controls" "spaceage_tts_bucket_ownwership_controls" {
+  bucket = aws_s3_bucket.spaceage_tts_bucket.id
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
 resource "aws_s3_bucket_acl" "spaceage_tts_bucket_acl" {
   bucket = aws_s3_bucket.spaceage_tts_bucket.id
   acl    = "private"
