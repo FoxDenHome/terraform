@@ -1,5 +1,5 @@
 locals {
-  foxden_network_redfox = toset(["redfox", "ns-ip"])
+  foxden_network_redfox = toset(["redfox", "ns-ip", "ns1-ip", "ns2-ip", "ns3-ip", "ns4-ip"])
 }
 
 resource "cloudns_dns_record" "foxden_network_redfox" {
@@ -41,13 +41,16 @@ resource "cloudns_dns_record" "foxden_network_wan" {
 }
 
 resource "cloudns_dns_record" "foxden_home_rdns_ns" {
-  for_each = toset(["ip6", "ip4"])
+  for_each = { for nsrec in setproduct(
+    toset(["ns1-ip", "ns2-ip", "ns3-ip", "ns4-ip"]),
+    toset(["ip6", "ip4"]),
+  ) : join("-", nsrec) => nsrec }
   zone     = "foxden.network"
 
   type  = "NS"
-  name  = each.value
+  name  = each.value[1]
   ttl   = 86400
-  value = "ns-ip.foxden.network"
+  value = "${each.value[0]}.foxden.network"
 }
 
 resource "cloudns_dns_record" "foxden_home_redfox_a" {
