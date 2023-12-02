@@ -18,6 +18,7 @@ resource "cloudns_dns_record" "foxden_network_wan" {
     "git",
     "grafana",
     "homeassistant",
+    "syncthing",
     "nas",
     "dav",
     "htpl",
