@@ -1,11 +1,7 @@
 locals {
   repositores = {
-    docker = {}
-    website = {
-      pages = {
-        cname = "spaceage.mp"
-      }
-    }
+    docker  = {}
+    website = {}
     StarLord = {
       description = "GMod server manager with updates from git"
     }
@@ -37,7 +33,7 @@ locals {
       description = "Spacebuild Enhancement Pack."
     }
     spacebuild_colliders = {}
-    gmsv_random          = {}
+    gm_random            = {}
     smartsnap            = {}
     issues               = {}
   }
