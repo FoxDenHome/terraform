@@ -1,23 +1,5 @@
 locals {
-  foxden_network_redfox = toset(["redfox", "ns-ip", "ns1-ip", "ns2-ip", "ns3-ip", "ns4-ip"])
-}
-
-resource "cloudns_dns_record" "foxden_network_redfox" {
-  for_each = toset([
-    "git",
-    "grafana",
-    "homeassistant",
-    "nas",
-    "dav",
-    "htpl",
-    "ftcr",
-  ])
-  zone = "foxden.network"
-
-  type  = "ALIAS"
-  name  = each.value
-  ttl   = 3600
-  value = "redfox.foxden.network"
+  foxden_network_redfox = toset(["redfox"])
 }
 
 resource "cloudns_dns_record" "foxden_network_nas_ro" {
@@ -32,7 +14,23 @@ resource "cloudns_dns_record" "foxden_network_nas_ro" {
 resource "cloudns_dns_record" "foxden_network_wan" {
   zone = "foxden.network"
 
-  for_each = toset(["vpn", "factorio", "mc", "minecraft"])
+  for_each = toset([
+    "vpn",
+    "factorio",
+    "mc",
+    "minecraft",
+    "git",
+    "grafana",
+    "homeassistant",
+    "nas",
+    "dav",
+    "htpl",
+    "ns-ip",
+    "ns1-ip",
+    "ns2-ip",
+    "ns3-ip",
+    "ns4-ip",
+  ])
 
   type  = "CNAME"
   name  = each.value
@@ -45,7 +43,7 @@ resource "cloudns_dns_record" "foxden_home_rdns_ns" {
     toset(["ns1-ip", "ns2-ip", "ns3-ip", "ns4-ip"]),
     toset(["ip6", "ip4"]),
   ) : join("-", nsrec) => nsrec }
-  zone     = "foxden.network"
+  zone = "foxden.network"
 
   type  = "NS"
   name  = each.value[1]
