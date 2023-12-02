@@ -1,3 +1,7 @@
+locals {
+  default_branch = var.repository.default_branch != null ? var.repository.default_branch : "main"
+}
+
 resource "github_repository" "repo" {
   name         = var.repository.name
   description  = var.repository.description
@@ -35,15 +39,14 @@ resource "github_repository" "repo" {
 
 resource "github_branch_default" "main" {
   repository = github_repository.repo.name
-  branch     = "main"
+  branch     = local.default_branch
 }
 
 resource "github_branch_protection" "main" {
   count         = var.repository.branch_protection ? 1 : 0
   repository_id = github_repository.repo.node_id
 
-  pattern = "main"
-
+  pattern             = local.default_branch
   enforce_admins      = true
   allows_deletions    = false
   allows_force_pushes = false
