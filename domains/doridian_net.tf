@@ -8,7 +8,6 @@ resource "cloudns_dns_record" "doridian_net_wan" {
   value = "wan.foxden.network"
 }
 
-
 # icefox
 resource "cloudns_dns_record" "doridian_net_icefox_a" {
   zone = "doridian.net"
@@ -73,7 +72,7 @@ module "arcticfox_ses" {
 
 resource "cloudns_dns_record" "doridian_net_icefox" {
   for_each = toset([
-    "dav",
+    "syncthing",
   ])
   zone = "doridian.net"
 
