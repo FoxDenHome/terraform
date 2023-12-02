@@ -22,16 +22,40 @@ resource "cloudns_dns_record" "foxden_network_wan" {
     "dav",
     "htpl",
     "ns-ip",
-    "ns1-ip",
-    "ns2-ip",
-    "ns3-ip",
-    "ns4-ip",
   ])
 
   type  = "CNAME"
   name  = each.value
   ttl   = 3600
   value = "wan.foxden.network"
+}
+
+resource "cloudns_dns_record" "foxden_network_to_router" {
+  zone = "foxden.network"
+
+  for_each = toset([
+    "ns1-ip",
+    "ns3-ip",
+  ])
+
+  type  = "CNAME"
+  name  = each.value
+  ttl   = 3600
+  value = "router.foxden.network"
+}
+
+resource "cloudns_dns_record" "foxden_network_to_router_backup" {
+  zone = "foxden.network"
+
+  for_each = toset([
+    "ns2-ip",
+    "ns4-ip",
+  ])
+
+  type  = "CNAME"
+  name  = each.value
+  ttl   = 3600
+  value = "router-backup.foxden.network"
 }
 
 resource "cloudns_dns_record" "foxden_home_rdns_ns" {
