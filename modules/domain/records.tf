@@ -4,7 +4,7 @@ resource "cloudns_dns_record" "root" {
 
   name  = ""
   type  = "ALIAS"
-  ttl   = 3600
+  ttl   = 300
   value = var.root_aname
 }
 
