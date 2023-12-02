@@ -11,18 +11,19 @@ resource "cloudns_dns_record" "foxden_network_wan" {
   zone = "foxden.network"
 
   for_each = toset([
-    "vpn",
+    "bengalfox-syncthing",
+    "dav",
     "factorio",
-    "mc",
-    "minecraft",
     "git",
     "grafana",
     "homeassistant",
-    "syncthing",
-    "nas",
-    "dav",
     "htpl",
+    "mc",
+    "minecraft",
+    "nas",
     "ns-ip",
+    "syncthing",
+    "vpn",
   ])
 
   type  = "CNAME"
