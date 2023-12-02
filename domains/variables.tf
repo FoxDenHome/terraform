@@ -13,7 +13,7 @@ variable "domains" {
 
 variable "main_domain" {
   type    = string
-  default = "redfox.doridian.net"
+  default = "wan.foxden.network"
 }
 
 variable "domain_contact" {

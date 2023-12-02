@@ -1,7 +1,3 @@
-locals {
-  foxden_network_redfox = toset(["redfox"])
-}
-
 resource "cloudns_dns_record" "foxden_network_nas_ro" {
   zone = "foxden.network"
 
@@ -49,26 +45,6 @@ resource "cloudns_dns_record" "foxden_home_rdns_ns" {
   name  = each.value[1]
   ttl   = 86400
   value = "${each.value[0]}.foxden.network"
-}
-
-resource "cloudns_dns_record" "foxden_home_redfox_a" {
-  for_each = local.foxden_network_redfox
-  zone     = "foxden.network"
-
-  type  = "A"
-  name  = each.value
-  ttl   = 86400
-  value = local.redfox.ipv4
-}
-
-resource "cloudns_dns_record" "foxden_home_redfox_aaaa" {
-  for_each = local.foxden_network_redfox
-  zone     = "foxden.network"
-
-  type  = "AAAA"
-  name  = each.value
-  ttl   = 86400
-  value = local.redfox.ipv6
 }
 
 resource "cloudns_dns_record" "foxden_home_dyn" {

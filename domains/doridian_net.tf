@@ -1,30 +1,11 @@
-# redfox
-resource "cloudns_dns_record" "doridian_net_redfox_a" {
-  zone = "doridian.net"
-
-  type  = "A"
-  name  = "redfox"
-  ttl   = 3600
-  value = local.redfox.ipv4
-}
-
-resource "cloudns_dns_record" "doridian_net_redfox_aaaa" {
-  zone = "doridian.net"
-
-  type  = "AAAA"
-  name  = "redfox"
-  ttl   = 3600
-  value = local.redfox.ipv6
-}
-
-resource "cloudns_dns_record" "doridian_net_redfox_cname" {
+resource "cloudns_dns_record" "doridian_net_wan" {
   zone     = "doridian.net"
   for_each = toset(["syncthing", "spaceage", "api.spaceage", "tts.spaceage"])
 
   type  = "CNAME"
   name  = each.value
   ttl   = 3600
-  value = "redfox.doridian.net"
+  value = "wan.foxden.network"
 }
 
 

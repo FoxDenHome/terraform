@@ -34,11 +34,6 @@ locals {
   }
 
   default_vanity_nameserver = "doridian.net"
-
-  redfox = {
-    ipv4 = "66.42.71.230"
-    ipv6 = "2a0e:7d44:f000:0:0:0:0:e621"
-  }
 }
 
 module "domain" {
