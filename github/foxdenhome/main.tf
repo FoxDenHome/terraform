@@ -11,7 +11,7 @@ locals {
     LCDify              = {}
     terraform           = {}
     e621dumper          = {}
-    redfox              = {}
+    tapemgr             = {}
     docker              = {}
     docker-sriov-plugin = {}
     router = {
