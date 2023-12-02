@@ -5,17 +5,12 @@ locals {
     BungeeFailover                = {}
     ChatLinkRouter                = {}
     ChatLinkRouter_Java           = {}
-    ConfigDependency              = {}
     DependencyBuilder             = {}
     DiscordLink                   = {}
     FBoxLiHTTPd                   = {}
     FoxBukkitBadge                = {}
-    FoxBukkitChat                 = {}
     FoxBukkitChatLink             = {}
     FoxBukkitCheckoff             = {}
-    FoxBukkitLua                  = {}
-    FoxBukkitLuaModules           = {}
-    FoxBukkitPermissions          = {}
     FoxBukkitScoreboard           = {}
     FoxBukkitSlackLink            = {}
     FoxBungee                     = {}
@@ -41,8 +36,6 @@ locals {
     collectivization-maven-plugin = {}
     dynmap                        = {}
     iOS                           = {}
-    packages                      = {}
-    plexus-compiler-luaj          = {}
     zOLD_BungeeAntiProxy          = {}
     zOLD_BungeeReloader           = {}
     zOLD_FoxBukkit                = {}

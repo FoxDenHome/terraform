@@ -1,4 +1,14 @@
 locals {
+  repositores = {
+    ConfigDependency     = {}
+    FoxBukkitChat        = {}
+    FoxBukkitLua         = {}
+    FoxBukkitLuaModules  = {}
+    FoxBukkitPermissions = {}
+    packages             = {}
+    plexus-compiler-luaj = {}
+  }
+
   members = {
     Doridian   = "admin",
     Crashdoom  = "admin",
@@ -26,4 +36,22 @@ resource "github_team_membership" "engineers" {
 
   username = each.key
   role     = (each.value == "admin") ? "maintainer" : "member"
+}
+
+module "repo" {
+  for_each = local.repositores
+
+  source = "../modules/repo"
+  repository = merge({
+    name         = each.key
+    description  = ""
+    homepage_url = ""
+
+    visibility = "public"
+
+    required_checks   = []
+    branch_protection = true
+
+    pages = null
+  }, each.value)
 }
