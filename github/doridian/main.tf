@@ -139,7 +139,7 @@ locals {
     gokrazy-kernel = {
       description = "Linux kernel images for gokrazy"
     }
-    karalabe-hid = {
+    karalabe_hid = {
       description = "Gopher Interface Devices (USB HID)"
     }
     sdparm = {
