@@ -1,6 +1,6 @@
 resource "cloudns_dns_record" "doridian_net_wan" {
   zone     = "doridian.net"
-  for_each = toset(["spaceage", "api.spaceage", "tts.spaceage"])
+  for_each = toset(["www.spaceage", "spaceage", "api.spaceage", "tts.spaceage"])
 
   type  = "CNAME"
   name  = each.value
