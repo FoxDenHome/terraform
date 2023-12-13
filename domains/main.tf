@@ -22,9 +22,6 @@ locals {
     "yiff.ws" = {
       manual_dnskey_records = [],
       manual_ds_records     = [],
-      additional_statuses = [
-        "serverTransferProhibited"
-      ],
     },
   }, var.domains)
 

@@ -18,6 +18,7 @@ resource "cloudns_dns_record" "foxden_network_wan" {
     "grafana",
     "homeassistant",
     "htpl",
+    "jellyfin",
     "mc",
     "minecraft",
     "nas",
