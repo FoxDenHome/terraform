@@ -18,6 +18,16 @@ resource "cloudns_dns_record" "doridian_net_icefox_a" {
   value = "107.181.226.74"
 }
 
+# redfox
+resource "cloudns_dns_record" "doridian_net_redfox_a" {
+  zone = "doridian.net"
+
+  type  = "A"
+  name  = "redfox"
+  ttl   = 3600
+  value = "144.202.81.146"
+}
+
 # arcticfox
 resource "cloudns_dns_record" "doridian_net_arcticfox_a" {
   zone = "doridian.net"
