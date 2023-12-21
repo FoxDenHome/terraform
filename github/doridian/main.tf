@@ -136,12 +136,6 @@ locals {
     G4-Doorbell-Pro-Max = {}
     Joybus-PIO          = {}
     carvera-pendant     = {}
-    gokrazy-kernel = {
-      description = "Linux kernel images for gokrazy"
-    }
-    gokrazy-tools = {
-      description = "this repository contains the gok CLI tool of gokrazy"
-    }
     karalabe_hid = {
       description = "Gopher Interface Devices (USB HID)"
     }
@@ -156,6 +150,10 @@ locals {
     Uplink = {
       visibility     = "private"
       default_branch = "trunk"
+    }
+
+    foxDNS = {
+      description = "Small DNS server written in Golang"
     }
   }
 }

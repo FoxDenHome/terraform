@@ -1,7 +1,6 @@
 locals {
   archived_repositores = {
     HAMqttDevice       = {}
-    redfox             = {}
     "3dprinter-config" = {}
     desk-control       = {}
   }

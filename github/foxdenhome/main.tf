@@ -18,14 +18,14 @@ locals {
       branch_protection = false
     }
     CC1101Duino     = {}
-    ntp             = {}
+    ntpi            = {}
     islandfox       = {}
     bengalfox       = {}
     backup          = {}
     scripts         = {}
     sshkeys         = {}
     sni-vhost-proxy = {}
-    foxdns          = {}
+    redfox          = {}
     shutdownd       = {}
   }
 
