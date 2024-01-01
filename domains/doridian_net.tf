@@ -18,6 +18,24 @@ resource "cloudns_dns_record" "doridian_net_icefox_a" {
   value = "107.181.226.74"
 }
 
+resource "cloudns_dns_record" "doridian_net_jellyfin_a" {
+  zone = "doridian.net"
+
+  type  = "A"
+  name  = "jellyfin"
+  ttl   = 3600
+  value = "107.181.226.75"
+}
+
+resource "cloudns_dns_record" "doridian_net_syncthing_a" {
+  zone = "doridian.net"
+
+  type  = "A"
+  name  = "syncthing"
+  ttl   = 3600
+  value = "107.181.226.76"
+}
+
 # redfox
 resource "cloudns_dns_record" "doridian_net_redfox_a" {
   zone = "doridian.net"
@@ -78,19 +96,6 @@ module "arcticfox_ses" {
   source    = "../modules/domain/ses"
   zone      = "doridian.net"
   subdomain = "arcticfox"
-}
-
-resource "cloudns_dns_record" "doridian_net_icefox" {
-  for_each = toset([
-    "syncthing",
-    "jellyfin",
-  ])
-  zone = "doridian.net"
-
-  type  = "ALIAS"
-  name  = each.value
-  ttl   = 3600
-  value = "icefox.doridian.net"
 }
 
 resource "cloudns_dns_record" "doridian_net_mc" {
