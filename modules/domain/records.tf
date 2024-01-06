@@ -25,7 +25,13 @@ resource "cloudns_dns_record" "spf" {
   name  = ""
   type  = "TXT"
   ttl   = 3600
-  value = "v=spf1 ${var.fastmail ? "include:spf.messagingengine.com" : ""} ${var.ses ? "include:amazonses.com" : ""} mx ~all"
+  value = join(" ", compact([
+    "v=spf1",
+    var.fastmail ? "include:spf.messagingengine.com" : "",
+    var.ses ? "include:amazonses.com" : "",
+    "mx",
+    "~all",
+  ]))
 }
 
 resource "cloudns_dns_record" "ns_ns" {
