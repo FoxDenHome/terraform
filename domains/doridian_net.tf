@@ -62,7 +62,7 @@ resource "cloudns_dns_record" "doridian_net_arcticfox_aaaa" {
   type  = "AAAA"
   name  = "arcticfox"
   ttl   = 3600
-  value = "2605:6400:30:fcce:e1b0:1f53:2826:5331"
+  value = "2605:6400:30:fcce:1337:1337:1337:1337"
 }
 
 resource "cloudns_dns_record" "doridian_net_arcticfox_mysql" {
