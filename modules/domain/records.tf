@@ -34,6 +34,16 @@ resource "cloudns_dns_record" "spf" {
   ]))
 }
 
+resource "cloudns_dns_record" "dmarc" {
+  count = (var.ses || var.fastmail) ? 1 : 0
+  zone  = var.domain
+
+  name  = "_dmarc"
+  type  = "TXT"
+  ttl   = 3600
+  value = "v=DMARC1;p=quarantine;pct=100;rua=mailto:dmarcreports@doridian.net"
+}
+
 resource "cloudns_dns_record" "ns_ns" {
   count = length(local.used_ns_list)
   zone  = var.domain

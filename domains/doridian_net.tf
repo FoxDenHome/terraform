@@ -92,6 +92,15 @@ resource "cloudns_dns_record" "doridian_net_arcticfox_spf" {
   value = "v=spf1 +a:arcticfox.doridian.net include:amazonses.com mx ~all"
 }
 
+resource "cloudns_dns_record" "doridian_net_arcticfox_dmarc" {
+  zone = "doridian.net"
+
+  name  = "_dmarc.arcticfox"
+  type  = "TXT"
+  ttl   = 3600
+  value = "v=DMARC1;p=quarantine;pct=100;rua=mailto:dmarcreports@doridian.net"
+}
+
 module "arcticfox_ses" {
   source    = "../modules/domain/ses"
   zone      = "doridian.net"
