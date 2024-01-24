@@ -98,7 +98,7 @@ resource "cloudns_dns_record" "doridian_net_arcticfox_dmarc" {
   name  = "_dmarc.arcticfox"
   type  = "TXT"
   ttl   = 3600
-  value = "v=DMARC1;p=quarantine;pct=100;rua=mailto:dmarcreports@doridian.net"
+  value = "v=DMARC1;p=quarantine;pct=100"
 }
 
 module "arcticfox_ses" {
