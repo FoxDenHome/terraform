@@ -14,8 +14,9 @@ locals {
     "foxcav.es" = {},
 
     "darksignsonline.com" = {
-      root_aname    = "doridian.github.io",
-      add_www_cname = false,
+      root_aname     = "doridian.github.io",
+      root_aname_ttl = 3600,
+      add_www_cname  = false,
     },
 
     "foxden.network" = {
@@ -48,6 +49,7 @@ module "domain" {
   fastmail          = true
   ses               = true
   root_aname        = try(each.value.root_aname, var.main_domain)
+  root_aname_ttl    = try(each.value.root_aname_ttl, 300)
   add_www_cname     = try(each.value.add_www_cname, true)
   vanity_nameserver = local.vanity_nameservers[try(each.value.vanity_nameserver, local.default_vanity_nameserver)]
 
