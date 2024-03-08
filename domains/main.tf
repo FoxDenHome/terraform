@@ -14,9 +14,9 @@ locals {
     "foxcav.es" = {},
 
     "darksignsonline.com" = {
-      root_aname     = "doridian.github.io",
+      root_aname     = "arcticfox.doridian.net",
       root_aname_ttl = 3600,
-      add_www_cname  = false,
+      add_www_cname  = true,
     },
 
     "foxden.network" = {
