@@ -5,7 +5,7 @@ module "domain" {
 
   fastmail       = true
   ses            = true
-  root_aname     = "spaceage.mp"
+  root_aname     = "wan.foxden.network"
   root_aname_ttl = 300
   add_www_cname  = true
 
