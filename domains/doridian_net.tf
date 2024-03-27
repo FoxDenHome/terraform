@@ -1,13 +1,3 @@
-resource "cloudns_dns_record" "doridian_net_wan" {
-  zone     = "doridian.net"
-  for_each = toset(["www.spaceage", "spaceage", "api.spaceage", "tts.spaceage"])
-
-  type  = "CNAME"
-  name  = each.value
-  ttl   = 3600
-  value = "wan.foxden.network"
-}
-
 # icefox
 resource "cloudns_dns_record" "doridian_net_icefox_a" {
   zone = "doridian.net"
