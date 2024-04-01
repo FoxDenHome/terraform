@@ -4,6 +4,10 @@ locals {
     SpaceAge_Old_Archive = {
       visibility = "private",
     },
+    ansible = {
+      visibility        = "private"
+      branch_protection = false
+    }
   }
 }
 

@@ -5,17 +5,10 @@ locals {
     StarLord = {
       description = "GMod server manager with updates from git"
     }
-    TTS           = {}
-    space_age_api = {}
-    spacebuild    = {}
-    SpaceAge = {
-      visibility        = "private"
-      branch_protection = false
-    }
-    ansible = {
-      visibility        = "private"
-      branch_protection = false
-    }
+    TTS               = {}
+    space_age_api     = {}
+    spacebuild        = {}
+    SpaceAge          = {}
     SpaceAgeModelPack = {}
     Joystick = {
       description = "A joystick module for GMod, originally by NightEagle."
@@ -36,27 +29,11 @@ locals {
     gm_random            = {}
     smartsnap            = {}
     issues               = {}
+
+    GWSockets     = {}
+    gm_enginespew = {}
+    gm_luaerror   = {}
   }
-
-  members = {
-    Doridian    = "admin",
-    SimonSchick = "admin",
-    TomyLobo    = "member",
-    mjohnson9   = "member",
-  }
-}
-
-resource "github_team" "engineers" {
-  name    = "Engineers"
-  privacy = "closed"
-}
-
-resource "github_team_membership" "engineers" {
-  for_each = local.members
-  team_id  = github_team.engineers.id
-
-  username = each.key
-  role     = (each.value == "admin") ? "maintainer" : "member"
 }
 
 module "repo" {
@@ -75,11 +52,4 @@ module "repo" {
 
     pages = null
   }, each.value)
-}
-
-resource "github_membership" "members" {
-  for_each = local.members
-
-  username = each.key
-  role     = each.value
 }
