@@ -8,7 +8,12 @@ locals {
     TTS               = {}
     space_age_api     = {}
     spacebuild        = {}
-    SpaceAge          = {}
+    SpaceAge          = {
+      required_checks = [
+        "GLuaLint",
+        "lint"
+      ]
+    }
     SpaceAgeModelPack = {}
     Joystick = {
       description = "A joystick module for GMod, originally by NightEagle."
