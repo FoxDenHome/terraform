@@ -5,7 +5,7 @@ resource "cloudns_dns_record" "doridian_net_icefox_a" {
   type  = "A"
   name  = "icefox"
   ttl   = 3600
-  value = "107.181.226.74"
+  value = "23.239.97.10"
 }
 
 resource "cloudns_dns_record" "doridian_net_jellyfin_a" {
@@ -14,7 +14,7 @@ resource "cloudns_dns_record" "doridian_net_jellyfin_a" {
   type  = "A"
   name  = "jellyfin"
   ttl   = 3600
-  value = "107.181.226.75"
+  value = "23.239.97.11"
 }
 
 resource "cloudns_dns_record" "doridian_net_syncthing_a" {
@@ -23,7 +23,7 @@ resource "cloudns_dns_record" "doridian_net_syncthing_a" {
   type  = "A"
   name  = "syncthing"
   ttl   = 3600
-  value = "107.181.226.76"
+  value = "23.239.97.12"
 }
 
 # redfox
