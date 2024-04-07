@@ -8,7 +8,7 @@ resource "cloudns_dns_record" "doridian_net_icefox_a" {
   value = "23.239.97.10"
 }
 
-resource "cloudns_dns_record" "doridian_net_icefox_a" {
+resource "cloudns_dns_record" "doridian_net_dav_a" {
   zone = "doridian.net"
 
   type  = "A"
