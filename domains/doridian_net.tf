@@ -8,6 +8,15 @@ resource "cloudns_dns_record" "doridian_net_icefox_a" {
   value = "23.239.97.10"
 }
 
+resource "cloudns_dns_record" "doridian_net_icefox_aaaa" {
+  zone = "doridian.net"
+
+  type  = "AAAA"
+  name  = "icefox"
+  ttl   = 3600
+  value = "2606:c700:4020:af::2"
+}
+
 resource "cloudns_dns_record" "doridian_net_dav_a" {
   zone = "doridian.net"
 
@@ -15,6 +24,15 @@ resource "cloudns_dns_record" "doridian_net_dav_a" {
   name  = "dav"
   ttl   = 3600
   value = "23.239.97.10"
+}
+
+resource "cloudns_dns_record" "doridian_net_dav_aaaa" {
+  zone = "doridian.net"
+
+  type  = "AAAA"
+  name  = "dav"
+  ttl   = 3600
+  value = "2606:c700:4020:af::2"
 }
 
 resource "cloudns_dns_record" "doridian_net_jellyfin_a" {
@@ -26,6 +44,15 @@ resource "cloudns_dns_record" "doridian_net_jellyfin_a" {
   value = "23.239.97.11"
 }
 
+resource "cloudns_dns_record" "doridian_net_jellyfin_aaaa" {
+  zone = "doridian.net"
+
+  type  = "AAAA"
+  name  = "icefox"
+  ttl   = 3600
+  value = "2606:c700:4020:af::3"
+}
+
 resource "cloudns_dns_record" "doridian_net_syncthing_a" {
   zone = "doridian.net"
 
@@ -33,6 +60,15 @@ resource "cloudns_dns_record" "doridian_net_syncthing_a" {
   name  = "syncthing"
   ttl   = 3600
   value = "23.239.97.12"
+}
+
+resource "cloudns_dns_record" "doridian_net_syncthing_aaaa" {
+  zone = "doridian.net"
+
+  type  = "AAAA"
+  name  = "syncthing"
+  ttl   = 3600
+  value = "2606:c700:4020:af::4"
 }
 
 # redfox
@@ -43,6 +79,15 @@ resource "cloudns_dns_record" "doridian_net_redfox_a" {
   name  = "redfox"
   ttl   = 3600
   value = "144.202.81.146"
+}
+
+resource "cloudns_dns_record" "doridian_net_redfox_aaaa" {
+  zone = "doridian.net"
+
+  type  = "AAAA"
+  name  = "redfox"
+  ttl   = 3600
+  value = "2001:19f0:8001:f07:5400:4ff:feb1:d2e3"
 }
 
 # arcticfox
