@@ -8,6 +8,15 @@ resource "cloudns_dns_record" "doridian_net_icefox_a" {
   value = "23.239.97.10"
 }
 
+resource "cloudns_dns_record" "doridian_net_icefox_a" {
+  zone = "doridian.net"
+
+  type  = "A"
+  name  = "dav"
+  ttl   = 3600
+  value = "23.239.97.10"
+}
+
 resource "cloudns_dns_record" "doridian_net_jellyfin_a" {
   zone = "doridian.net"
 
