@@ -23,6 +23,11 @@ locals {
     lua-resty-aws-signature = {
       description = "AWS signature V4 library for OpenResty + Lua"
     }
+
+    lua-gd = {
+      description = "Lua bindings to the LibGD"
+      homepage_url = "https://ittner.github.com/lua-gd"
+    }
   }
 
   members = {
