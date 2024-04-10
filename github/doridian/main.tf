@@ -149,7 +149,7 @@ locals {
   }
 }
 
-# tfi() { tofu import "module.repo[\"$1\"].github_repository.repo" "$1"; tofu import "module.repo[\"$1\"].github_branch_protection.main" "$1:main"; }
+# tfi() { tofu import "module.repo[\"$1\"].github_repository.repo" "$1"; tofu import "module.repo[\"$1\"].github_branch_protection.main[0]" "$1:main"; }
 
 module "repo" {
   for_each = local.repositores

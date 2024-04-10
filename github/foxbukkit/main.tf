@@ -1,12 +1,13 @@
 locals {
   repositores = {
-    ConfigDependency     = {}
-    FoxBukkitChat        = {}
-    FoxBukkitLua         = {}
-    FoxBukkitLuaModules  = {}
-    FoxBukkitPermissions = {}
-    packages             = {}
-    plexus-compiler-luaj = {}
+    accounts-client        = {}
+    config-dependency      = {}
+    fox-bukkit-chat        = {}
+    fox-bukkit-lua         = {}
+    fox-bukkit-lua-modules = {}
+    fox-bukkit-permissions = {}
+    packages               = {}
+    plexus-compiler-luaj   = {}
   }
 
   members = {

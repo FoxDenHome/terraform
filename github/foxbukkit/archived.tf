@@ -1,6 +1,7 @@
 locals {
   archived_repositores = {
-    AccountsClient                = {}
+    redis-dependency              = {}
+    threading-dependency          = {}
     BarAPI                        = {}
     BungeeFailover                = {}
     ChatLinkRouter                = {}
@@ -24,14 +25,12 @@ locals {
     MultiBukkit                   = {}
     Organization                  = {}
     RavenBukkit                   = {}
-    RedisDependency               = {}
     Remote-Entities               = {}
     RestartIfEmpty                = {}
     SpigotPatcher                 = {}
     StaticWorld                   = {}
     TechnicServerPlatform         = {}
     TechnicSolder                 = {}
-    ThreadingDependency           = {}
     VoidGenerator                 = {}
     collectivization-maven-plugin = {}
     dynmap                        = {}
