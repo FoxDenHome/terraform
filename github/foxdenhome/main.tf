@@ -17,16 +17,21 @@ locals {
     router = {
       branch_protection = false
     }
-    CC1101Duino     = {}
-    ntpi            = {}
-    islandfox       = {}
-    bengalfox       = {}
-    backup          = {}
-    scripts         = {}
-    sshkeys         = {}
-    sni-vhost-proxy = {}
-    redfox          = {}
-    shutdownd       = {}
+    CC1101Duino       = {}
+    ntpi              = {}
+    islandfox         = {}
+    bengalfox         = {}
+    backup            = {}
+    scripts           = {}
+    sshkeys           = {}
+    sni-vhost-proxy   = {}
+    redfox            = {}
+    shutdownd         = {}
+    BlissLightControl = {}
+    hassio-ecoflow = {
+      description = "EcoFlow Portable Power Station Integration for Home Assistant"
+    }
+    icefox = {}
   }
 
   members = {

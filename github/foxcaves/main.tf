@@ -25,7 +25,7 @@ locals {
     }
 
     lua-gd = {
-      description = "Lua bindings to the LibGD"
+      description  = "Lua bindings to the LibGD"
       homepage_url = "https://ittner.github.com/lua-gd"
     }
   }
