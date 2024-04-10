@@ -1,24 +1,11 @@
-# This file is maintained automatically by "terraform init".
+# This file is maintained automatically by "tofu init".
 # Manual edits may be lost in future updates.
 
-provider "registry.terraform.io/integrations/github" {
+provider "registry.opentofu.org/integrations/github" {
   version     = "6.2.1"
   constraints = "~> 6.0"
   hashes = [
-    "h1:+D3RkY8wtSgntf1e9KCYD+pvBbyCcxK6QHNO6n8I8G8=",
-    "h1:/JYIA1Ce/bKEU5Ibgtg2CLF4EunDSkXtjhZtYvGneAE=",
-    "h1:6f67bdz4o88aUgiLEU0OCIV+nnFGvVzWQkjwPA8svKc=",
-    "h1:6yIogGy3gH7TeyQt0D8aqje+180bqOWXxEWK4HlhSOw=",
-    "h1:G8pBys1/8zUMdv2TxZcvpulHgr7WkwWB7OzHC0ld848=",
-    "h1:Q8uCEOulnisDwsWXgjKStfFo+EbTMb+eZW1YQ4E8ApQ=",
-    "h1:TxhB0pHZ4QD6lGMws4wVmS5JHtNyuQ5m6WrvN4qtHa8=",
-    "h1:WteQgM0LviPPhTGs7TSFkBRrKXV7hpmaedTo9PeryRA=",
-    "h1:a9ho5TSb3/jK/TjJsWyeVfK0MM+Y3IHzKhC7h/v8da8=",
-    "h1:ip7024qn1ewDqlNucxh07DHvuhSLZSqtTGewxNLeYYU=",
-    "h1:rY+q+OhJm90R900HvO05YNH7Tl0EOnbCLAoG+5niLX8=",
     "h1:uDerb9YJo3vAO+wKw+Z064InX5aXom+nKLDry2eGf14=",
-    "h1:yE3BDFz6AwCiCvF/6mySn3hcTzi5Klu0KfQ1HGjSfqE=",
-    "h1:ynrlzPIPF30vOvkbyAa07akkYwXLX9cRHXPZ5XWyE1A=",
     "zh:172aa5141c525174f38504a0d2e69d0d16c0a0b941191b7170fe6ae4d7282e30",
     "zh:1a098b731fa658c808b591d030cc17cc7dfca1bf001c3c32e596f8c1bf980e9f",
     "zh:245d6a1c7e632d8ae4bdd2da2516610c50051e81505cf420a140aa5fa076ea90",
