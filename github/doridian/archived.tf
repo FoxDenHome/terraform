@@ -36,7 +36,6 @@ locals {
     fhem-InfluxDBLog         = {},
     gitrunner                = {},
     hashtopolis-agent-python = {},
-    hashtopolis-docker       = {},
     jumpme                   = {},
     ledbadge                 = {},
     ledmgr                   = {},
@@ -62,6 +61,22 @@ locals {
     tuya-prometheus          = {},
     vfmgr                    = {},
     wireworld_cuda           = {},
+    BambuSource2Raw = {
+      description = "Get raw webcam stream of BambuLabX1 3D printer"
+    }
+    NoTouchScreenFirmware = {
+      description = "Stripped down version of BIGTREETECH-TouchScreenFirmware which only supports ST7920 emulation (Marlin Mode)"
+    }
+    RigolLib = {
+      description = ".NET Interface for Rigol devices (currently Oscilloscopes)"
+    }
+    TeslaLogger  = {}
+    healthcheckd = {}
+    j4210u-app   = {}
+    rd60xx       = {}
+    sdparm = {
+      description = "Fork of the official git-svn mirror for sdparm, access SCSI parameters (mode+VPD pages)"
+    }
   }
 }
 

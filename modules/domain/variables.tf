@@ -81,6 +81,6 @@ variable "billing_contacts" {
 }
 
 variable "additional_statuses" {
-  type = set(string)
+  type    = set(string)
   default = []
 }

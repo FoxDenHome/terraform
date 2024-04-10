@@ -24,10 +24,8 @@ locals {
     jsip-wsvpn        = {}
     wsvpn-js          = {}
     query-finder      = {}
-    healthcheckd      = {}
     factorio-fox-todo = {}
     slimfat           = {}
-    rd60xx            = {}
     tracething        = {}
     terraform-provider-hexonet = {
       description = "Terraform provider for Hexonet API"
@@ -35,9 +33,6 @@ locals {
     homebrew-tap = {}
     jsip = {
       description = "TCP/UDP/ICMP/IP/Ethernet stack in pure TypeScript."
-    }
-    RigolLib = {
-      description = ".NET Interface for Rigol devices (currently Oscilloscopes)"
     }
     LuaJS = {
       description = "Lua VM running in Javascript (using emscripten)"
@@ -51,7 +46,6 @@ locals {
       description = "Various OS configuration/customization files"
     }
     deffs         = {}
-    j4210u-app    = {}
     libMSRx05     = {}
     streamdeckpi  = {}
     go-streamdeck = {}
@@ -71,8 +65,6 @@ locals {
 
     fakeuinput = {}
 
-    TeslaLogger = {}
-
     fakerfs = {
       description = "FUSE filesystem that can overlay fake files on top of a real filesystem"
     }
@@ -84,10 +76,6 @@ locals {
     }
     terraform-provider-cloudns = {
       description       = "Terraform provider for ClouDNS"
-      branch_protection = false
-    }
-    noVNC = {
-      description       = "VNC client web application"
       branch_protection = false
     }
     qmk_firmware = {
@@ -106,10 +94,6 @@ locals {
       description       = "Factorio mod to add pause and unpause commands"
       branch_protection = false
     }
-    NoTouchScreenFirmware = {
-      description       = "Stripped down version of BIGTREETECH-TouchScreenFirmware which only supports ST7920 emulation (Marlin Mode)"
-      branch_protection = false
-    }
     driftctl = {
       description       = "Detect, track and alert on infrastructure drift"
       branch_protection = false
@@ -123,10 +107,7 @@ locals {
       branch_protection = false
     }
 
-    BambuSource2Raw = {
-      description       = "Get raw webcam stream of BambuLabX1 3D printer"
-      branch_protection = false
-    }
+    hashtopolis-docker = {},
 
     LuaJIT = {
       description       = "Mirror of the LuaJIT git repository"
@@ -139,9 +120,7 @@ locals {
     karalabe_hid = {
       description = "Gopher Interface Devices (USB HID)"
     }
-    sdparm = {
-      description = "Fork of the official git-svn mirror for sdparm, access SCSI parameters (mode+VPD pages)"
-    }
+
     superfan      = {}
     dockerheal    = {}
     docker-netfix = {}

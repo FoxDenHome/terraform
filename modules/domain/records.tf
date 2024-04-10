@@ -22,9 +22,9 @@ resource "cloudns_dns_record" "spf" {
   count = (var.ses || var.fastmail) ? 1 : 0
   zone  = var.domain
 
-  name  = ""
-  type  = "TXT"
-  ttl   = 3600
+  name = ""
+  type = "TXT"
+  ttl  = 3600
   value = join(" ", compact([
     "v=spf1",
     var.fastmail ? "include:spf.messagingengine.com" : "",

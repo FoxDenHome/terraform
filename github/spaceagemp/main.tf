@@ -5,10 +5,10 @@ locals {
     StarLord = {
       description = "GMod server manager with updates from git"
     }
-    TTS               = {}
-    space_age_api     = {}
-    spacebuild        = {}
-    SpaceAge          = {
+    TTS           = {}
+    space_age_api = {}
+    spacebuild    = {}
+    SpaceAge = {
       required_checks = [
         "GLuaLint",
         "lint"
