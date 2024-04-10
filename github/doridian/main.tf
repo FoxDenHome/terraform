@@ -126,18 +126,30 @@ locals {
     docker-netfix = {}
     foxTorrent    = {}
 
+    foxDNS = {
+      description = "Small DNS server written in Golang"
+    }
+
     Uplink = {
       visibility     = "private"
       default_branch = "trunk"
     }
-
-    foxDNS = {
-      description = "Small DNS server written in Golang"
+    DEFCON = {
+      visibility     = "private"
+      default_branch = "trunk"
     }
+    DarwiniaAndMultiwinia = {
+      visibility     = "private"
+      default_branch = "trunk"
+    }
+
+    DarkSignsOnline   = {}
+    NetDAQ            = {}
+    hak5-wifi-coconut = {}
   }
 }
 
-# tfi() { terraform import "module.repo[\"$1\"].github_repository.repo" "$1"; terraform import "module.repo[\"$1\"].github_branch_protection.main" "$1:main"; }
+# tfi() { tofu import "module.repo[\"$1\"].github_repository.repo" "$1"; tofu import "module.repo[\"$1\"].github_branch_protection.main" "$1:main"; }
 
 module "repo" {
   for_each = local.repositores
