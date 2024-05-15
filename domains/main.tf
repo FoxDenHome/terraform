@@ -6,10 +6,6 @@ locals {
     "doridian.de"  = {},
     "doridian.net" = {},
 
-    "fox.mov" = {
-      registrar = "inwx",
-    },
-
     "f0x.es"    = {},
     "foxcav.es" = {},
 
