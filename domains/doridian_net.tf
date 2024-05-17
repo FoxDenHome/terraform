@@ -97,16 +97,16 @@ resource "cloudns_dns_record" "doridian_net_arcticfox_a" {
   type  = "A"
   name  = "arcticfox"
   ttl   = 3600
-  value = "107.189.10.224"
+  value = "23.239.97.14"
 }
 
 resource "cloudns_dns_record" "doridian_net_arcticfox_aaaa" {
-  zone = "doridian.net"
+ zone = "doridian.net"
 
-  type  = "AAAA"
-  name  = "arcticfox"
-  ttl   = 3600
-  value = "2605:6400:30:fcce:1337:1337:1337:1337"
+ type  = "AAAA"
+ name  = "arcticfox"
+ ttl   = 3600
+ value = "2606:c700:4020:af::6"
 }
 
 resource "cloudns_dns_record" "doridian_net_arcticfox_mysql" {
