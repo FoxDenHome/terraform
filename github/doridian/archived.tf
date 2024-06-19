@@ -54,7 +54,6 @@ locals {
     puppeteer-page-proxy     = {},
     rfcat-mqtt               = {},
     sdr-misc                 = {},
-    shutdownd                = {},
     slow-uboot-flasher       = {},
     tesla-proxy              = {},
     tetris-os                = {},
