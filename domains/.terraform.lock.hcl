@@ -6,6 +6,7 @@ provider "registry.opentofu.org/doridian/hexonet" {
   constraints = "~> 0.20"
   hashes = [
     "h1:/P8lIJxHfvZYAi+HQRjVwXFAmIH31j5r1+kTVMt9/j8=",
+    "h1:5/oSpng06H2ozUkSWnf5KVICsvjeDAGO7H73Rm5+wL8=",
     "zh:01a67b197528b074c028db2617cc2c07bc826d6461d5d5749771b3874afc2653",
     "zh:035368d6f29ad6f79bbfc1292f8cdda60498e1f5813ffea7eb43f0376abaad6c",
     "zh:073d7ce33d31e0d257e4dd2352a8fc7b5f5d8cd4de620c2cee461210c728cadb",
@@ -28,6 +29,7 @@ provider "registry.opentofu.org/hashicorp/aws" {
   version     = "5.44.0"
   constraints = "~> 5.0"
   hashes = [
+    "h1:Aw6T+JbyQpwib/mvMlFYEs7DC3Jj6mdmkBGvmU3ITyQ=",
     "h1:sWS/VLmRG7YWITBtjPHgPC/0RO/gTeBMK0BlNI+soeo=",
     "zh:11b9441715b1da3a8c7279c268b0fedee7cb481dde5b5a80ce2f3a524ff44704",
     "zh:5e67ca31d1c9c7ab534022a3be5fdb542c4959cd7d66bac2569d2ab7ea0cd2b7",
@@ -47,6 +49,7 @@ provider "registry.opentofu.org/hashicorp/dns" {
   constraints = "~> 3.2"
   hashes = [
     "h1:6Xh/kXtqIVf2G7wfG3bmGk0pbZxjuca0HqPcUWYEtaI=",
+    "h1:j0k6DE/Vng3r8QQQutSRNZ7DjzI9tDtgwCcIT/tIrOI=",
     "zh:16061e224e1d89b66dd93a2345e80fe00f24a6f7f72c768e792c4ffbcdd1445d",
     "zh:1b2e125211a5508d3d8879747174f20d16b2aac15cc0a2b7dae6f40cd6c85610",
     "zh:608fc152d9c9e02a84eb980430f821c22f7de14156af61fb7014fb8707d796ba",
@@ -64,6 +67,7 @@ provider "registry.opentofu.org/hashicorp/http" {
   version = "3.4.2"
   hashes = [
     "h1:KYPSiOzUcE18IUcDI19bVFVNgp+ihVrOub5hSdtct0I=",
+    "h1:bMenQ+xFMyn0/8ZRxy1TwmurEeDkt/8IMW/HPmJ2Emc=",
     "zh:02431ec117a862e219dab4d014bc4d5c158b49b18dbc31fd53c2a5a1f1a3d9c7",
     "zh:11f0c07a25e03436531ed37536f7aaba376b1dc994b6d59483030f2c17120752",
     "zh:23aa3da0bf34f92fa2253b3228e8aa42aa2a2b8b27cec487bf78147aec6c373b",
@@ -82,6 +86,7 @@ provider "registry.opentofu.org/mangadex-pub/cloudns" {
   constraints = "~> 0.4"
   hashes = [
     "h1:69S3ET6bKlWV0sbiwSPeehYBCqsM0/B3RYNAia6ez6c=",
+    "h1:LnVV886EgyASLC0zK/CvWCfnW2w5gw0byWIHPLHaVsw=",
     "zh:17313dbe6917ac0c1a30f6debc5d615057f593524c081623ac778d216e1812e2",
     "zh:195cdbd86de76513afeec48b5131b10efaa2232e7749b852cfccf2cce1d57478",
     "zh:242e05bfa4576aca3e5c4f63f4796765ab285ccba10b4ed61e6c55333bbf5582",
