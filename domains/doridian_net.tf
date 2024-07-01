@@ -101,12 +101,12 @@ resource "cloudns_dns_record" "doridian_net_arcticfox_a" {
 }
 
 resource "cloudns_dns_record" "doridian_net_arcticfox_aaaa" {
- zone = "doridian.net"
+  zone = "doridian.net"
 
- type  = "AAAA"
- name  = "arcticfox"
- ttl   = 3600
- value = "2606:c700:4020:af::6"
+  type  = "AAAA"
+  name  = "arcticfox"
+  ttl   = 3600
+  value = "2606:c700:4020:af::6"
 }
 
 resource "cloudns_dns_record" "doridian_net_arcticfox_mysql" {
