@@ -3,6 +3,7 @@ locals {
     HAMqttDevice       = {}
     "3dprinter-config" = {}
     desk-control       = {}
+    redfox             = {}
   }
 }
 

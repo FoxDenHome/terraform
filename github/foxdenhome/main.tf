@@ -25,7 +25,6 @@ locals {
     scripts           = {}
     sshkeys           = {}
     sni-vhost-proxy   = {}
-    redfox            = {}
     shutdownd         = {}
     BlissLightControl = {}
     hassio-ecoflow = {
