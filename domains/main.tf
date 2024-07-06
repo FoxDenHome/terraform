@@ -2,7 +2,6 @@ locals {
   domain_contact_full_name = join(" ", compact([var.domain_contact.first_name, var.domain_contact.middle_name, var.domain_contact.last_name]))
 
   domains = merge({
-    "doridian.com" = {},
     "doridian.de"  = {},
     "doridian.net" = {},
 
