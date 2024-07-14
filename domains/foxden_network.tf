@@ -8,13 +8,20 @@ resource "cloudns_dns_record" "foxden_network_nas_ro" {
 }
 
 # XMPP
-resource "cloudns_dns_record" "foxden_network_xmpp_a" {
-  for_each = toset([
+locals {
+  xmpp_hostnames = toset([
     "",
     "xmpp",
-    "xmpp-upload",
+    "upload.xmpp",
+    "muc.xmpp",
+    "proxy.xmpp",
+    "pubsub.xmpp",
   ])
-  zone = "foxden.network"
+}
+
+resource "cloudns_dns_record" "foxden_network_xmpp_a" {
+  for_each = local.xmpp_hostnames
+  zone     = "foxden.network"
 
   type  = "A"
   name  = each.value
@@ -23,12 +30,8 @@ resource "cloudns_dns_record" "foxden_network_xmpp_a" {
 }
 
 resource "cloudns_dns_record" "foxden_network_xmpp_aaaa" {
-  for_each = toset([
-    "",
-    "xmpp",
-    "xmpp-upload",
-  ])
-  zone = "foxden.network"
+  for_each = local.xmpp_hostnames
+  zone     = "foxden.network"
 
   type  = "AAAA"
   name  = each.value
