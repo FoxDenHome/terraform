@@ -7,6 +7,35 @@ resource "cloudns_dns_record" "foxden_network_nas_ro" {
   value = "23.239.97.10"
 }
 
+# XMPP
+resource "cloudns_dns_record" "foxden_network_xmpp_a" {
+  for_each = toset([
+    "",
+    "xmpp",
+    "xmpp-upload",
+  ])
+  zone = "foxden.network"
+
+  type  = "A"
+  name  = each.value
+  ttl   = 3600
+  value = "23.239.97.13"
+}
+
+resource "cloudns_dns_record" "foxden_network_xmpp_aaaa" {
+  for_each = toset([
+    "",
+    "xmpp",
+    "xmpp-upload",
+  ])
+  zone = "foxden.network"
+
+  type  = "AAAA"
+  name  = each.value
+  ttl   = 3600
+  value = "2606:c700:4020:af::5"
+}
+
 resource "cloudns_dns_record" "foxden_network_wan" {
   zone = "foxden.network"
 

@@ -15,6 +15,7 @@ locals {
     },
 
     "foxden.network" = {
+      root_aname            = null,
       vanity_nameserver     = "foxden.network",
       manual_dnskey_records = [],
       manual_ds_records     = [],
