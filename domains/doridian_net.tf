@@ -1,18 +1,24 @@
 # icefox
+locals {
+  icefox_hosts = toset(["icefox", "dldr.icefox"])
+}
+
 resource "cloudns_dns_record" "doridian_net_icefox_a" {
-  zone = "doridian.net"
+  for_each = local.icefox_hosts
+  zone     = "doridian.net"
 
   type  = "A"
-  name  = "icefox"
+  name  = each.value
   ttl   = 3600
   value = "23.239.97.10"
 }
 
 resource "cloudns_dns_record" "doridian_net_icefox_aaaa" {
-  zone = "doridian.net"
+  for_each = local.icefox_hosts
+  zone     = "doridian.net"
 
   type  = "AAAA"
-  name  = "icefox"
+  name  = each.value
   ttl   = 3600
   value = "2606:c700:4020:af::2"
 }
@@ -48,7 +54,7 @@ resource "cloudns_dns_record" "doridian_net_jellyfin_aaaa" {
   zone = "doridian.net"
 
   type  = "AAAA"
-  name  = "icefox"
+  name  = "jellyfin"
   ttl   = 3600
   value = "2606:c700:4020:af::3"
 }
