@@ -116,7 +116,13 @@ locals {
 
     G4-Doorbell-Pro-Max = {}
     Joybus-PIO          = {}
-    carvera-pendant     = {}
+    carvera-pendant     = {
+      required_checks = [
+          "ESLint",
+          "Prettier",
+          "lint_and_build",
+      ]
+    }
     karalabe_hid = {
       description = "Gopher Interface Devices (USB HID)"
     }
@@ -141,6 +147,15 @@ locals {
     DarwiniaAndMultiwinia = {
       visibility     = "private"
       default_branch = "trunk"
+    }
+
+    fadumper = {
+      visibility = "private"
+      required_checks = [
+          "ESLint",
+          "Prettier",
+          "lint_and_build",
+      ]
     }
 
     DarkSignsOnline   = {}
