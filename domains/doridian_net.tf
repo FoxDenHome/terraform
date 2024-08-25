@@ -50,22 +50,13 @@ resource "cloudns_dns_record" "doridian_net_dav_aaaa" {
   value = "2606:c700:4020:af::2"
 }
 
-resource "cloudns_dns_record" "doridian_net_jellyfin_a" {
+resource "cloudns_dns_record" "doridian_net_jellyfin_cname" {
   zone = "doridian.net"
 
-  type  = "A"
+  type  = "CNAME"
   name  = "jellyfin"
   ttl   = 3600
-  value = "23.239.97.11"
-}
-
-resource "cloudns_dns_record" "doridian_net_jellyfin_aaaa" {
-  zone = "doridian.net"
-
-  type  = "AAAA"
-  name  = "jellyfin"
-  ttl   = 3600
-  value = "2606:c700:4020:af::3"
+  value = "icefox.doridian.net"
 }
 
 resource "cloudns_dns_record" "doridian_net_syncthing_a" {
