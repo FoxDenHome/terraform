@@ -23,13 +23,22 @@ resource "cloudns_dns_record" "doridian_net_icefox_aaaa" {
   value = "2606:c700:4020:af::2"
 }
 
-resource "cloudns_dns_record" "doridian_net_archlinux_cname" {
+resource "cloudns_dns_record" "doridian_net_archlinux_a" {
   zone = "doridian.net"
 
-  type  = "CNAME"
+  type  = "A"
   name  = "archlinux"
   ttl   = 3600
-  value = "icefox.doridian.net"
+  value = "23.239.97.11"
+}
+
+resource "cloudns_dns_record" "doridian_net_archlinux_aaaa" {
+  zone = "doridian.net"
+
+  type  = "AAAA"
+  name  = "archlinux"
+  ttl   = 3600
+  value = "2606:c700:4020:af::3"
 }
 
 resource "cloudns_dns_record" "doridian_net_dav_a" {

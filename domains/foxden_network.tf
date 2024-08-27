@@ -44,6 +44,7 @@ resource "cloudns_dns_record" "foxden_network_wan" {
 
   for_each = toset([
     "bengalfox-syncthing",
+    "archlinux",
     "dav",
     "factorio",
     "git",
