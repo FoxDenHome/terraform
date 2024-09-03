@@ -43,6 +43,7 @@ resource "cloudns_dns_record" "foxden_network_wan" {
   zone = "foxden.network"
 
   for_each = toset([
+    "auth",
     "bengalfox-syncthing",
     "archlinux",
     "dav",
