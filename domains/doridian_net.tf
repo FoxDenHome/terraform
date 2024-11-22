@@ -174,3 +174,12 @@ resource "cloudns_dns_record" "doridian_net_mc" {
   ttl   = 3600
   value = "minecraft.foxden.network"
 }
+
+resource "cloudns_dns_record" "doridian_net_atproto" {
+  zone = "doridian.net"
+
+  type  = "TXT"
+  name  = "_atproto"
+  ttl   = 3600
+  value = "did=did:plc:cvicss3pgv6r4qhk3nzrb543"
+}
