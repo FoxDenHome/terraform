@@ -10,7 +10,6 @@ locals {
     spacebuild    = {}
     SpaceAge = {
       required_checks = [
-        "GLuaLint",
         "lint"
       ]
     }
