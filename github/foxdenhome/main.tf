@@ -30,9 +30,10 @@ locals {
     hassio-ecoflow = {
       description = "EcoFlow Portable Power Station Integration for Home Assistant"
     }
-    icefox  = {}
-    fennec  = {}
-    capefox = {}
+    icefox   = {}
+    fennec   = {}
+    capefox  = {}
+    diagrams = {}
   }
 
   members = {
