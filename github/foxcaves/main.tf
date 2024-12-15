@@ -6,8 +6,6 @@ locals {
         "docker",
         "lint / backend",
         "lint / frontend",
-        "ESLint",
-        "Prettier",
       ]
     }
     sharex = {

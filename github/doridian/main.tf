@@ -116,11 +116,9 @@ locals {
 
     G4-Doorbell-Pro-Max = {}
     Joybus-PIO          = {}
-    carvera-pendant     = {
+    carvera-pendant = {
       required_checks = [
-          "ESLint",
-          "Prettier",
-          "lint_and_build",
+        "lint_and_build",
       ]
     }
     karalabe_hid = {
@@ -150,21 +148,61 @@ locals {
     }
 
     fadumper = {
-      visibility = "private"
       required_checks = [
-          "ESLint",
-          "Prettier",
-          "lint_and_build",
+        "lint_and_build",
       ]
     }
 
     DarkSignsOnline   = {}
     NetDAQ            = {}
     hak5-wifi-coconut = {}
+    aurbuild = {
+      description = "Automated AUR builds so my laptop doesn't try to take off"
+    }
+    dnsmasq-docker = {}
+    fwui = {
+      description = "Framework 16 LED matrix UI for expansion card status"
+    }
+    kanidm = {
+      description    = "Kanidm: A simple, secure and fast identity management platform"
+      default_branch = "master"
+    }
+    kbidle         = {}
+    libnss_igshim  = {}
+    linux-zen-dori = {}
+    liquidctl = {
+      description = "Cross-platform CLI and Python drivers for AIO liquid coolers and other devices"
+    }
+    meshtastic-firmware = {
+      description  = "Meshtastic device firmware"
+      homepage_url = "https://meshtastic.org"
+    }
+    node-single-instance = {
+      description = "Check if an instance of the current application is running or not."
+    }
+    oauth-jit-radius = {}
+    panon = {
+      description    = "An Audio Visualizer Widget in KDE Plasma (works in KDE Plasma 6)"
+      default_branch = "6.x.x"
+    }
+    panon-effects = {}
+    pdns-static   = {}
+    pikvm-notes   = {}
+    qmk_hid = {
+      description = "Commandline tool for interacting with QMK devices over HID"
+    }
+    unsaflok = {
+      visibility = "private"
+    }
+    ustreamer = {
+      description  = "µStreamer - Lightweight and fast MJPEG-HTTP streamer"
+      homepage_url = "https://pikvm.org"
+    }
+    viauled = {}
   }
 }
 
-# tfi() { tofu import "module.repo[\"$1\"].github_repository.repo" "$1"; tofu import "module.repo[\"$1\"].github_branch_protection.main[0]" "$1:main"; }
+# tfimp() { tofu import "module.repo[\"$1\"].github_repository.repo" "$1"; tofu import "module.repo[\"$1\"].github_branch_protection.main[0]" "$1:main"; }
 
 module "repo" {
   for_each = local.repositores

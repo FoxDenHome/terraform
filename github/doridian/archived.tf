@@ -79,10 +79,11 @@ locals {
     floppy-linux           = {}
     mister-linux           = {}
     tiny-floppy-bootloader = {}
+    MCAdmin                = {}
   }
 }
 
-# tfi() { tofu import "module.archived_repo[\"$1\"].github_repository.repo" "$1"; }
+# tfimp() { tofu import "module.archived_repo[\"$1\"].github_repository.repo" "$1"; }
 
 module "archived_repo" {
   source = "../modules/repo/archived"
