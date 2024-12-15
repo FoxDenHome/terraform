@@ -2,7 +2,7 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.opentofu.org/integrations/github" {
-  version     = "6.2.1"
+  version     = "6.4.0"
   constraints = "~> 6.0"
   hashes = [
     "h1:ip7024qn1ewDqlNucxh07DHvuhSLZSqtTGewxNLeYYU=",
