@@ -199,6 +199,12 @@ locals {
       homepage_url = "https://pikvm.org"
     }
     viauled = {}
+    GM67 = {
+      description = "Python library for interacting with GROW GM67 barcode scanner"
+    }
+    inputmodule-rs = {
+      description = "Framework Laptop 16 Input Module SW/FW"
+    }
   }
 }
 
