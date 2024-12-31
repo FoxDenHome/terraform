@@ -70,32 +70,16 @@ locals {
     }
 
     # Forks
-    apt-mirror-docker = {
-      description       = "Up to date apt-mirror script, containerized for mirroring + serving."
-      branch_protection = false
-    }
-    terraform-provider-cloudns = {
-      description       = "Terraform provider for ClouDNS"
-      branch_protection = false
-    }
     qmk_firmware = {
       description       = "Open-source keyboard firmware for Atmel AVR and Arm USB families"
       branch_protection = false
     },
-    picotcp = {
-      description       = "PicoTCP is a free TCP/IP stack implementation"
-      branch_protection = false
-    }
     factorio-docker = {
       description       = "Factorio headless server in a Docker container"
       branch_protection = false
     }
     factorio-pause-commands = {
       description       = "Factorio mod to add pause and unpause commands"
-      branch_protection = false
-    }
-    driftctl = {
-      description       = "Detect, track and alert on infrastructure drift"
       branch_protection = false
     }
     sevenroom-scraper = {
@@ -114,8 +98,7 @@ locals {
       branch_protection = false
     }
 
-    G4-Doorbell-Pro-Max = {}
-    Joybus-PIO          = {}
+    Joybus-PIO = {}
     carvera-pendant = {
       required_checks = [
         "lint_and_build",
@@ -134,32 +117,20 @@ locals {
       description = "Small DNS server written in Golang"
     }
 
-    Uplink = {
-      visibility     = "private"
-      default_branch = "trunk"
-    }
-    DEFCON = {
-      visibility     = "private"
-      default_branch = "trunk"
-    }
-    DarwiniaAndMultiwinia = {
-      visibility     = "private"
-      default_branch = "trunk"
-    }
-
     fadumper = {
       required_checks = [
         "lint_and_build",
       ]
     }
 
-    DarkSignsOnline   = {}
+    DarkSignsOnline = {
+      homepage_url = "https://darksignsonline.com"
+    }
     NetDAQ            = {}
     hak5-wifi-coconut = {}
     aurbuild = {
       description = "Automated AUR builds so my laptop doesn't try to take off"
     }
-    dnsmasq-docker = {}
     fwui = {
       description = "Framework 16 LED matrix UI for expansion card status"
     }
@@ -168,11 +139,7 @@ locals {
       default_branch = "master"
     }
     kbidle         = {}
-    libnss_igshim  = {}
     linux-zen-dori = {}
-    liquidctl = {
-      description = "Cross-platform CLI and Python drivers for AIO liquid coolers and other devices"
-    }
     meshtastic-firmware = {
       description  = "Meshtastic device firmware"
       homepage_url = "https://meshtastic.org"
@@ -186,8 +153,6 @@ locals {
       default_branch = "6.x.x"
     }
     panon-effects = {}
-    pdns-static   = {}
-    pikvm-notes   = {}
     qmk_hid = {
       description = "Commandline tool for interacting with QMK devices over HID"
     }
@@ -205,6 +170,11 @@ locals {
     inputmodule-rs = {
       description = "Framework Laptop 16 Input Module SW/FW"
     }
+
+    n64-mm-bin       = {}
+    n64-oot-bin      = {}
+    n64-render96-git = {}
+    n64-sf64-git     = {}
   }
 }
 

@@ -80,10 +80,36 @@ locals {
     mister-linux           = {}
     tiny-floppy-bootloader = {}
     MCAdmin                = {}
+
+    G4-Doorbell-Pro-Max = {}
+    apt-mirror-docker = {
+      description = "Up to date apt-mirror script, containerized for mirroring + serving."
+    }
+    picotcp = {
+      description = "PicoTCP is a free TCP/IP stack implementation"
+    }
+    dnsmasq-docker = {}
+    libnss_igshim  = {}
+    pdns-static    = {}
+    pikvm-notes    = {}
+
+    Uplink = {
+      visibility     = "private"
+      default_branch = "trunk"
+    }
+    DEFCON = {
+      visibility     = "private"
+      default_branch = "trunk"
+    }
+    DarwiniaAndMultiwinia = {
+      visibility     = "private"
+      default_branch = "trunk"
+    }
   }
 }
 
 # tfimp() { tofu import "module.archived_repo[\"$1\"].github_repository.repo" "$1"; }
+# tfarc() { tofu state mv "module.repo[\"$1\"]" "module.archived_repo[\"$1\"]"; }
 
 module "archived_repo" {
   source = "../modules/repo/archived"
