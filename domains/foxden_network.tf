@@ -61,6 +61,7 @@ resource "cloudns_dns_record" "foxden_network_wan" {
     "ns-ip",
     "syncthing",
     "vpn",
+    "restic",
   ])
 
   type  = "CNAME"
