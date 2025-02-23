@@ -1,6 +1,6 @@
 # icefox
 locals {
-  icefox_hosts = toset(["icefox", "dldr.icefox"])
+  icefox_hosts = toset(["icefox", "dldr.icefox", "syncthing", "dav"])
 }
 
 resource "cloudns_dns_record" "doridian_net_icefox_a" {
@@ -10,7 +10,7 @@ resource "cloudns_dns_record" "doridian_net_icefox_a" {
   type  = "A"
   name  = each.value
   ttl   = 3600
-  value = "23.239.97.10"
+  value = "65.21.120.225"
 }
 
 resource "cloudns_dns_record" "doridian_net_icefox_aaaa" {
@@ -20,7 +20,7 @@ resource "cloudns_dns_record" "doridian_net_icefox_aaaa" {
   type  = "AAAA"
   name  = each.value
   ttl   = 3600
-  value = "2606:c700:4020:af::2"
+  value = "2a01:4f9:3b:4960::2"
 }
 
 resource "cloudns_dns_record" "doridian_net_archlinux_a" {
@@ -29,7 +29,7 @@ resource "cloudns_dns_record" "doridian_net_archlinux_a" {
   type  = "A"
   name  = "archlinux"
   ttl   = 3600
-  value = "23.239.97.11"
+  value = "65.21.120.220"
 }
 
 resource "cloudns_dns_record" "doridian_net_archlinux_aaaa" {
@@ -38,52 +38,7 @@ resource "cloudns_dns_record" "doridian_net_archlinux_aaaa" {
   type  = "AAAA"
   name  = "archlinux"
   ttl   = 3600
-  value = "2606:c700:4020:af::3"
-}
-
-resource "cloudns_dns_record" "doridian_net_dav_a" {
-  zone = "doridian.net"
-
-  type  = "A"
-  name  = "dav"
-  ttl   = 3600
-  value = "23.239.97.10"
-}
-
-resource "cloudns_dns_record" "doridian_net_dav_aaaa" {
-  zone = "doridian.net"
-
-  type  = "AAAA"
-  name  = "dav"
-  ttl   = 3600
-  value = "2606:c700:4020:af::2"
-}
-
-resource "cloudns_dns_record" "doridian_net_jellyfin_cname" {
-  zone = "doridian.net"
-
-  type  = "CNAME"
-  name  = "jellyfin"
-  ttl   = 3600
-  value = "icefox.doridian.net"
-}
-
-resource "cloudns_dns_record" "doridian_net_syncthing_a" {
-  zone = "doridian.net"
-
-  type  = "A"
-  name  = "syncthing"
-  ttl   = 3600
-  value = "23.239.97.12"
-}
-
-resource "cloudns_dns_record" "doridian_net_syncthing_aaaa" {
-  zone = "doridian.net"
-
-  type  = "AAAA"
-  name  = "syncthing"
-  ttl   = 3600
-  value = "2606:c700:4020:af::4"
+  value = "2a01:4f9:3b:4960::3"
 }
 
 # redfox

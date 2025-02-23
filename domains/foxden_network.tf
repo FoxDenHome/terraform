@@ -4,7 +4,7 @@ resource "cloudns_dns_record" "foxden_network_nas_ro" {
   type  = "A"
   name  = "nas-ro"
   ttl   = 3600
-  value = "23.239.97.10"
+  value = "65.21.120.225"
 }
 
 # XMPP
