@@ -1,10 +1,19 @@
-resource "cloudns_dns_record" "foxden_network_nas_ro" {
+resource "cloudns_dns_record" "foxden_network_nas_ro_a" {
   zone = "foxden.network"
 
   type  = "A"
   name  = "nas-ro"
   ttl   = 3600
   value = "65.21.120.225"
+}
+
+resource "cloudns_dns_record" "foxden_network_nas_ro_aaaa" {
+  zone = "foxden.network"
+
+  type  = "AAAA"
+  name  = "nas-ro"
+  ttl   = 3600
+  value = "2a01:4f9:3b:4960::5"
 }
 
 # XMPP
@@ -26,7 +35,7 @@ resource "cloudns_dns_record" "foxden_network_xmpp_a" {
   type  = "A"
   name  = each.value
   ttl   = 3600
-  value = "23.239.97.13"
+  value = "65.21.120.225"
 }
 
 resource "cloudns_dns_record" "foxden_network_xmpp_aaaa" {
@@ -36,7 +45,7 @@ resource "cloudns_dns_record" "foxden_network_xmpp_aaaa" {
   type  = "AAAA"
   name  = each.value
   ttl   = 3600
-  value = "2606:c700:4020:af::5"
+  value = "2a01:4f9:3b:4960::4"
 }
 
 resource "cloudns_dns_record" "foxden_network_wan" {

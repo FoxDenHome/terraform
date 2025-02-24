@@ -1,26 +1,39 @@
 # icefox
-locals {
-  icefox_hosts = toset(["icefox", "dldr.icefox", "syncthing", "dav"])
-}
 
 resource "cloudns_dns_record" "doridian_net_icefox_a" {
-  for_each = local.icefox_hosts
   zone     = "doridian.net"
 
   type  = "A"
-  name  = each.value
+  name  = "icefox"
   ttl   = 3600
   value = "65.21.120.225"
 }
 
 resource "cloudns_dns_record" "doridian_net_icefox_aaaa" {
-  for_each = local.icefox_hosts
   zone     = "doridian.net"
 
   type  = "AAAA"
-  name  = each.value
+  name  = "icefox"
   ttl   = 3600
   value = "2a01:4f9:3b:4960::2"
+}
+
+resource "cloudns_dns_record" "doridian_net_syncthing_a" {
+  zone     = "doridian.net"
+
+  type  = "A"
+  name  = "syncthing"
+  ttl   = 3600
+  value = "65.21.120.225"
+}
+
+resource "cloudns_dns_record" "doridian_net_syncthing_aaaa" {
+  zone     = "doridian.net"
+
+  type  = "AAAA"
+  name  = "syncthing"
+  ttl   = 3600
+  value = "2a01:4f9:3b:4960::6"
 }
 
 resource "cloudns_dns_record" "doridian_net_archlinux_a" {
