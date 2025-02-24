@@ -42,7 +42,7 @@ resource "cloudns_dns_record" "doridian_net_archlinux_a" {
   type  = "A"
   name  = "archlinux"
   ttl   = 3600
-  value = "65.21.120.220"
+  value = "65.21.120.225"
 }
 
 resource "cloudns_dns_record" "doridian_net_archlinux_aaaa" {
