@@ -7,8 +7,8 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "foxden-terraform"
-    region = "us-east-1"
+    bucket = "foxden-tfstate"
+    region = "eu-north-1"
     key    = "github-moonhack.tfstate"
   }
 }
