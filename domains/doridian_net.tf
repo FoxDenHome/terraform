@@ -18,6 +18,24 @@ resource "cloudns_dns_record" "doridian_net_icefox_aaaa" {
   value = "2a01:4f9:3b:4960::2"
 }
 
+resource "cloudns_dns_record" "doridian_net_icefox_ext_a" {
+  zone     = "doridian.net"
+
+  type  = "A"
+  name  = "icefox-ext"
+  ttl   = 3600
+  value = "65.21.120.225"
+}
+
+resource "cloudns_dns_record" "doridian_net_icefox_ext_aaaa" {
+  zone     = "doridian.net"
+
+  type  = "AAAA"
+  name  = "icefox-ext"
+  ttl   = 3600
+  value = "2a01:4f9:3b:4960::2"
+}
+
 resource "cloudns_dns_record" "doridian_net_syncthing_a" {
   zone     = "doridian.net"
 
